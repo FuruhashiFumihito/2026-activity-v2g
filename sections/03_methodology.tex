@@ -15,7 +15,7 @@
 以下では，基礎となる活動モデル，活動参加の不確実性と効用，決定変数，活動・充放電・契約の制約，及び契約制約の価値を評価する分析方針の順に説明する．
 定式化は有限シナリオの混合整数線形計画（mixed-integer linear programming; MILP）として記述し，数値実装や比較結果の検証とは区別する．
 
-\subsection{OASIS型の定式化}
+\subsection{OASIS型の活動スケジューリングの定式化}
 \label{subsec:oasis_formulation}
 
 \citet{pougala2023oasis}のOptimisation-based Activity Scheduling with Integrated Simultaneous choice dimensions（OASIS）では，一日のスケジュールを，自宅で始まり自宅で終わる活動列として表す．
@@ -26,84 +26,90 @@
 活動参加を$\omega_a$，活動$a$の直後に$b$へ移動する選択を$z_{ab}$とする．
 候補リンク集合$\mathcal E$は自己リンク，$\mathrm{dawn}$への流入及び$\mathrm{dusk}$からの流出を除く．
 OASISの活動・移動効用を，\citet{wang2025joint}の式(1)--(5)の構成に沿って整理すると，
-\begin{equation}
- U_N^{\mathrm{act}}
- =U_N^{\mathrm{gen}}
+\begin{align}
+ U_N
+ &=U_N^{\mathrm{gen}}
  +\sum_{a\in A}\left(
  U_a^{\mathrm{participation}}+U_a^{\mathrm{start}}+U_a^{\mathrm{duration}}\right)
- +\sum_{(a,b)\in\mathcal E}U_{ab}^{\mathrm{travel}}
- \label{eq:mf-oasis-utility}
-\end{equation}
-となる．以下では参加の有無を各成分に含めるため，式\eqref{eq:mf-oasis-utility}の外側で$\omega_a$を再び掛けない．
-本仕様では$U_N^{\mathrm{gen}}$を個人に固有の定数とし，活動列による差は各効用成分で表す．これは本稿で用いる仕様であり，OASIS一般の汎用効用が必ず定数になるという主張ではない．
+ +\sum_{(a,b)\in\mathcal E}U_{ab}^{\mathrm{travel}}\label{eq:mf-utility-total}\\
+ U_N^{\mathrm{gen}}&=...\label{eq:mf-utility-general}\\
+ U_a^{\mathrm{participation}}&=...\label{eq:mf-utility-participation}\\
+ U_a^{\mathrm{start}}&=...\label{eq:mf-utility-start}\\
+ U_a^{\mathrm{duration}}&=...\label{eq:mf-utility-duration}\\
+ U_{ab}^{\mathrm{travel}}&=...\label{eq:mf-utility-travel}\\
+\end{align}
+となる．$U_N$は、個人$N$の活動スケジュール全体の効用関数を表す。
+\eqref{eq:mf-utility-total}は、\eqref{eq:mf-utility-general}から\eqref{eq:mf-utility-travel}の効用関数に分解される。
+\eqref{eq:mf-utility-general}は、（説明）。
+... 
+\eqref{eq:mf-utility-travel}は、（説明）。
 
-活動の柔軟性は，希望開始時刻$x_a^*$及び希望所要時間$\tau_a^*$からの逸脱に対する係数で表す．
-$[v]_+=\max\{v,0\}$とすると，早い開始，遅い開始，短い滞在及び長い滞在の量は，それぞれ$[x_a^*\omega_a-x_a]_+$，$[x_a-x_a^*\omega_a]_+$，$[\tau_a^*\omega_a-\tau_a]_+$及び$[\tau_a-\tau_a^*\omega_a]_+$である．
-これらに非正の係数を与え，方向ごとに異なる調整負担を表す．具体的な効用式は式\eqref{eq:mf-components}に示す．
-希望値は選好の基準であり，営業時間等による実行可能時間窓とは区別する．
+% 最適化問題
+\citet{pougala2023oasis}は、MILPとしてこの問題を解く。
+\begin{align}
+  \max_{...} U_N &= ... \\
+  subject to ...（制約条件を本文に則って書く）
+\end{align}
 
-活動列の実行可能性は，一日の時間予算，活動への流入・流出，活動間の時刻連続及び活動固有の時間窓によって定める．
-選択された直後リンクでは，前の活動の終了時刻に移動時間を加えた時刻を次の活動の開始時刻と一致させる．
-同じ活動機会の場所等の代替候補は高々一つ選び，非参加候補の時刻・所要時間とリンクをゼロにする．
-以下では，この構造を取消前と取消後の双方に対応づける．
+% wang2025jointの拡張
+\citet{wang2025joint}は、OASISをEV利用者のスケジューリングに拡張した。
+\begin{align}
+  \max_{...} U_N &= ... \\
+  subject to ...（pougala2023oasisの式番号を参照 + 制約条件を本文に則って書く）
+\end{align}
 
-\subsection{活動の不確実性を考慮したWang et al.の拡張}
+それぞれのモデルについての詳細は\citet{pougala2023oasis}と\citet{wang2025joint}を参照されたい。
+
+\citet{pougala2023oasis}や\citet{wang2025joint}を諸元とするOASIS型の本質的な特徴は、個人の活動調整における柔軟性を表現できる点にある。
+\citet{pougala2023oasis}は、個人の柔軟性を、\eqref{eq:mf-utility-start}の開始時間と\eqref{eq:mf-utility-duration}の継続時間を個人の選好との差分を取ることにより表現した。
+活動の柔軟性の表現は、利用者がV2G契約を締結することで発生する活動制約の影響を定量化する上で重要である。
+ゆえに、本研究ではOASIS型の定式化を採用する。
+
+ただ、先行研究が示す通り、利用者がV2G契約を選ぶ際には活動の不確実性が大きく選択行動に影響することが指摘されている\citep{parsons2014willingness}。
+\citet{pougala2023oasis}や\citet{wang2025joint}の定式化では、活動計画時点で全ての活動の実行可能性は明らかになっており、EV利用者がSOCに対して保守的になる価値観等は反映できていない。
+ゆえに、既存のOASIS型の定式化の単純な拡張では不十分であると言える。
+
+\subsection{提案モデル}
 \label{subsec:stochastic_extension}
 
-\subsubsection{\citet{wang2025joint}による活動スケジューリングフレームワーク}
-
-\citet{wang2025joint}は，OASISに充電方式，充電時間，充電費用及びバッテリー充電状態（state of charge; SOC）を導入し，活動計画と充電行動を同時に決定する．
-活動場所での充電と充電専用サービスステーションへの訪問を候補に含め，活動効用に充電開始の不便さ，充電量の便益，充電費用及び低SOCの不効用を組み合わせる．
-本研究では，利用者が設備への接続を選び，接続中に事業者の所与の指令に従って充放電する場合へ拡張する．
-接続時間には，充電・放電を行わない待機も含める．
+\subsubsection{不確実性の表現}
 
 % 著者コメントのParsonsに関する主張は，議論票で引用範囲の修正案を提示する．
-活動取消の不確実性と契約条件の関係を扱うため，利用者は，(a)取消情報の前に契約加入と活動・接続計画を選び，(b)取消情報に応じて実現活動列と充放電・精算を評価する，二段階の意思決定を行うと仮定する．
-それぞれをpre-planning及びpost-realizationと呼ぶ．上付き$p$を事前計画，$r,s$をシナリオ$s$の実現段階に用い，両段階を共通に記す場合は
-\begin{equation}
- \mathcal J=\{p\}\cup\{(r,s):s\in\Omega\},\qquad
- v^j=\begin{cases}v^p,&j=p,\\v^{r,s},&j=(r,s),\end{cases}
- \label{eq:mf-stage-index}
-\end{equation}
-とする．$r$は段階を表す記号であり，シナリオ番号や指令区間番号ではない．
-
-本稿で用いる仮定を以下にまとめる．
+活動取消の不確実性と契約条件の関係を扱うため、利用者は活動計画時に各活動の実行可否を知らないものと仮定する。
+各活動は確率的に
+利用者の意思決定構造を以下の二段階最適化問題として定式化する。
 \begin{itemize}
- \item 対象は既知の活動機会の実施・取消であり，新規活動の到着，移動時間及び活動所要時間の外生的変動は含めない．
- \item 嗜好を表す効用誤差は個人ごとに一度抽出し，全活動実現シナリオで共通に固定する．活動取消の確率と，嗜好の個人差を区別する．本稿では誤差の分布や成分間独立性を新たに仮定しない．
- \item 取消後は残存活動の場所，相対順序，通常所要時間，最初の自宅出発時刻及び活動内の接続方式・オフセット・時間を維持する削除ルールを用いる．この調整範囲は著者議論中であり，以下の数式はこの仕様に対応する．
- \item 取消活動を飛ばして次の実施活動へ向かう移動を始める前に，その取消と次の実施活動を識別できる情報が得られるとする．将来の取消を先取りした自由な再計画は含めない．
- \item 契約，設備アクセス，区分一定の充放電指令及び精算単価は計画時に既知とする．物理制約は正の確率を持つ全シナリオで満たす．
+  \item pre-planning: 活動中止の可能性を考慮しつつ、期待効用を最大化するように契約加入と活動・接続計画を選ぶ。
+  \item post-realization: 取消情報に応じて実現活動列と充放電を再計画する。
 \end{itemize}
+上付き$p$をpre-planning、$r$をpost-realizationのインデックスとする。
 
-\subsubsection{活動に関する不確実性の表現}
+活動集合を$A$、pre-planning段階の活動候補を$a^p \in A^p$、post-realization段階の活動候補を$a^r \in A^r$とする。
+$A^r\in A^p \in A$である。
+活動$a^p$の実行可否はベルヌーイ分布に従うとし、各活動の実行確率は各々独立であるものとする。
 
-活動機会の集合を$G$，機会$g$の場所等の代替候補集合を$A_g$とし，$g(a)$を候補$a$が属する機会とする．
-不確実な機会の集合を$G^{\mathrm{st}}$とする．著者コメントに従い，活動機会間の実現は独立とし，
 \begin{align}
- &\xi_g\sim\mathrm{Bernoulli}(p_g),\qquad
- \Pr(\xi_g=1)=p_g,\quad \Pr(\xi_g=0)=1-p_g,
- &&g\in G^{\mathrm{st}},\notag\\
- &0<p_g<1,\qquad
- (\xi_g)_{g\in G^{\mathrm{st}}}\ \text{は相互に独立}
+ \xi_{a^p}\sim\mathrm{Bernoulli}(p_{a^p}),\\
+ A^r = {a^r | \xi_{a^p} = 1 \forall a^p \in A^p}
  \label{eq:mf-bernoulli}
 \end{align}
-とする．$\xi_g=0$は取消，$\xi_g=1$は実施可能な状態であり，実際に事前計画へ選ぶかどうかとは区別する．
-シナリオ集合$\Omega=\{0,1\}^{|G^{\mathrm{st}}|}$と各実現$\xi^s$の確率は，
+
+一連の活動パターンの集合を$\Omega=\{0,1\}^{|A^{\mathrm{r}}|}$とする。
+活動パターン$s$の実現確率を$q_s$で表す。
 \begin{equation}
- q_s=\prod_{g\in G^{\mathrm{st}}}p_g^{\xi_g^s}(1-p_g)^{1-\xi_g^s},\qquad
+ q_s=\prod_{g\in A^{\mathrm{r}}}p_g^{\xi_g^s}(1-p_g)^{1-\xi_g^s},\qquad
  q_s>0,\quad\sum_{s\in\Omega}q_s=1
  \label{eq:mf-scenario-probability}
 \end{equation}
-で与える．同じ機会の場所別候補には同一の$\xi_g^s$を用いる．この共有は，場所候補を独立に取り消すこととは異なる．
 
-自宅活動，確実な活動及び充電専用サービスステーション候補では，
+ただし、自宅活動，確実な活動では、
 \begin{equation}
- p_{g(\mathrm{dawn})}=p_{g(\mathrm{dusk})}=1,\qquad
- p_g=1,\quad\xi_g^s=1\quad(g\in G\setminus G^{\mathrm{st}})
+ p_{\mathrm{dawn}}=p_{\mathrm{dusk}}=1,\qquad
  \label{eq:mf-certain-activities}
 \end{equation}
-とする．ステーション訪問の有無は利用者の選択として残す．同日に繰り返す同種活動を別機会として扱う場合も，独立性を置く対象は候補$a$ではなく機会$g$である．
+とする．
+
+% ここまで修正済み
 
 \subsubsection{Pre-planningの効用関数}
 
