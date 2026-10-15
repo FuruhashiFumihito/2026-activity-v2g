@@ -1,5 +1,7 @@
 # Methodology 日本語段落草稿：レビュー票
 
+> 履歴資料：以下は`9d3c25e`時点の段落稿に対するレビュー票であり，現在の数式稿の段落番号・placeholder・検証状態を示すものではない。`221991f`の著者コメントに対する最新の対応・未決定事項・検証は`methodology_equation_discussion_ja.md`を参照。
+
 - 状態：著者レビュー待ちの段落草稿。詳細な数式・記号表・KKT導出の確定前。
 - 対象：`sections/03_methodology.tex`。既存placeholderの節順と既存ラベルを維持した。
 - 段落ID：TeXコメントのM01--M27。以下の表から該当段落を特定できる。
