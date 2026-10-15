@@ -1,0 +1,287 @@
+% !TeX root = main.tex
+% Reusable manuscript scaffold; see README.md (Japanese).
+% Search for TODO and replace_me before submission.
+\RequirePackage{iftex}
+\ifPDFTeX
+  % pdfLaTeX selects its graphics driver automatically.
+\else
+  % This branch supports the original pLaTeX + dvipdfmx workflow.
+  % LuaLaTeX and XeLaTeX require separate engine/driver configuration.
+  \PassOptionsToPackage{dvipdfmx}{graphicx}
+  \PassOptionsToPackage{dvipdfmx}{hyperref}
+  \PassOptionsToPackage{dvipdfmx}{xcolor}
+  \PassOptionsToPackage{dvipdfmx}{color}
+  \PassOptionsToPackage{dvipdfmx}{geometry}
+\fi
+\documentclass[a4paper,fleqn]{cas-sc}
+\usepackage[authoryear,longnamesfirst]{natbib}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amssymb,pifont,booktabs,multirow}
+\usepackage{rotating}
+\usepackage{placeins}
+\usepackage{threeparttable}
+
+\newcommand{\cmark}{\checkmark}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\mmark}{\ensuremath{\triangle}}
+\newcommand{\pmark}{\mmark}
+
+% Compatibility and caption-width fixes retained from the source manuscript.
+\AddToHook{begindocument/before}{\ifdefined\bibsep\else\newlength\bibsep\fi}
+\ExplSyntaxOn
+\exp_args:NNno \exp_args:Nno \use:n { \cs_gset:Npn \__make_fig_caption:nn #1#2 }
+  {
+    \exp_after:wN \use_ii_i:nn \exp_after:wN
+      { \__make_fig_caption:nn {#1} {#2} }
+      { \dim_set:Nn \l_fig_width_dim \linewidth }
+  }
+\exp_args:NNno \exp_args:Nno \use:n { \cs_gset:Npn \__make_tbl_caption:nn #1#2 }
+  {
+    \exp_after:wN \use_ii_i:nn \exp_after:wN
+      { \__make_tbl_caption:nn {#1} {#2} }
+      { \dim_set:Nn \l_tbl_width_dim \linewidth }
+  }
+% Avoid an empty ORCID footnote when no verified identifiers are supplied.
+\cs_new_eq:NN \template_printorcid: \printorcid
+\RenewDocumentCommand \printorcid { }
+  { \seq_if_empty:NF \g_stm_orcid_seq { \template_printorcid: } }
+\ExplSyntaxOff
+
+% Template-only helpers. Delete these after replacing their uses.
+\newcommand{\placeholder}[1]{\textcolor{gray}{\textit{[TODO: #1]}}}
+\newcommand{\figureplaceholder}[2]{%
+  \begingroup
+  \setlength{\fboxsep}{10pt}%
+  \fbox{\parbox[c][#1][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+    \centering\sffamily\color{gray}#2}}%
+  \endgroup
+}
+\graphicspath{{figures/}{./}}
+
+% Set false to omit these optional parts. Check the destination journal.
+\newif\ifshowgraphicalabstract
+\showgraphicalabstracttrue
+\newif\ifshowhighlights
+\showhighlightstrue
+\newif\ifshowformattingexamples
+\showformattingexamplestrue
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+% ===== 1. Title, authors, affiliations =====
+\shorttitle{Short title of the new manuscript} % TODO
+\shortauthors{F. Author and S. Author} % TODO
+\title[mode = title]{Title of the new manuscript} % TODO
+
+\author[1]{First Author} % TODO: add [orcid=...] only after verification.
+\ead{first.author@example.com} % TODO
+% \credit{...} % TODO: enter agreed author contributions, if applicable.
+
+\affiliation[1]{
+  organization={Department, University or Institution}, % TODO
+  addressline={Street address}, % TODO
+  city={City}, % TODO
+  postcode={Postal code}, % TODO
+  state={State or region}, % TODO
+  country={Country} % TODO
+}
+
+\author[1]{Second Author} % TODO
+\cormark[1] % TODO: assign to the actual corresponding author.
+\cortext[1]{Corresponding author}
+\ead{second.author@example.com} % TODO
+% \credit{...}
+% For another affiliation, use \author[2]{...} and \affiliation[2]{...}.
+
+% ===== 2. Abstract and optional front matter =====
+% Explicit optional argument avoids losing the first token in CAS's verbatim abstract.
+\begin{abstract}[]
+\placeholder{State the research problem and objective. Describe the method and
+the evidence used to evaluate it. Report only supported findings, with the
+relevant scope and uncertainty. End with the contribution and its limitations.
+Replace this entire placeholder with the abstract of the new manuscript.}
+\end{abstract}
+
+\ifshowgraphicalabstract
+\begin{graphicalabstract}
+\centering
+% Replace the box with, for example:
+% \includegraphics[width=\linewidth]{graphical-abstract.pdf}
+\figureplaceholder{48mm}{Graphical abstract\\[4pt]TODO: replace with your own figure}
+\end{graphicalabstract}
+\fi
+
+\ifshowhighlights
+\begin{highlights}
+  \item \placeholder{Main contribution, within the journal's length limit.}
+  \item \placeholder{Distinctive feature of the method.}
+  \item \placeholder{Finding supported by the new study's evidence.}
+\end{highlights}
+\fi
+
+\begin{keywords}
+Keyword one \sep Keyword two \sep Keyword three % TODO
+\end{keywords}
+\maketitle
+
+% ===== 3. Main text: retain or adapt the section functions =====
+\section{Introduction}
+\label{sec:introduction}
+\placeholder{Explain the problem, why it matters, and the limitation in existing
+knowledge. State the research question and the contribution supported by this
+paper. Describe the organization if it helps the reader.}
+
+\section{Literature review}
+\label{sec:literature}
+\placeholder{Organize relevant studies by the scientific distinctions needed to
+understand the research gap. Verify each citation and explain the paper's position.}
+
+% Formatting example only. The following citation is deliberately fictitious.
+Author--year citation examples: \citet{replace_me_reference} and
+\citep{replace_me_reference}. Replace both the citation and its BibTeX entry.
+
+\section{Methodology}
+\label{sec:methodology}
+\subsection{Problem statement}
+\label{subsec:problem}
+\placeholder{Define the system, notation, decisions, assumptions, and research
+scope. Distinguish assumptions from consequences derived from the model.}
+
+\subsection{Model or method}
+\label{subsec:method}
+\placeholder{Describe the model, estimation, optimization, or analytical method
+in sufficient detail to reproduce it. Include only justified mathematical claims.}
+
+\section{Numerical experiments}
+\label{sec:experiments}
+\subsection{Data and experimental settings}
+\label{subsec:settings}
+\placeholder{Document data sources, scenarios, baselines, evaluation metrics,
+parameter settings, uncertainty, and reproducibility information. Adapt this
+section if the paper uses empirical analysis or theoretical examples instead.}
+
+\subsection{Results and interpretation}
+\label{subsec:results}
+\placeholder{Present the evidence for each claim. Separate observed results
+from explanations and generalizations. Discuss uncertainty and limitations.}
+
+% Optional: add a separate Discussion section when needed.
+% \section{Discussion}
+% \label{sec:discussion}
+
+\section{Conclusion}
+\label{sec:conclusion}
+\placeholder{Answer the research question using the supported findings.
+State the contribution, limits of applicability, and justified future work.}
+
+% ===== 4. End matter =====
+% Uncomment after entering verified \credit{...} statements for the authors.
+% \printcredits
+
+\section*{Acknowledgments}
+\placeholder{Enter only funding identifiers and acknowledgments that apply to
+the new study. Remove this section if it is not applicable.}
+
+% Add required declarations only after checking the destination journal and
+% actual circumstances. These statements must not be copied from another study.
+% \section*{Declaration of competing interest}
+% \section*{Data availability}
+% \section*{Declaration of generative AI and AI-assisted technologies
+% in the manuscript preparation process}
+
+% ===== 5. Appendices =====
+\appendix
+\section{Supporting material}
+\label{app:support}
+\placeholder{Place derivations, additional results, or reproducibility details
+here when they are needed. Remove unused appendices.}
+
+\ifshowformattingexamples
+\clearpage
+\section{Formatting examples (delete before submission)}
+\label{app:formatting}
+The following objects demonstrate formatting only. They do not state a model,
+an algorithm, or a numerical finding for the new study.
+
+\subsection{Equations and mathematical notation}
+\begin{equation}
+  y = f(\bm{x};\bm{\theta}).
+  \label{eq:formatting-example}
+\end{equation}
+Equation~\eqref{eq:formatting-example} demonstrates left-aligned mathematics,
+bold symbols, and an equation reference. Replace the expression and define
+every symbol used in the actual study.
+
+\subsection{Figures and subfigures}
+\begin{figure}[pos=htbp]
+  \centering
+  \begin{subfigure}{0.47\linewidth}
+    \centering
+    \figureplaceholder{25mm}{Panel A: TODO}
+    % \includegraphics[width=\linewidth]{panel-a.pdf}
+    \caption{First panel.}
+    \label{fig:panel-a}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.47\linewidth}
+    \centering
+    \figureplaceholder{25mm}{Panel B: TODO}
+    % \includegraphics[width=\linewidth]{panel-b.pdf}
+    \caption{Second panel.}
+    \label{fig:panel-b}
+  \end{subfigure}
+  \caption{Formatting example: two panels with a shared caption. Replace the
+  boxes with the study's own figures, and explain the quantities and units.}
+  \label{fig:formatting-example}
+\end{figure}
+Figure~\ref{fig:formatting-example} illustrates the caption and reference style.
+Put new figure files in \texttt{figures/}.
+
+\subsection{Tables and notes}
+\begin{table}[pos=htbp]
+  \centering
+  \caption{Formatting example only; no numerical results are supplied.}
+  \label{tab:formatting-example}
+  \begin{threeparttable}
+    \begin{tabular}{lcc}
+      \toprule
+      Method & Metric A (unit) & Metric B (unit) \\
+      \midrule
+      Baseline & --- & --- \\
+      Proposed method & --- & --- \\
+      \bottomrule
+    \end{tabular}
+    \begin{tablenotes}[flushleft]\footnotesize
+      \item Note: Dashes are placeholders, not zero measurements.
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+Table~\ref{tab:formatting-example} uses the original table packages and style.
+
+\FloatBarrier
+\subsection{Algorithms}
+\begin{algorithm}[htbp]
+  \caption{Formatting example only: replace with the actual procedure}
+  \label{alg:formatting-example}
+  \begin{algorithmic}[1]
+    \Require \textit{TODO: specify the inputs}
+    \Ensure \textit{TODO: specify the outputs}
+    \State \textit{TODO: describe initialization}
+    \State \textit{TODO: describe each step and any stopping rule}
+    \State \Return \textit{TODO: specify the returned quantity}
+  \end{algorithmic}
+\end{algorithm}
+Algorithm~\ref{alg:formatting-example} demonstrates numbered pseudocode.
+\FloatBarrier
+\fi
+
+\bibliographystyle{cas-model2-names}
+\bibliography{references}
+\end{document}

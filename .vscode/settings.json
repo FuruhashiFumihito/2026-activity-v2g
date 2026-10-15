@@ -1,0 +1,46 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk (platex/dvipdfmx)",
+      "command": "latexmk",
+      "args": [
+        "-norc",
+        "-r",
+        "%DIR%/latexmkrc",
+        "-pdfdvi",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "%DOC%"
+      ],
+      "env": {
+        "PATH": "/Library/TeX/texbin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+      }
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (platex/dvipdfmx)",
+      "tools": [
+        "latexmk (platex/dvipdfmx)"
+      ]
+    }
+  ],
+  "latex-workshop.latex.outDir": "%DIR%/out",
+  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.latex.autoBuild.cleanAndRetry": true,
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.dvi",
+    "*.synctex.gz",
+    "*.out",
+    "*.toc",
+    "*.lof",
+    "*.lot"
+  ],
+  "latex-workshop.latex.clean.enabled": true
+}

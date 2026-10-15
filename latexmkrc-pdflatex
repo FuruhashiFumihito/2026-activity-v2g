@@ -1,0 +1,7 @@
+# Optional English-only build; use a separate output directory.
+$out_dir = 'out-pdflatex';
+$aux_dir = 'out-pdflatex';
+$pdf_mode = 1;
+$pdflatex = 'pdflatex -synctex=1 -halt-on-error -interaction=nonstopmode %O %S';
+$bibtex = 'bibtex %O %B';
+$max_repeat = 5;

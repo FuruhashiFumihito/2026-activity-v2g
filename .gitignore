@@ -1,0 +1,17 @@
+.DS_Store
+out/
+out-pdflatex/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.dvi
+*.synctex.gz
+*.abs
+*.out
+*.toc
+*.lof
+*.lot
+*.spl
