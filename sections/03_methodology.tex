@@ -80,16 +80,136 @@ $\varepsilon_a^{\mathrm{participation}},\varepsilon_a^{\mathrm{start}},\varepsil
 と要約できる。$\mathcal F_{\mathrm{OASIS}}$は、時間予算、活動間の連続性、参加と順序及び活動時間窓等に関する原著の制約をまとめた集合である。
 本稿で採用する区分線形の逸脱効用を用いた仕様では、MILPとして解く。
 
-\citet{wang2025joint}は、OASISをEV利用者のスケジューリングに拡張した。
-原著の活動・充電変数を$y_{\mathrm{Joint}}$、原著の効用を$U_N^{\mathrm{Joint}}$、実行可能集合を$\mathcal F_{\mathrm{Joint}}$とすると、
+さらに、\citet{wang2025joint}は、OASISにバッテリー充電状態（state of charge; SOC）と充電行動を導入し、活動と充電を同時に選択するモデルへ拡張した。
+以下では、問題の単純化と現象理解のため、充電方式を1種類に固定し、原著の充電方式の添字$m$を省略する。
+原著の式(6)--(11)に沿って、充電を選択した活動で充電効用を計上すると、総効用は次のように表せる。
+\begin{subequations}
+\label{eq:mf-joint-utility}
 \begin{align}
- \max_{y_{\mathrm{Joint}}}\quad&U_N^{\mathrm{Joint}}(y_{\mathrm{Joint}})\notag\\
- \mathrm{s.t.}\quad&y_{\mathrm{Joint}}\in\mathcal F_{\mathrm{Joint}}
- \label{eq:mf-joint-optimization}
+ U_N^{\mathrm{EV}}
+ &=U_N+\sum_{a\in A}U_a^{\mathrm{charge}},
+ \label{eq:mf-joint-utility-total}\\
+ U_a^{\mathrm{charge}}
+ &=\phi_a\left(\gamma_a^{\mathrm{charge}}+U_a^{\mathrm{SOC}}
+ +U_a^{\Delta\mathrm{SOC}}+U_a^{\mathrm{charge\ cost}}
+ +\varepsilon_a^{\mathrm{charge}}\right),
+ \label{eq:mf-joint-utility-charge}\\
+ U_a^{\mathrm{SOC}}
+ &=\theta^{\mathrm{SOC}}\max\{0,\mathrm{SOC}^*-\mathrm{SOC}_a\},
+ \label{eq:mf-joint-utility-soc}\\
+ U_a^{\Delta\mathrm{SOC}}
+ &=\beta^{\Delta\mathrm{SOC}}\delta_a^{\Delta\mathrm{SOC}},
+ \label{eq:mf-joint-utility-increase}\\
+ \delta_a^{\Delta\mathrm{SOC}}
+ &=\min\left\{1-\mathrm{SOC}_a,
+ \kappa_a^{\mathrm{charge}}r_a^{\mathrm{charge}}\right\},
+ \label{eq:mf-joint-soc-increase}\\
+ U_a^{\mathrm{charge\ cost}}
+ &=\beta_{\mathrm{cost}}\,
+ c_c\!\left(h_a^{\mathrm{charge}}(x_a),
+ p_a^{\mathrm{charge}},\kappa_a^{\mathrm{charge}}\right).
+ \label{eq:mf-joint-utility-cost}
 \end{align}
-となる。$U_N^{\mathrm{Joint}}$は、原著の式(6)--(11)により活動・移動に充電及びバッテリー充電状態（state of charge; SOC）の効用を加えた関数である。
-$\mathcal F_{\mathrm{Joint}}$は、活動制約にSOC、充電方式、充電時間及び料金の制約を加えた原著の式(12)--(37)の集合を表し、最適化問題は原著の式(38)に対応する。
-ここでは充電のみを扱う原著の問題を要約しており、後述の取消、V2G放電及び契約精算の制約は含めない。
+\end{subequations}
+\eqref{eq:mf-joint-utility-total}は、活動・移動効用$U_N$に、活動中の充電効用を加える。
+\eqref{eq:mf-joint-utility-charge}の$\gamma_a^{\mathrm{charge}}$は接続・充電開始の手間に伴う定数、$\varepsilon_a^{\mathrm{charge}}$は充電選好の誤差成分であり、他の誤差成分と同様に抽出値を固定する。
+$\phi_a$を乗じることで、充電しない活動では$U_a^{\mathrm{charge}}=0$となる。
+\eqref{eq:mf-joint-utility-soc}は、活動開始時のSOCが快適水準$\mathrm{SOC}^*\in[0,1]$を下回る場合の不効用を表し、$\theta^{\mathrm{SOC}}\le0$とする。
+\eqref{eq:mf-joint-utility-increase}は、充電によるSOC増加の便益を表し、$\beta^{\Delta\mathrm{SOC}}\ge0$とする。
+\eqref{eq:mf-joint-soc-increase}の$r_a^{\mathrm{charge}}>0$は単位時間当たりのSOC増加率であり、SOCは満充電を1として正規化する。
+原著の一定電力による充電では、時間単位を時間とすると、$r_a^{\mathrm{charge}}=p_a^{\mathrm{charge}}/B_c$である。
+原著の式(9)と式(10)で異なるSOC増加量の上付き記号は、本稿では$\Delta\mathrm{SOC}$に統一する。
+\eqref{eq:mf-joint-utility-cost}の$c_c$は充電費用、$h_a^{\mathrm{charge}}$は電力量当たりの料金、$p_a^{\mathrm{charge}}$は充電電力、$\beta_{\mathrm{cost}}\le0$は費用の効用係数である。
+原著では充電を活動開始時刻$x_a$に開始し、時間帯別料金を用いる場合も、その開始時刻の料金を充電全体に適用する。
+充電時間を時間、電力をkW、料金を電力量当たりの単価で表す従量課金では、$c_c=h_a^{\mathrm{charge}}(x_a)p_a^{\mathrm{charge}}\kappa_a^{\mathrm{charge}}$となる。
+
+なお、原著の式(7)は低SOCの項を充電効用に含める一方、最終目的式(38)は充電選択にかかわらず各参加活動で計上している。
+ここでは提示した充電効用の構成に沿って式(7)の配置を用い、後述の提案モデルでは式(38)の配置を採るため、両者を区別する。
+
+決定変数はOASISの$(\omega,z,x,\tau)$に加え、以下を導入する。
+\begin{subequations}
+\begin{align}
+ \text{活動$a$で充電するか:}&\quad \phi_a\in\{0,1\},
+ \label{eq:mf-joint-charge-variable}\\
+ \text{充電時間:}&\quad \kappa_a^{\mathrm{charge}}\in\mathbb R_+,
+ \label{eq:mf-joint-duration-variable}\\
+ \text{活動$a$の開始時のSOC:}&\quad \mathrm{SOC}_a\in[0,1].
+ \label{eq:mf-joint-soc-variable}
+\end{align}
+\end{subequations}
+方式が1種類のため、原著の方式選択変数$\varphi_{a,m}$は$\phi_a$と一致し、別途導入する必要はない。
+$\delta_a^{\Delta\mathrm{SOC}}$は、充電時間とSOCから定まる補助量である。
+
+充電設備を利用できるかを$s_a^{\mathrm{charge}}\in\{0,1\}$、充電を目的として立ち寄る活動の集合を$A^{\mathrm{station}}\subseteq A$とする。
+移動$a\to b$のSOC消費を$e_{ab}=\nu_e d[\ell_a][\ell_b]/B_c$とし、$\nu_e$は距離当たりの消費電力量、$B_c>0$は電池容量とする。
+一日の初期SOCを所与の$\mathrm{SOC}^{\mathrm{init}}\in[0,1]$とすると、混合整数最適化問題は以下のように表せる。
+\begin{subequations}
+\label{eq:mf-joint-optimization}
+\begin{align}
+ \max_{\substack{\omega,z,x,\tau,\phi,\\
+                  \kappa^{\mathrm{charge}},\mathrm{SOC}}}\quad
+ &U_N^{\mathrm{EV}}
+ \label{eq:mf-joint-objective}\\
+ \mathrm{s.t.}\quad
+ &\text{前掲のOASISの活動制約},
+ \label{eq:mf-joint-activity-constraints}\\
+ &\tau_a^{\min}\omega_a\le\tau_a\le T\omega_a,
+ &&a\in A,
+ \label{eq:mf-joint-activity-duration}\\
+ &\phi_a\le\omega_a,\qquad \phi_a\le s_a^{\mathrm{charge}},
+ &&a\in A,
+ \label{eq:mf-joint-charge-access}\\
+ &0\le\kappa_a^{\mathrm{charge}}\le\tau_a,\qquad
+ \kappa_a^{\mathrm{charge}}\le T\phi_a,
+ &&a\in A,
+ \label{eq:mf-joint-charge-duration}\\
+ &0\le\mathrm{SOC}_a\le1,
+ &&a\in A,
+ \label{eq:mf-joint-soc-domain}\\
+ &\mathrm{SOC}_{\mathrm{dawn}}=\mathrm{SOC}^{\mathrm{init}},
+ \label{eq:mf-joint-soc-initial}\\
+ &\mathrm{SOC}_a+
+ \kappa_a^{\mathrm{charge}}r_a^{\mathrm{charge}}\le1,
+ &&a\in A,
+ \label{eq:mf-joint-soc-capacity}\\
+ &\mathrm{SOC}_a+\kappa_a^{\mathrm{charge}}r_a^{\mathrm{charge}}
+ \ge e_{ab}z_{ab},
+ &&(a,b)\in\mathcal E,
+ \label{eq:mf-joint-soc-trip}\\
+ &-(1-z_{ab})\le\mathrm{SOC}_a
+ +\kappa_a^{\mathrm{charge}}r_a^{\mathrm{charge}}
+ -e_{ab}z_{ab}-\mathrm{SOC}_b\le1-z_{ab},
+ &&(a,b)\in\mathcal E,
+ \label{eq:mf-joint-soc-continuity}\\
+ &\phi_a=\omega_a,\qquad
+ \kappa_a^{\mathrm{charge}}=\tau_a,
+ &&a\in A^{\mathrm{station}},
+ \label{eq:mf-joint-station}\\
+ &\omega_a,\phi_a\in\{0,1\},\quad x_a,\tau_a\ge0,
+ &&a\in A,\notag\\
+ &z_{ab}\in\{0,1\},
+ &&(a,b)\in\mathcal E.
+ \label{eq:mf-joint-domains}
+\end{align}
+\end{subequations}
+\eqref{eq:mf-joint-activity-duration}は、参加活動の最小所要時間$\tau_a^{\min}\ge0$を確保し、非参加活動の所要時間を0にする。
+このため、OASISの時間予算制約における$\omega_a\tau_a$は$\tau_a$に置き換えられる。
+\eqref{eq:mf-joint-charge-access}は、参加活動のうち充電設備を利用できる場所でのみ充電を許す。
+\eqref{eq:mf-joint-charge-duration}は、充電を活動の滞在時間内に収め、充電しない場合は充電時間を0にする。
+これは原著の$\kappa_a^{\mathrm{charge}}\le\phi_a\tau_a$を、$0\le\tau_a\le T$の下で線形に表したものである。
+\eqref{eq:mf-joint-soc-initial}は一日問題の初期条件であり、複数日を扱う原著の式(30)では前日の終端SOCとの接続を課す。
+\eqref{eq:mf-joint-soc-capacity}は満充電を超える充電を禁止し、\eqref{eq:mf-joint-soc-trip}は選択した次の活動まで走行できる電力量を確保する。
+\eqref{eq:mf-joint-soc-continuity}は、$z_{ab}=1$のとき
+$\mathrm{SOC}_b=\mathrm{SOC}_a+\kappa_a^{\mathrm{charge}}r_a^{\mathrm{charge}}-e_{ab}$を課す。
+$z_{ab}=0$では、到着時と充電後のSOCがいずれも$[0,1]$にあるため、両側の制約は緩和される。
+この式は原著の式(28)--(29)が意図するSOC接続を両側から表したものであり、式(29)に印刷された不等号をそのまま転記したものではない。
+\eqref{eq:mf-joint-station}は、充電専用の立寄りでは活動参加と充電選択を一致させ、滞在時間全体を充電に充てる。
+
+\eqref{eq:mf-joint-soc-capacity}の下では、\eqref{eq:mf-joint-soc-increase}は
+$\delta_a^{\Delta\mathrm{SOC}}=\kappa_a^{\mathrm{charge}}r_a^{\mathrm{charge}}$に一致する。
+効用中の$\max$と二値変数との積は、有効な上下限を持つ補助変数で線形化できる。
+充電費用も有限個の区分線形関数で表せる場合には、料金区分の選択を含めてMILPとして扱える。
+以上は、原著の活動・充電モデルを単一方式、一日問題として整理したものであり、後述の活動取消、V2G放電及び契約精算は含めない。
 
 それぞれのモデルについての詳細は\citet{pougala2023oasis}と\citet{wang2025joint}を参照されたい。
 
