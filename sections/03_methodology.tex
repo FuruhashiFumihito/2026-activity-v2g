@@ -6,9 +6,9 @@
 \allowdisplaybreaks[1]
 
 本研究では、車両から系統への給電（vehicle-to-grid; V2G）契約の接続・履行条件が、個人の活動スケジューリングと契約参加に与える影響を評価する枠組みを構築する。
-活動の実施場所や時間を変更できる範囲を、移動と充放電の制約を満たすスケジュールの集合として表し、契約による集合の変化と効用の変化を対応づける。
-このため、活動への参加、順序、開始時刻及び所要時間を、効用と制約から同時に導く構造型の活動スケジューリングモデルを用いる。
 対象は電気自動車（electric vehicle; EV）を用いる個人$N$の一日とし、契約$k$及び事業者の充放電指令を所与とした利用者の選択を扱う。
+ここで、EV利用者は
+\placeholder{利用者の問題設定をここで書く。一日のスケジューリングに不確実性がある→計画後、実行可能かどうかが明らかになり、あらかじめ決めていたスケジュールを実行する}
 
 提案モデルは、\citet{wang2025joint}による活動・充電の同時選択モデルに、\citet{gan2013stochastic}のStochastic Preplanned Household Activity Pattern Problem with Uncertain Activity Participation（SHAPP）に基づく活動取消の表現と、V2G契約の接続条件及び精算を導入する。
 活動の実施・取消が判明する前の共通計画と、取消後に実現する活動列を区別する。
@@ -137,7 +137,7 @@ $\varepsilon_a^{\mathrm{participation}},\varepsilon_a^{\mathrm{start}},\varepsil
 
 さらに、\citet{wang2025joint}は、OASISにバッテリー充電状態（state of charge; SOC）と充電行動を導入し、活動と充電を同時に選択するモデルへ拡張した。
 以下では、問題の単純化と現象理解のため、充電方式を1種類に固定し、原著の充電方式の添字$m$を省略する。
-原著の式(6)--(11)に沿って、充電を選択した活動で充電効用を計上すると、総効用は次のように表せる。
+総効用は次のように表せる。
 \begin{subequations}
 \label{eq:mf-joint-utility}
 \begin{align}
@@ -175,9 +175,10 @@ $\phi_a$を乗じることで、充電しない活動では$U_a^{\mathrm{charge}
 \eqref{eq:mf-joint-utility-cost}の$c_c$は充電費用、$h_a^{\mathrm{charge}}$は電力量当たりの料金、$p_a^{\mathrm{charge}}$は充電電力、$\beta_{\mathrm{cost}}\le0$は費用の効用係数である。
 充電時間を時間、電力をkW、料金を電力量当たりの単価で表す従量課金では、$c_c=h_a^{\mathrm{charge}}(x_a)p_a^{\mathrm{charge}}\kappa_a^{\mathrm{charge}}$となる。
 
-決定変数はOASISの\eqref{dec:omega}--\eqref{dec:tau}に加え、以下を導入する。
+決定変数は以下を導入する。
 \begin{subequations}
 \begin{align}
+  \eqref{dec:omega}-\eqref{dec:tau},\\
  \text{活動$a$で充電するか:}&\quad \phi_a\in\{0,1\},
  \label{eq:mf-joint-charge-variable}\\
  \text{充電時間:}&\quad \kappa_a^{\mathrm{charge}}\in\mathbb R_+,
@@ -260,74 +261,54 @@ $z_{ab}=0$では、到着時と充電後のSOCがいずれも$[0,1]$にあるた
 
 \subsubsection{不確実性の表現}
 
-活動取消の不確実性と契約条件の関係を扱うため、利用者は活動計画時に各活動の実施・取消を知らないものと仮定する。
-利用者の意思決定構造を以下の二段階最適化問題として定式化する。
-\begin{itemize}
- \item pre-planning: 活動中止の可能性を考慮しつつ、期待効用を最大化するように契約加入と活動・接続計画を選ぶ。
- \item post-realization: 取消活動を除き、事前計画を維持する制約の下で、実現活動列と充放電を評価する。
-\end{itemize}
-上付き$p$をpre-planning、$r$をpost-realizationのインデックスとし、シナリオ$s$における実現値を上付き$r,s$で表す。
-残存活動の順序、通常所要時間、最初の自宅出発時刻及び活動内の接続計画は維持する。
-取消情報は、取消活動を飛ばして次の実施活動へ向かう移動の開始前に得られるものとする。
+我々の一日の活動を思い返すと、急な子どもの送迎や友人との会食のキャンセルなど、活動計画時には予期しない活動の発生・取り消しが無数に起きている。
+利用者は、V2G契約の締結に際して、こういった起きるかもしれない活動の存在を考慮しながら、V2G契約の是非を判断していると考えられる。
 
-活動集合を$A$、pre-planning段階で事前に与える候補集合を$A^p\subseteq A$とする。
-$A^p$は活動参加の選択変数とは独立した固定入力であり、$\mathrm{dawn},\mathrm{dusk}\in A^p$とする。
-候補$a\in A^p$の実施・取消は、相互に独立なベルヌーイ変数
+本研究では、利用者の意思決定構造を以下の二段階構造に分け、最適化と評価を行う。
+\begin{itemize}
+ \item 計画段階: 活動の発生・中止の可能性を考慮しつつ、期待効用を最大化するように活動計画を選ぶ。
+ \item 実行段階: 実行活動が明らかになる。事前計画を維持する制約の下で、活動計画を再構成する。
+\end{itemize}
+$\cdot^p$を計画段階（Planning）、$\cdot^e$を実行段階（execution）のインデックスとする。
+
+計画段階で考える全ての活動の候補を$a \in A$とする。
+活動候補$a$の実行・取消は、相互に独立なベルヌーイ変数
 \begin{equation}
  \xi_a\sim\mathrm{Bernoulli}(p_a),\qquad 0\le p_a\le1
- \quad(a\in A^p)
+ \quad(a\in A)
  \label{eq:mf-bernoulli}
 \end{equation}
-に従う。$\xi_a=1$は実施可能な状態、$\xi_a=0$は取消を表す。
-シナリオ$s$で残る活動候補集合を
-\begin{equation}
- A^{r,s}=\{a\in A^p\mid\xi_a^s=1\},\qquad
- A^{r,s}\subseteq A^p\subseteq A
- \label{eq:mf-realized-candidate-set}
-\end{equation}
-とする。これは残存候補の集合であり、実際の活動参加は事前選択$\omega_a^p$と区別する。
-候補外$a\in A\setminus A^p$については、後段の共通表記のため$\xi_a^s=0$と定義する。
-
-実施・取消のシナリオ集合は、固定候補集合$A^p$上の二値の組合せのうち、確実な実現値と整合するものとして
-\begin{equation}
- \Omega=\left\{s\in\{0,1\}^{|A^p|}\;\middle|\;
- \xi_a^s=p_a\quad(a\in A^p,\ p_a\in\{0,1\})\right\}
- \label{eq:mf-scenario-set}
-\end{equation}
-と定義する。$s$は成分$(\xi_a^s)_{a\in A^p}$からなる実施・取消の組合せを表し、活動順序や開始時刻は含めない。
-シナリオ$s$の実現確率は
+に従う。
+$\xi_a=1$は実施可能な状態、$\xi_a=0$は取消を表す。
+ただし、$\xi_\mathrm{dawn}=1$、$\xi_\mathrm{dusk}=1$とする。
+また、一連の活動シナリオ列$s=[a_{\mathrm{dawn}}, a_1, \dots, a_n, a_{\mathrm{dusk}}]$の実現確率は以下で表される。
 \begin{equation}
  q_s=
- \prod_{\substack{a\in A^p\\\xi_a^s=1}}p_a
- \prod_{\substack{a\in A^p\\\xi_a^s=0}}(1-p_a),\qquad
- q_s>0,\quad\sum_{s\in\Omega}q_s=1
+ \prod_{\substack{a\in A\\ \xi_a^s=1}}p_a
+ \prod_{\substack{a\in A\\ \xi_a^s=0}}(1-p_a),
+ \qquad
+ q_s>0,\quad \sum_{s\in\Omega}q_s=1
  \label{eq:mf-scenario-probability}
 \end{equation}
-で与える。空積は1とする。確実に実施される活動では$\xi_a^s=1$を固定するため、その確率因子は1となる。
-$p_a=0$の候補は全シナリオで$\xi_a^s=0$とする。
-ただし、自宅活動では
-\begin{equation}
- p_{\mathrm{dawn}}=p_{\mathrm{dusk}}=1,\qquad
- \xi_{\mathrm{dawn}}^s=\xi_{\mathrm{dusk}}^s=1
- \quad(s\in\Omega)
- \label{eq:mf-certain-activities}
-\end{equation}
-とする。
 
-両段階に共通の成分には、
+実行段階では、全ての活動の実行可否が判明した状態で活動計画の再構成を行う。
+実行可能な活動候補は、
 \begin{equation}
- \mathcal J=\{p\}\cup\{(r,s):s\in\Omega\},\qquad
- v^j=\begin{cases}v^p,&j=p,\\v^{r,s},&j=(r,s),\end{cases}
- \label{eq:mf-stage-index}
+ a^e \in A^e \in \{ \xi_a=1 | a \in A \}
+ \label{eq:mf-realized-candidate-set}
 \end{equation}
-を用いる。嗜好の誤差成分は、全ての活動実現シナリオで同じ抽出値に固定する。
+である。
 
 \subsection{決定変数}
 \label{subsec:decision_variable}
 
-事前に選ぶ変数と、実現後に計算する状態・精算変数を分ける。
-\begin{itemize}
- \item $Y_N\in\{0,1\}$：取消情報の前に決める契約$k$への加入。
+\placeholder{ここ以降を修正する}
+
+決定変数は以下を導入する。
+\begin{subequations}
+\begin{align}
+  \eqref{dec:omega}-\eqref{dec:tau},\\
+    $Y_N\in\{0,1\}$：取消情報の前に決める契約$k$への加入。\\
  \item $\omega_a^p,z_{ab}^p\in\{0,1\}$：事前の活動参加と直後リンク。$x_a^p,\tau_a^p\ge0$：開始時刻と所要時間。
  \item $\phi_a^p,\varphi_{a,m}^p\in\{0,1\}$：接続参加と方式選択。$o_{a,m}^p,d_{a,m}^p\ge0$：活動開始からの接続オフセットと接続時間。
  \item $h_a\ge0$：事前活動列の順序を表す連続補助変数。活動開始時刻とは異なる。
@@ -337,10 +318,8 @@ $p_a=0$の候補は全シナリオで$\xi_a^s=0$とする。
  \item $E_a^j,L_a^j,D_a^{-,j},D_a^{+,j},H_a^j$及び時間窓逸脱：効用評価の補助変数。$L^j(W),E_V^{\pm,j}(W)$：窓$W$内のV2G接続時間及び電力量。
  \item $g_{Nk}^{r,s}\in\{0,1\}$：条件達成の認定。$h_{F,k}^{r,s},h_{L,k}^{r,s}$：未達時間。$\mathcal B_k^{r,s},\Psi_k^{r,s},C_{\mathrm{deg}}^j,P_s$：現金支払、未達負担、電池利用費及び時間窓逸脱費用。
  \item 正の部分と条件付き支払の厳密な線形化に必要な二値・連続補助変数。全てをMILP及び後述の固定整数LPの対象に含める。
-\end{itemize}
-
-活動実現値$\xi_a^s$、確率$q_s$、移動時間・距離、設備アクセス、契約パラメータ及び充放電指令は入力である。
-時間はhour、電力量はkWh、金額は円、SOCは電池容量に対する比率$[0,1]$で表す。系統側の充放電量と電池側の残量変化を区別する。
+\end{align}
+\end{subequations}
 
 \subsubsection{Pre-planningの効用関数}
 
