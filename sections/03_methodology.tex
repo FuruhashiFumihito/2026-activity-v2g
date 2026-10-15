@@ -26,12 +26,13 @@
 活動参加を$\omega_a$、活動$a$の直後に$b$へ移動する選択を$z_{ab}$とする。
 候補リンク集合$\mathcal E$は自己リンク、$\mathrm{dawn}$への流入及び$\mathrm{dusk}$からの流出を除く。
 OASISの活動・移動効用を、\citet{wang2025joint}の式(1)--(5)の構成に沿って整理すると、
+\begin{subequations}
 \begin{align}
  U_N
  &=U_N^{\mathrm{gen}}
- +\sum_{a\in A}\left(
+ +\sum_{a\in A} \omega_a \left(
  U_a^{\mathrm{participation}}+U_a^{\mathrm{start}}+U_a^{\mathrm{duration}}\right)
- +\sum_{(a,b)\in\mathcal E}U_{ab}^{\mathrm{travel}}
+ +\sum_{(a,b)\in\mathcal E}z_{ab} U_{ab}^{\mathrm{travel}}
  \label{eq:mf-utility-total}\\
  U_N^{\mathrm{gen}}&=\overline U_N
  \label{eq:mf-utility-general}\\
@@ -55,6 +56,7 @@ OASISの活動・移動効用を、\citet{wang2025joint}の式(1)--(5)の構成�
  +\varepsilon_{ab}^{\mathrm{travel}}\right)z_{ab}
  \label{eq:mf-utility-travel}
 \end{align}
+\end{subequations}
 となる。$U_N$は、個人$N$の活動スケジュール全体の効用関数を表す。
 \eqref{eq:mf-utility-total}は、\eqref{eq:mf-utility-general}から\eqref{eq:mf-utility-travel}の効用関数に分解される。
 ここで、$[v]_+=\max\{v,0\}$である。
@@ -69,16 +71,69 @@ OASISの活動・移動効用を、\citet{wang2025joint}の式(1)--(5)の構成�
 $\varepsilon_a^{\mathrm{participation}},\varepsilon_a^{\mathrm{start}},\varepsilon_a^{\mathrm{duration}},\varepsilon_{ab}^{\mathrm{travel}}$は嗜好の誤差成分であり、本稿では一つの抽出値に条件づける。
 活動効用の式は$a\in A\setminus\{\mathrm{dawn},\mathrm{dusk}\}$に適用し、両自宅活動の参加・開始・所要時間の効用は0とする。
 
-% 原著の最適化問題の概要。原著の詳細制約を本研究のV2G制約で置き換えない。
-\citet{pougala2023oasis}は、活動参加、順序、開始時刻及び所要時間等を同時に選択する。
-原著の活動スケジューリング変数を$y_{\mathrm{OASIS}}$、実行可能集合を$\mathcal F_{\mathrm{OASIS}}$と書くと、最適化問題は
+\citet{pougala2023oasis}は、個人Nの活動計画問題を混合整数最適化問題（MILP）として定式化する。
+決定変数は、
+\begin{subequations}
 \begin{align}
- \max_{y_{\mathrm{OASIS}}}\quad&U_N(y_{\mathrm{OASIS}})\notag\\
- \mathrm{s.t.}\quad&y_{\mathrm{OASIS}}\in\mathcal F_{\mathrm{OASIS}}
- \label{eq:mf-oasis-optimization}
+  \text{活動$a$が活動パターン$A^s$に含まれるか:}&\quad \omega_a \in \{0,1\}\label{dec:omega}\\
+  \text{活動$b$が活動$a$の直後である:}&\quad z_{ab} \in \{0,1\}\label{dec:z}\\
+  \text{活動$a$の開始時:}&\quad x_a \in \mathbb R_+\label{dec:x}\\
+  \text{活動$a$の継続時間:}&\quad \tau_a \in \mathbb R_+\label{dec:tau}
 \end{align}
-と要約できる。$\mathcal F_{\mathrm{OASIS}}$は、時間予算、活動間の連続性、参加と順序及び活動時間窓等に関する原著の制約をまとめた集合である。
-本稿で採用する区分線形の逸脱効用を用いた仕様では、MILPとして解く。
+\end{subequations}
+である。
+混合整数最適化問題は以下で定式化される。
+\begin{subequations}
+\begin{align}
+ \max_{\omega_a, z_{ab}, x_a, \tau_a}\quad
+ & U_N
+ \label{eq:mf-oasis-objective}\\
+ \mathrm{s.t.}\quad
+ & x_a + \tau_a \leq \gamma_a^{+},
+ && \forall a \in A,
+ \label{eq:mf-oasis-time-window-upper}\\
+ & x_a \geq \gamma_a^{-},
+ && \forall a \in A,
+ \label{eq:mf-oasis-time-window-lower}\\
+ & z_{a,\mathrm{dawn}} = z_{\mathrm{dusk},a} = 0,
+ && \forall a \in A,
+ \label{eq:mf-oasis-boundary-arcs}\\
+ & \sum_{b \in A} z_{ab} = \omega_a,
+ && \forall a \in A \setminus \{\mathrm{dusk}\},
+ \label{eq:mf-oasis-outgoing-flow}\\
+ & \sum_{a \in A} z_{ab} = \omega_b,
+ && \forall b \in A \setminus \{\mathrm{dawn}\},
+ \label{eq:mf-oasis-incoming-flow}\\
+ & z_{ab} + z_{ba} \leq 1,
+ && \forall a,b \in A,\ a \neq b,
+ \label{eq:mf-oasis-no-two-cycle}\\
+ & (1-z_{ab})T \geq x_a + \tau_a
+   + z_{ab}\rho(\ell_a,\ell_b) - x_b,
+ && \forall a,b \in A,\ a \neq b,
+ \label{eq:mf-oasis-time-link-upper}\\
+ & (z_{ab}-1)T \leq x_a + \tau_a
+   + z_{ab}\rho(\ell_a,\ell_b) - x_b,
+ && \forall a,b \in A,\ a \neq b,
+ \label{eq:mf-oasis-time-link-lower}\\
+ & \omega_{\mathrm{dawn}} = \omega_{\mathrm{dusk}} = 1,
+ \label{eq:mf-oasis-boundary-selection}\\
+ & \sum_{a \in A}\omega_a\tau_a
+  + \sum_{a \in A}\sum_{b \in A}
+    z_{ab}\rho(\ell_a,\ell_b) = T
+\label{eq:mf-oasis-optimization}
+\end{align}
+\end{subequations}
+\eqref{eq:mf-oasis-time-window-upper}は、活動$a$の終了時刻が実施可能時間帯の上限$\gamma_a^{+}$を超えないことを課す。
+\eqref{eq:mf-oasis-time-window-lower}は、活動$a$の開始時刻が実施可能時間帯の下限$\gamma_a^{-}$以降となることを課す。
+\eqref{eq:mf-oasis-boundary-arcs}は、始端の自宅活動への流入と終端の自宅活動からの流出を禁止する。
+\eqref{eq:mf-oasis-outgoing-flow}は、終端の自宅活動を除き、参加する活動には一つの後続活動を接続し、参加しない活動からの接続を禁止する。
+\eqref{eq:mf-oasis-incoming-flow}は、始端の自宅活動を除き、参加する活動には一つの先行活動を接続し、参加しない活動への接続を禁止する。
+\eqref{eq:mf-oasis-no-two-cycle}は、異なる二つの活動間で両方向の接続を同時に選択することを禁止する。
+\eqref{eq:mf-oasis-time-link-upper}は、活動$b$が活動$a$の直後に選択された場合に、活動$b$が活動$a$の終了後に必要な移動を終えてから開始されることを課す。
+\eqref{eq:mf-oasis-time-link-lower}は、活動$b$が活動$a$の直後に選択された場合に、活動$b$の開始時刻が活動$a$の終了時刻と移動時間の和を超えないことを課す。
+\eqref{eq:mf-oasis-boundary-selection}は、始端と終端の自宅活動を必ず活動列に含めることを課す。
+\eqref{eq:mf-oasis-optimization}は、参加する活動の継続時間と活動間の移動時間の総和を計画期間$T$に一致させる。
+このモデル化により、\citet{pougala2023oasis}は、時間窓と活動間の移動を考慮した活動参加、順序、開始時刻及び継続時間の同時選択を表現し、一日の活動計画を効用最大化に基づく混合整数最適化問題として定式化した。
 
 さらに、\citet{wang2025joint}は、OASISにバッテリー充電状態（state of charge; SOC）と充電行動を導入し、活動と充電を同時に選択するモデルへ拡張した。
 以下では、問題の単純化と現象理解のため、充電方式を1種類に固定し、原著の充電方式の添字$m$を省略する。
@@ -87,9 +142,9 @@ $\varepsilon_a^{\mathrm{participation}},\varepsilon_a^{\mathrm{start}},\varepsil
 \label{eq:mf-joint-utility}
 \begin{align}
  U_N^{\mathrm{EV}}
- &=U_N+\sum_{a\in A}U_a^{\mathrm{charge}},
+ &=U_N+\sum_{a\in A}\omega_a U_a^{\mathrm{charge}},
  \label{eq:mf-joint-utility-total}\\
- U_a^{\mathrm{charge}}
+U_a^{\mathrm{charge}}
  &=\phi_a\left(\gamma_a^{\mathrm{charge}}+U_a^{\mathrm{SOC}}
  +U_a^{\Delta\mathrm{SOC}}+U_a^{\mathrm{charge\ cost}}
  +\varepsilon_a^{\mathrm{charge}}\right),
@@ -106,7 +161,7 @@ $\varepsilon_a^{\mathrm{participation}},\varepsilon_a^{\mathrm{start}},\varepsil
  \label{eq:mf-joint-soc-increase}\\
  U_a^{\mathrm{charge\ cost}}
  &=\beta_{\mathrm{cost}}\,
- c_c\!\left(h_a^{\mathrm{charge}}(x_a),
+ c_c\!\left(h_a^{\mathrm{charge}},
  p_a^{\mathrm{charge}},\kappa_a^{\mathrm{charge}}\right).
  \label{eq:mf-joint-utility-cost}
 \end{align}
@@ -117,16 +172,10 @@ $\phi_a$を乗じることで、充電しない活動では$U_a^{\mathrm{charge}
 \eqref{eq:mf-joint-utility-soc}は、活動開始時のSOCが快適水準$\mathrm{SOC}^*\in[0,1]$を下回る場合の不効用を表し、$\theta^{\mathrm{SOC}}\le0$とする。
 \eqref{eq:mf-joint-utility-increase}は、充電によるSOC増加の便益を表し、$\beta^{\Delta\mathrm{SOC}}\ge0$とする。
 \eqref{eq:mf-joint-soc-increase}の$r_a^{\mathrm{charge}}>0$は単位時間当たりのSOC増加率であり、SOCは満充電を1として正規化する。
-原著の一定電力による充電では、時間単位を時間とすると、$r_a^{\mathrm{charge}}=p_a^{\mathrm{charge}}/B_c$である。
-原著の式(9)と式(10)で異なるSOC増加量の上付き記号は、本稿では$\Delta\mathrm{SOC}$に統一する。
 \eqref{eq:mf-joint-utility-cost}の$c_c$は充電費用、$h_a^{\mathrm{charge}}$は電力量当たりの料金、$p_a^{\mathrm{charge}}$は充電電力、$\beta_{\mathrm{cost}}\le0$は費用の効用係数である。
-原著では充電を活動開始時刻$x_a$に開始し、時間帯別料金を用いる場合も、その開始時刻の料金を充電全体に適用する。
 充電時間を時間、電力をkW、料金を電力量当たりの単価で表す従量課金では、$c_c=h_a^{\mathrm{charge}}(x_a)p_a^{\mathrm{charge}}\kappa_a^{\mathrm{charge}}$となる。
 
-なお、原著の式(7)は低SOCの項を充電効用に含める一方、最終目的式(38)は充電選択にかかわらず各参加活動で計上している。
-ここでは提示した充電効用の構成に沿って式(7)の配置を用い、後述の提案モデルでは式(38)の配置を採るため、両者を区別する。
-
-決定変数はOASISの$(\omega,z,x,\tau)$に加え、以下を導入する。
+決定変数はOASISの\eqref{dec:omega}--\eqref{dec:tau}に加え、以下を導入する。
 \begin{subequations}
 \begin{align}
  \text{活動$a$で充電するか:}&\quad \phi_a\in\{0,1\},
@@ -137,8 +186,6 @@ $\phi_a$を乗じることで、充電しない活動では$U_a^{\mathrm{charge}
  \label{eq:mf-joint-soc-variable}
 \end{align}
 \end{subequations}
-方式が1種類のため、原著の方式選択変数$\varphi_{a,m}$は$\phi_a$と一致し、別途導入する必要はない。
-$\delta_a^{\Delta\mathrm{SOC}}$は、充電時間とSOCから定まる補助量である。
 
 充電設備を利用できるかを$s_a^{\mathrm{charge}}\in\{0,1\}$、充電を目的として立ち寄る活動の集合を$A^{\mathrm{station}}\subseteq A$とする。
 移動$a\to b$のSOC消費を$e_{ab}=\nu_e d[\ell_a][\ell_b]/B_c$とし、$\nu_e$は距離当たりの消費電力量、$B_c>0$は電池容量とする。
@@ -147,15 +194,12 @@ $\delta_a^{\Delta\mathrm{SOC}}$は、充電時間とSOCから定まる補助量�
 \label{eq:mf-joint-optimization}
 \begin{align}
  \max_{\substack{\omega,z,x,\tau,\phi,\\
-                  \kappa^{\mathrm{charge}},\mathrm{SOC}}}\quad
+                  \kappa^{\mathrm{charge}}}}\quad
  &U_N^{\mathrm{EV}}
  \label{eq:mf-joint-objective}\\
  \mathrm{s.t.}\quad
- &\text{前掲のOASISの活動制約},
+ &\text{\eqref{eq:mf-oasis-time-window-upper}--\eqref{eq:mf-oasis-optimization}},
  \label{eq:mf-joint-activity-constraints}\\
- &\tau_a^{\min}\omega_a\le\tau_a\le T\omega_a,
- &&a\in A,
- \label{eq:mf-joint-activity-duration}\\
  &\phi_a\le\omega_a,\qquad \phi_a\le s_a^{\mathrm{charge}},
  &&a\in A,
  \label{eq:mf-joint-charge-access}\\
@@ -186,14 +230,8 @@ $\delta_a^{\Delta\mathrm{SOC}}$は、充電時間とSOCから定まる補助量�
  &&a\in A^{\mathrm{station}},
  \label{eq:mf-joint-station}\\
  &\omega_a,\phi_a\in\{0,1\},\quad x_a,\tau_a\ge0,
- &&a\in A,\notag\\
- &z_{ab}\in\{0,1\},
- &&(a,b)\in\mathcal E.
- \label{eq:mf-joint-domains}
 \end{align}
 \end{subequations}
-\eqref{eq:mf-joint-activity-duration}は、参加活動の最小所要時間$\tau_a^{\min}\ge0$を確保し、非参加活動の所要時間を0にする。
-このため、OASISの時間予算制約における$\omega_a\tau_a$は$\tau_a$に置き換えられる。
 \eqref{eq:mf-joint-charge-access}は、参加活動のうち充電設備を利用できる場所でのみ充電を許す。
 \eqref{eq:mf-joint-charge-duration}は、充電を活動の滞在時間内に収め、充電しない場合は充電時間を0にする。
 これは原著の$\kappa_a^{\mathrm{charge}}\le\phi_a\tau_a$を、$0\le\tau_a\le T$の下で線形に表したものである。
@@ -202,14 +240,7 @@ $\delta_a^{\Delta\mathrm{SOC}}$は、充電時間とSOCから定まる補助量�
 \eqref{eq:mf-joint-soc-continuity}は、$z_{ab}=1$のとき
 $\mathrm{SOC}_b=\mathrm{SOC}_a+\kappa_a^{\mathrm{charge}}r_a^{\mathrm{charge}}-e_{ab}$を課す。
 $z_{ab}=0$では、到着時と充電後のSOCがいずれも$[0,1]$にあるため、両側の制約は緩和される。
-この式は原著の式(28)--(29)が意図するSOC接続を両側から表したものであり、式(29)に印刷された不等号をそのまま転記したものではない。
 \eqref{eq:mf-joint-station}は、充電専用の立寄りでは活動参加と充電選択を一致させ、滞在時間全体を充電に充てる。
-
-\eqref{eq:mf-joint-soc-capacity}の下では、\eqref{eq:mf-joint-soc-increase}は
-$\delta_a^{\Delta\mathrm{SOC}}=\kappa_a^{\mathrm{charge}}r_a^{\mathrm{charge}}$に一致する。
-効用中の$\max$と二値変数との積は、有効な上下限を持つ補助変数で線形化できる。
-充電費用も有限個の区分線形関数で表せる場合には、料金区分の選択を含めてMILPとして扱える。
-以上は、原著の活動・充電モデルを単一方式、一日問題として整理したものであり、後述の活動取消、V2G放電及び契約精算は含めない。
 
 それぞれのモデルについての詳細は\citet{pougala2023oasis}と\citet{wang2025joint}を参照されたい。
 
@@ -219,8 +250,10 @@ $\delta_a^{\Delta\mathrm{SOC}}=\kappa_a^{\mathrm{charge}}r_a^{\mathrm{charge}}$�
 ゆえに、本研究ではOASIS型の定式化を採用する。
 
 先行研究では、接続時間や保証航続距離などの契約条件が利用者の選好に影響することが示されている\citep{parsons2014willingness}。
-一方、OASISとWang et al.のモデルでは、活動の実施・取消に応じた事前計画と実現後の行動を明示的に結び付けていない。
-ゆえに、本研究では活動取消の不確実性を導入する。
+一方、これまで紹介してきたOASIS型のモデルでは、活動の実施・取消に応じた事前計画と実現後の行動を明示的に結び付けていない。
+ゆえに、本研究では活動取消の不確実性を導入することで、利用者がV2G契約を締結することで発生する活動制約の影響の分析を試みる。
+
+% <- ここまでは完了 これより上はいじらない->
 
 \subsection{提案モデル}
 \label{subsec:stochastic_extension}
@@ -288,6 +321,26 @@ $p_a=0$の候補は全シナリオで$\xi_a^s=0$とする。
  \label{eq:mf-stage-index}
 \end{equation}
 を用いる。嗜好の誤差成分は、全ての活動実現シナリオで同じ抽出値に固定する。
+
+\subsection{決定変数}
+\label{subsec:decision_variable}
+
+事前に選ぶ変数と、実現後に計算する状態・精算変数を分ける。
+\begin{itemize}
+ \item $Y_N\in\{0,1\}$：取消情報の前に決める契約$k$への加入。
+ \item $\omega_a^p,z_{ab}^p\in\{0,1\}$：事前の活動参加と直後リンク。$x_a^p,\tau_a^p\ge0$：開始時刻と所要時間。
+ \item $\phi_a^p,\varphi_{a,m}^p\in\{0,1\}$：接続参加と方式選択。$o_{a,m}^p,d_{a,m}^p\ge0$：活動開始からの接続オフセットと接続時間。
+ \item $h_a\ge0$：事前活動列の順序を表す連続補助変数。活動開始時刻とは異なる。
+ \item $\omega_a^{r,s},z_{ab}^{r,s},\phi_a^{r,s},\varphi_{a,m}^{r,s}\in\{0,1\}$及び$x_a^{r,s},\tau_a^{r,s},o_{a,m}^{r,s},d_{a,m}^{r,s}\ge0$：事前計画と取消ルールに従う実現活動・接続。
+ \item $\sigma_{a,m}^j,\upsilon_{a,m}^j$：接続開始・終了の絶対時刻。$\ell_{a,m,u}^j,E_{a,m,u}^{\pm,j}$：入力区間$u$との重なり時間と系統側充放電量。
+ \item $\mathrm{SOC}_a^j,\mathrm{SOC}_{a,u}^j,\mathrm{SOC}_a^{\mathrm{dep},j},\Delta_a^j$：到着時・区間境界・出発時のSOC及び符号付き正味変化。SOCと実電力量は接続・指令により決まる状態であり、利用者の電力指令変数ではない。
+ \item $E_a^j,L_a^j,D_a^{-,j},D_a^{+,j},H_a^j$及び時間窓逸脱：効用評価の補助変数。$L^j(W),E_V^{\pm,j}(W)$：窓$W$内のV2G接続時間及び電力量。
+ \item $g_{Nk}^{r,s}\in\{0,1\}$：条件達成の認定。$h_{F,k}^{r,s},h_{L,k}^{r,s}$：未達時間。$\mathcal B_k^{r,s},\Psi_k^{r,s},C_{\mathrm{deg}}^j,P_s$：現金支払、未達負担、電池利用費及び時間窓逸脱費用。
+ \item 正の部分と条件付き支払の厳密な線形化に必要な二値・連続補助変数。全てをMILP及び後述の固定整数LPの対象に含める。
+\end{itemize}
+
+活動実現値$\xi_a^s$、確率$q_s$、移動時間・距離、設備アクセス、契約パラメータ及び充放電指令は入力である。
+時間はhour、電力量はkWh、金額は円、SOCは電池容量に対する比率$[0,1]$で表す。系統側の充放電量と電池側の残量変化を区別する。
 
 \subsubsection{Pre-planningの効用関数}
 
@@ -393,30 +446,10 @@ $\sum_s q_s=1$より、式\eqref{eq:mf-preplanning}に式\eqref{eq:mf-recourse}�
 加入固定額$R_{0k}Y_N$も、実現支払に含めることで$\sum_s q_sR_{0k}Y_N=R_{0k}Y_N$と一度だけ評価する。
 第1段階の変数は全シナリオに共通である。複製して実装する場合は$(y^p)^s=(y^p)^{s'}$を課すが、実現SOCや精算をシナリオ間で同一にはしない。
 
-\subsection{決定変数}
-\label{subsec:decision_variable}
-
-事前に選ぶ変数と、実現後に計算する状態・精算変数を分ける。
-\begin{itemize}
- \item $Y_N\in\{0,1\}$：取消情報の前に決める契約$k$への加入。
- \item $\omega_a^p,z_{ab}^p\in\{0,1\}$：事前の活動参加と直後リンク。$x_a^p,\tau_a^p\ge0$：開始時刻と所要時間。
- \item $\phi_a^p,\varphi_{a,m}^p\in\{0,1\}$：接続参加と方式選択。$o_{a,m}^p,d_{a,m}^p\ge0$：活動開始からの接続オフセットと接続時間。
- \item $h_a\ge0$：事前活動列の順序を表す連続補助変数。活動開始時刻とは異なる。
- \item $\omega_a^{r,s},z_{ab}^{r,s},\phi_a^{r,s},\varphi_{a,m}^{r,s}\in\{0,1\}$及び$x_a^{r,s},\tau_a^{r,s},o_{a,m}^{r,s},d_{a,m}^{r,s}\ge0$：事前計画と取消ルールに従う実現活動・接続。
- \item $\sigma_{a,m}^j,\upsilon_{a,m}^j$：接続開始・終了の絶対時刻。$\ell_{a,m,u}^j,E_{a,m,u}^{\pm,j}$：入力区間$u$との重なり時間と系統側充放電量。
- \item $\mathrm{SOC}_a^j,\mathrm{SOC}_{a,u}^j,\mathrm{SOC}_a^{\mathrm{dep},j},\Delta_a^j$：到着時・区間境界・出発時のSOC及び符号付き正味変化。SOCと実電力量は接続・指令により決まる状態であり、利用者の電力指令変数ではない。
- \item $E_a^j,L_a^j,D_a^{-,j},D_a^{+,j},H_a^j$及び時間窓逸脱：効用評価の補助変数。$L^j(W),E_V^{\pm,j}(W)$：窓$W$内のV2G接続時間及び電力量。
- \item $g_{Nk}^{r,s}\in\{0,1\}$：条件達成の認定。$h_{F,k}^{r,s},h_{L,k}^{r,s}$：未達時間。$\mathcal B_k^{r,s},\Psi_k^{r,s},C_{\mathrm{deg}}^j,P_s$：現金支払、未達負担、電池利用費及び時間窓逸脱費用。
- \item 正の部分と条件付き支払の厳密な線形化に必要な二値・連続補助変数。全てをMILP及び後述の固定整数LPの対象に含める。
-\end{itemize}
-
-活動実現値$\xi_a^s$、確率$q_s$、移動時間・距離、設備アクセス、契約パラメータ及び充放電指令は入力である。
-時間はhour、電力量はkWh、金額は円、SOCは電池容量に対する比率$[0,1]$で表す。系統側の充放電量と電池側の残量変化を区別する。
-
-\input{sections/03_methodology_constraints.tex}
-
 \subsection{最適化}
 \label{subsec:optimization}
+
+\input{sections/03_methodology_constraints.tex}
 
 \subsubsection{固定契約・固定指令に対するMILP}
 
