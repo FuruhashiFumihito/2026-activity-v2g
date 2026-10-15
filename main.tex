@@ -133,54 +133,11 @@ Keyword one \sep Keyword two \sep Keyword three % TODO
 \maketitle
 
 % ===== 3. Main text: retain or adapt the section functions =====
-\section{Introduction}
-\label{sec:introduction}
-\placeholder{Explain the problem, why it matters, and the limitation in existing
-knowledge. State the research question and the contribution supported by this
-paper. Describe the organization if it helps the reader.}
-
-\section{Literature review}
-\label{sec:literature}
-\placeholder{Organize relevant studies by the scientific distinctions needed to
-understand the research gap. Verify each citation and explain the paper's position.}
-
-% Formatting example only. The following citation is deliberately fictitious.
-Author--year citation examples: \citet{replace_me_reference} and
-\citep{replace_me_reference}. Replace both the citation and its BibTeX entry.
-
-\section{Methodology}
-\label{sec:methodology}
-\subsection{Problem statement}
-\label{subsec:problem}
-\placeholder{Define the system, notation, decisions, assumptions, and research
-scope. Distinguish assumptions from consequences derived from the model.}
-
-\subsection{Model or method}
-\label{subsec:method}
-\placeholder{Describe the model, estimation, optimization, or analytical method
-in sufficient detail to reproduce it. Include only justified mathematical claims.}
-
-\section{Numerical experiments}
-\label{sec:experiments}
-\subsection{Data and experimental settings}
-\label{subsec:settings}
-\placeholder{Document data sources, scenarios, baselines, evaluation metrics,
-parameter settings, uncertainty, and reproducibility information. Adapt this
-section if the paper uses empirical analysis or theoretical examples instead.}
-
-\subsection{Results and interpretation}
-\label{subsec:results}
-\placeholder{Present the evidence for each claim. Separate observed results
-from explanations and generalizations. Discuss uncertainty and limitations.}
-
-% Optional: add a separate Discussion section when needed.
-% \section{Discussion}
-% \label{sec:discussion}
-
-\section{Conclusion}
-\label{sec:conclusion}
-\placeholder{Answer the research question using the supported findings.
-State the contribution, limits of applicability, and justified future work.}
+\input{sections/01_introduction.tex}
+\input{sections/02_literature_review.tex}
+\input{sections/03_methodology.tex}
+\input{sections/04_results.tex}
+\input{sections/05_conclusion.tex}
 
 % ===== 4. End matter =====
 % Uncomment after entering verified \credit{...} statements for the authors.
