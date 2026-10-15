@@ -321,7 +321,7 @@ $\xi_a=1$は実施可能な状態、$\xi_a=0$は取消を表す。
 \end{align}
 \end{subequations}
 
-\subsubsection{Pre-planningの効用関数}
+\subsubsection{効用関数}
 
 事前計画の基礎効用は、活動・移動と設備接続から構成する。段階$j$における成分を共通に定義すると、
 \begin{align}
@@ -387,7 +387,13 @@ $\mathrm{SOC}^*$は快適水準であり、移動に必要な物理的SOC下限�
 と記述する。$\mathcal F_k^p$は全ての計画活動を実施した場合の活動・接続・SOC制約を満たす集合、$Q_{Nk,s}$は次に定義する実現後の効用変化である。
 事前基礎効用に報酬を別途確定的に加えることはせず、支払の受給条件をシナリオ別に評価する。
 
-\subsubsection{Post-realizationの効用関数}
+% 制約条件
+\input{sections/03_methodology_constraints.tex}
+
+\subsubsection{計画段階の最適化}
+
+\subsubsection{実行段階の最適化}
+% 効用関数の修正と事前計画をなるべく変更しないという点が肝
 
 シナリオ$s$の実現総効用を、
 \begin{equation}
@@ -424,11 +430,6 @@ $\sum_s q_s=1$より、式\eqref{eq:mf-preplanning}に式\eqref{eq:mf-recourse}�
 となる。これが「基礎効用と契約便益」を一度ずつ数える目的関数である。
 加入固定額$R_{0k}Y_N$も、実現支払に含めることで$\sum_s q_sR_{0k}Y_N=R_{0k}Y_N$と一度だけ評価する。
 第1段階の変数は全シナリオに共通である。複製して実装する場合は$(y^p)^s=(y^p)^{s'}$を課すが、実現SOCや精算をシナリオ間で同一にはしない。
-
-\subsection{最適化}
-\label{subsec:optimization}
-
-\input{sections/03_methodology_constraints.tex}
 
 \subsubsection{固定契約・固定指令に対するMILP}
 
