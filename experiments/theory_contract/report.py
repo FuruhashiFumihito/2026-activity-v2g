@@ -4,6 +4,7 @@ import os
 os.environ.setdefault("MPLCONFIGDIR", "/private/tmp/activity-v2g-theory-matplotlib")
 import csv
 import gzip
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -62,10 +63,16 @@ def curves(rows, folder):
     for i, mode in enumerate(("hard", "soft")):
         for j, access in enumerate((0, 1)):
             ax = axes[i, j]
-            for p, color in zip(probabilities, COLORS):
+            styles = ["-", "--", "-.", ":", (0, (3, 1, 1, 1))]
+            for p, color, style in zip(probabilities, COLORS, styles):
                 rs = select(rows, fulfillment=mode, appointment_v2g_access=access, p_cancel=p)
-                ax.plot([r["D_h"] for r in rs], [r["C_compensation"] for r in rs],
-                        color=color, lw=1.7, label=f"p = {p:g}")
+                # Hard activity loss is a jump; do not draw a continuous bridge
+                # between the last feasible gym point and the first no-gym point.
+                breaks = [0]+[k for k in range(1, len(rs)) if mode == "hard" and rs[k]["C_gym"] != rs[k-1]["C_gym"]]+[len(rs)]
+                for segment, (start, end) in enumerate(zip(breaks, breaks[1:])):
+                    part = rs[start:end]
+                    ax.plot([r["D_h"] for r in part], [r["C_compensation"] for r in part],
+                            color=color, ls=style, lw=1.7, label=f"p = {p:g}" if segment == 0 else None)
             ax.axvline(1.5, color="#aeb6bd", ls=":", lw=1)
             if access:
                 ax.axvline(2, color="#aeb6bd", ls=":", lw=1)
@@ -79,7 +86,7 @@ def curves(rows, folder):
             if j == 0:
                 ax.set_ylabel("Minimum fixed compensation (JPY-equivalent)")
     handles, labels = axes[0, 0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="outside upper center", ncol=5, frameon=False)
+    axes[0, 0].legend(handles, labels, loc="upper left", ncol=2, frameon=False, fontsize=9)
     fig.suptitle("Cancellation effects depend on connection access and fulfillment terms", fontsize=14)
     fig.supxlabel("Authored one-person instance; exact supported scenarios; fixed 6 kWh delivered in every joined scenario.", fontsize=9, color="#53606b")
     save(fig, folder, "cancellation_curves")
@@ -117,8 +124,22 @@ def probability(rows, folder):
     for mode, color, style in [("hard", COLORS[0], "--"), ("soft", COLORS[2], "-")]:
         rs = sorted(select(rows, D_h=1.5, appointment_v2g_access=1, fulfillment=mode), key=lambda r: r["p_cancel"])
         x = [r["p_cancel"] for r in rs]
-        axes[0].plot(x, [r["C_compensation"] for r in rs], marker="o", ms=3, color=color, ls=style, label=mode)
-        axes[1].plot(x, [r["C_work_departure_h"] for r in rs], marker="o", ms=3, color=color, ls=style, label=mode)
+        if mode == "hard":
+            positive = [r for r in rs if r["p_cancel"] > 0]
+            axes[0].plot([r["p_cancel"] for r in positive], [r["C_compensation"] for r in positive],
+                         marker="o", ms=3, color=color, ls=style, label=mode)
+            axes[0].scatter([0], [rs[0]["C_compensation"]], color=color, s=22, zorder=4)
+            axes[0].scatter([0], [1104], facecolor="white", edgecolor=color, s=35, zorder=4)
+            axes[1].plot([r["p_cancel"] for r in positive], [r["C_work_departure_h"] for r in positive],
+                         marker="o", ms=3, color=color, ls=style, label=mode)
+            axes[1].scatter([0], [17], color=color, s=22, zorder=4)
+            axes[1].scatter([0], [17.5], facecolor="white", edgecolor=color, s=35, zorder=4)
+        else:
+            axes[0].plot(x, [r["C_compensation"] for r in rs], marker="o", ms=3, color=color, ls=style, label=mode)
+            axes[1].scatter(x, [r["C_work_departure_h"] for r in rs], s=15, color=color, label=mode)
+            axes[1].plot([0, 6/11], [17, 17], color=color, lw=1.5)
+            axes[1].plot([6/11, 1], [17.5, 17.5], color=color, lw=1.5)
+            axes[1].plot([6/11, 6/11], [17, 17.5], color="#a1842e", lw=1.5, ls=":")
     threshold = 6/11
     for ax in axes:
         ax.axvline(threshold, color="#a1842e", lw=1, ls=":")
@@ -128,7 +149,7 @@ def probability(rows, folder):
         ax.legend(frameon=False)
     axes[0].set_ylabel("Minimum compensation (JPY-equivalent)")
     axes[0].set_ylim(0, 1250)
-    axes[0].annotate("hard: support changes at p = 0", xy=(.01, 1099.5), xytext=(.18, 1160),
+    axes[0].annotate("hard: open point is right limit 1104", xy=(0, 1104), xytext=(.18, 1160),
                      fontsize=9, arrowprops=dict(arrowstyle="-", color="#6e7780"))
     axes[1].set_yticks([17, 17.25, 17.5], ["17:00", "17:15", "17:30"])
     axes[1].set_ylim(16.96, 17.54)
@@ -145,7 +166,8 @@ def soc(rows, folder):
         rs = sorted(select(rows, D_h=1.25, p_cancel=.25, fulfillment="hard", appointment_v2g_access=access), key=lambda r: r["guarantee_kWh"])
         for ax, field in zip(axes, ("C_compensation", "C_precharge_kWh")):
             ax.plot([r["guarantee_kWh"] for r in rs], [np.nan if r[field] is None else r[field] for r in rs],
-                    marker="o", ms=4, color=color, label=f"appointment access = {access}")
+                    marker="o", ms=4, color=color, ls="-" if access == 0 else "--",
+                    markerfacecolor=color if access == 0 else "white", label=f"appointment access = {access}")
             infeasible = [r["guarantee_kWh"] for r in rs if r["C_status"] == 2]
             # x positions are true guarantee values; crosses are status markers,
             # not invented cost or charging amounts.
@@ -195,8 +217,7 @@ def schedule_figure(output, folder):
             text = f"connection {state['connection_h']:.2f} h | shortfall {state['shortfall_h']:.2f} h"
             axes[0].text(20.5, y, text, va="center", fontsize=8)
             pts = np.array(state["soc_points"])
-            keep = (pts[:, 0] >= 15) & (pts[:, 0] <= 24)
-            axes[1].plot(pts[keep, 0], pts[keep, 1], lw=1.5,
+            axes[1].plot(pts[:, 0], pts[:, 1], lw=1.5,
                          ls="-" if state["xi"] else "--", color=COLORS[0] if mode == "hard" else COLORS[2],
                          label=f"{mode}, xi={state['xi']}")
             y -= 1
@@ -356,6 +377,13 @@ D=1.5hの測定値は以下。履行確率は接続D時間の達成確率で、6
     (output/"report_ja.md").write_text(text)
     (output/"overview.md").write_text("# Study overview\n\nFour experiments, preserved prior runs, exact-scenario model comparisons.\n\nSee settings.json, environment.json and report_ja.md.\n")
     (output/"discussion.md").write_text("# Study discussion\n\nObserved results, mechanisms, null effects, infeasible cases and external-validity limits are documented in report_ja.md.\n")
+    presentation = output/"presentation"
+    presentation.mkdir(exist_ok=True)
+    (presentation/"report.py").write_bytes(Path(__file__).read_bytes())
+    hashes = {str(p.relative_to(output)): hashlib.sha256(p.read_bytes()).hexdigest()
+              for p in sorted(figdir.iterdir()) if p.suffix in (".png", ".pdf")}
+    hashes["presentation/report.py"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    (output/"figure_manifest.json").write_text(json.dumps(hashes, indent=2)+"\n")
     print(f"Report and figures saved: {output/'report_ja.md'}", flush=True)
 
 

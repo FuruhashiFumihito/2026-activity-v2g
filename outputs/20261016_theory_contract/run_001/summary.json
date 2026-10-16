@@ -1,0 +1,37 @@
+{
+  "designed_conditions": 4996,
+  "maximum_C_minus_A": 5700.0,
+  "minimum_C_minus_A": -4.547473508864641e-12,
+  "maximum_continuous_error": 5700.0,
+  "maximum_integer_reselection_value": 300.0,
+  "maximum_decomposition_residual": 0.0,
+  "reward_decision_comparisons": {
+    "500": {
+      "comparable_conditions": 2236,
+      "mismatched_conditions": 126
+    },
+    "1000": {
+      "comparable_conditions": 2236,
+      "mismatched_conditions": 216
+    },
+    "2000": {
+      "comparable_conditions": 2236,
+      "mismatched_conditions": 582
+    },
+    "3000": {
+      "comparable_conditions": 2236,
+      "mismatched_conditions": 874
+    },
+    "5000": {
+      "comparable_conditions": 2236,
+      "mismatched_conditions": 621
+    },
+    "7000": {
+      "comparable_conditions": 2236,
+      "mismatched_conditions": 0
+    }
+  },
+  "critical_probability": 0.5454545454545454,
+  "critical_compensation": 858.5454545454559,
+  "SOC_infeasible_conditions": 540
+}

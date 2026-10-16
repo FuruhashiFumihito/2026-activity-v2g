@@ -271,6 +271,9 @@ def main():
     if input_hash != SUPPORTED_INPUTS_SHA256:
         parser.error("authored_inputs description differs from the implemented fixed model")
     output.mkdir(parents=True)
+    # Python's csv writer uses RFC-4180 CRLF. Preserve raw hash bytes across
+    # Git checkouts and recognize the standard CRLF record separator.
+    (output/".gitattributes").write_text("*.csv -text whitespace=cr-at-eol\n")
     dump(output/"settings.json", settings)
     environment = dict(started_UTC=datetime.now(timezone.utc).isoformat(),
                        python=sys.version, executable=sys.executable, numpy=np.__version__,

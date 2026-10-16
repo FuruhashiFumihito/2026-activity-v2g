@@ -9,6 +9,7 @@
 ```sh
 python -m unittest discover -s experiments/theory_contract -p 'test_*.py'
 python experiments/theory_contract/run.py --output outputs/NEW_UNIQUE_RUN_ID
+python experiments/theory_contract/verify.py outputs/NEW_UNIQUE_RUN_ID
 ```
 
 既存の出力先は上書きしない。`settings.json` に全条件を先に保存し、各サブ実験に設定、原始求解記録、CSV、ソースのスナップショット、overview、discussionを保存する。原始記録は損失のないgzip圧縮JSONL。結果を変更せず図表を再生成するには `python experiments/theory_contract/report.py OUTPUT_DIRECTORY` を使う。

@@ -1,0 +1,290 @@
+[
+  {
+    "claim": "C1",
+    "gate": "G0_OBJECT_VALIDITY",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C1",
+    "gate": "G1_EXECUTION_CORRECTNESS",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C1",
+    "gate": "G2_INTERNAL_FAIRNESS",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C1",
+    "gate": "G3_QUANTIFIED_EFFECT",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C1",
+    "gate": "G4_MECHANISM",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C1",
+    "gate": "G5_BOUNDARY_FAILURE",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C1",
+    "gate": "G6_EXTERNAL_VALIDITY",
+    "applicability": "OPTIONAL",
+    "status": "UNOBSERVED",
+    "evidence": "No population or acceptance observations",
+    "scope": "No empirical/predictive population claim",
+    "remediation": "Fukushima activity data and observed acceptance/held-out validation"
+  },
+  {
+    "claim": "C1",
+    "gate": "G7_CONDITIONAL_DECISION",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C2",
+    "gate": "G0_OBJECT_VALIDITY",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C2",
+    "gate": "G1_EXECUTION_CORRECTNESS",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C2",
+    "gate": "G2_INTERNAL_FAIRNESS",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C2",
+    "gate": "G3_QUANTIFIED_EFFECT",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C2",
+    "gate": "G4_MECHANISM",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C2",
+    "gate": "G5_BOUNDARY_FAILURE",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C2",
+    "gate": "G6_EXTERNAL_VALIDITY",
+    "applicability": "OPTIONAL",
+    "status": "UNOBSERVED",
+    "evidence": "No population or acceptance observations",
+    "scope": "No empirical/predictive population claim",
+    "remediation": "Fukushima activity data and observed acceptance/held-out validation"
+  },
+  {
+    "claim": "C2",
+    "gate": "G7_CONDITIONAL_DECISION",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C3",
+    "gate": "G0_OBJECT_VALIDITY",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C3",
+    "gate": "G1_EXECUTION_CORRECTNESS",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C3",
+    "gate": "G2_INTERNAL_FAIRNESS",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C3",
+    "gate": "G3_QUANTIFIED_EFFECT",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C3",
+    "gate": "G4_MECHANISM",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C3",
+    "gate": "G5_BOUNDARY_FAILURE",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C3",
+    "gate": "G6_EXTERNAL_VALIDITY",
+    "applicability": "OPTIONAL",
+    "status": "UNOBSERVED",
+    "evidence": "No population or acceptance observations",
+    "scope": "No empirical/predictive population claim",
+    "remediation": "Fukushima activity data and observed acceptance/held-out validation"
+  },
+  {
+    "claim": "C3",
+    "gate": "G7_CONDITIONAL_DECISION",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C4",
+    "gate": "G0_OBJECT_VALIDITY",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C4",
+    "gate": "G1_EXECUTION_CORRECTNESS",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C4",
+    "gate": "G2_INTERNAL_FAIRNESS",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C4",
+    "gate": "G3_QUANTIFIED_EFFECT",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C4",
+    "gate": "G4_MECHANISM",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C4",
+    "gate": "G5_BOUNDARY_FAILURE",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  },
+  {
+    "claim": "C4",
+    "gate": "G6_EXTERNAL_VALIDITY",
+    "applicability": "OPTIONAL",
+    "status": "UNOBSERVED",
+    "evidence": "No population or acceptance observations",
+    "scope": "No empirical/predictive population claim",
+    "remediation": "Fukushima activity data and observed acceptance/held-out validation"
+  },
+  {
+    "claim": "C4",
+    "gate": "G7_CONDITIONAL_DECISION",
+    "applicability": "REQUIRED",
+    "status": "PASS",
+    "evidence": "config.json; results.csv; solver_records.jsonl.gz; verification.json",
+    "scope": "Authored exact-scenario mechanism instance",
+    "remediation": "none"
+  }
+]

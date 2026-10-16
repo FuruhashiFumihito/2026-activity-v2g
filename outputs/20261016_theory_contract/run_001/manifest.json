@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "legacy_reruns": true,
+  "designed_conditions": 4996,
+  "studies": [
+    {
+      "status": "PASS",
+      "cases": 2236,
+      "feasible_C": 2236,
+      "infeasible_C": 0,
+      "B_infeasible": 850,
+      "references": 52,
+      "maximum_errors": {
+        "enumeration": 1.8189894035458565e-11,
+        "analytical": 1.7962520360015333e-11,
+        "objective": 1.7962520360015333e-11,
+        "primal": 3.588240815588506e-13,
+        "dual_finite_difference": 2.4738255888223648e-08,
+        "decomposition": 0.0,
+        "max_mip_gap": 4.101214215006146e-16
+      },
+      "elapsed_seconds": 13.774934874963947,
+      "failures": [],
+      "raw_sha256": "d27548a1e71452779c577f3809c8076bd28f06993ede224f60b823a6d022825a",
+      "csv_sha256": "1c1438d9d5e9f0f4c0185050d4dd0bef4e819d1219b365bda483fc0a4ab89e05"
+    },
+    {
+      "status": "PASS",
+      "cases": 2760,
+      "feasible_C": 2220,
+      "infeasible_C": 540,
+      "B_infeasible": 521,
+      "references": 460,
+      "maximum_errors": {
+        "enumeration": 3.637978807091713e-12,
+        "analytical": 3.183231456205249e-12,
+        "objective": 3.410605131648481e-12,
+        "primal": 7.105427357601002e-15,
+        "dual_finite_difference": 2.4738255888223648e-08,
+        "decomposition": 0.0,
+        "max_mip_gap": 0.0
+      },
+      "elapsed_seconds": 22.6684135000105,
+      "failures": [],
+      "raw_sha256": "06cc6fdb5b3c1782d273e8be690f2550f689ce39cb79886636ef913c4929e74a",
+      "csv_sha256": "24611f63525fa252ad75f45f2bfb317874bb89b64d3a00c557792bbb18422fa6"
+    }
+  ],
+  "environment": {
+    "started_UTC": "2026-10-16T11:50:07.952033+00:00",
+    "python": "3.13.2 (main, Feb  4 2025, 14:51:09) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "executable": "/private/tmp/activity-v2g-runtime/bin/python",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "hardware": {
+      "system": "Darwin",
+      "node": "furuhashikaoruichinoMacBook-Pro-2.local",
+      "release": "25.3.0",
+      "version": "Darwin Kernel Version 25.3.0: Wed Jan 28 20:56:35 PST 2026; root:xnu-12377.91.3~2/RELEASE_ARM64_T6030",
+      "machine": "arm64",
+      "processor": "arm"
+    },
+    "threads": 1,
+    "git_revision": "7d25187f9756691a434d69e6e8f9f742e3b83803",
+    "git_status": "?? outputs/20261016_theory_contract/",
+    "source_sha256": {
+      "test_model.py": "04ff6b6e8fa88dfdeea356e89708adc9e91b9b93d31862b804acc7d7d60899ac",
+      "run.py": "f8b0c1d155c9dd477ae969d74f73554a0b3eeb93fb89acf47e0ab5de0bd4858e",
+      "settings.json": "238479094e081f16771ecb2bebc823b6391362fc9c4584a287102fc039e77156",
+      "model.py": "85ed6e02fb12e6984a48ed49c165685e8cbe9c37ce26636d46da41bd99a23fdb",
+      "README.md": "307e233bf0c5ab7d80d2db8171fe546f2dbf2f52371e87fc8b8f92b1b2338dcf",
+      "report.py": "4d9336d11774f09012d066bfe339ef9e70fbb493a207314d331588df49586436"
+    },
+    "source_baseline_sha256": {
+      "bryan.py": "3c27494c18df07877b4efcb34b43354cec39ff7eb3de09f973eded9f70287a7e",
+      "synthetic.py": "f2335bfe5dd4ceca727f73725c4dc83788c84582f77f360a751e93063fa0cc1e",
+      "source_provenance.md": "d073d9efe6adc847adfedac3be9bdf578ca13fc6f56b19d98c6db32158233498"
+    }
+  }
+}

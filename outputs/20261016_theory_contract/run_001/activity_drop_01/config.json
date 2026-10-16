@@ -1,0 +1,121 @@
+{
+  "case_id": "activity_drop_01",
+  "provenance": "Authored synthetic mechanism example; not a person or observed Swiss survey schedule.",
+  "money": "Illustrative money-equivalent units; no empirical calibration.",
+  "activity_cancellation": false,
+  "preference_noise": false,
+  "replications": 1,
+  "seed": null,
+  "D_minutes": [
+    60,
+    65,
+    70,
+    74,
+    75,
+    76,
+    80,
+    85,
+    89,
+    90,
+    91,
+    95,
+    100,
+    105,
+    110,
+    115,
+    120,
+    125,
+    130,
+    135,
+    140,
+    145,
+    150,
+    155,
+    160,
+    165,
+    170,
+    175,
+    180
+  ],
+  "reference_D_h": 1.25,
+  "time": "continuous decimal hours",
+  "work": {
+    "start_h": 9.0,
+    "min_duration_h": 8.0,
+    "end_latest_h": 20.0,
+    "overtime_cost_per_h": 1200.0
+  },
+  "gym": {
+    "optional": true,
+    "duration_h": 1.0,
+    "earliest_start_h": 17.25,
+    "latest_end_h": 18.75,
+    "preferred_start_h": 17.25,
+    "participation_utility": 3000.0,
+    "late_cost_per_h": 600.0
+  },
+  "travel": {
+    "home_work": {
+      "hours": 0.5,
+      "kWh": 2.0
+    },
+    "work_gym": {
+      "hours": 0.25,
+      "kWh": 1.0
+    },
+    "gym_home": {
+      "hours": 0.25,
+      "kWh": 1.0
+    }
+  },
+  "battery": {
+    "capacity_kWh": 60.0,
+    "initial_kWh": 36.0,
+    "minimum_kWh": 12.0,
+    "end_kWh": 36.0,
+    "efficiency": 1.0
+  },
+  "contract": {
+    "mandatory_interval_h": [
+      16.0,
+      17.0
+    ],
+    "counting_window_h": [
+      16.0,
+      19.0
+    ],
+    "fixed_dispatch_kW": 6.0,
+    "fixed_dispatch_interval_h": [
+      16.0,
+      17.0
+    ],
+    "full_fulfillment": true,
+    "fixed_payment": 0.0,
+    "post_17_dispatch_kW": 0.0
+  },
+  "charging": {
+    "home_kW": 6.0,
+    "price_per_kWh": 30.0,
+    "latest_finish_h": 24.0
+  },
+  "C": "MILP: gym participation and continuous schedule jointly optimized",
+  "B": "LP: complete integer vector fixed to reference C at D=1.25; sole integer is gym participation",
+  "A": "Reference B compensation plus actual reference B cost multiplier times change in D",
+  "independent_reference": "Separate gym/no-gym route LPs; no big-M formulation",
+  "auxiliary_integer_variables": [],
+  "big_M": 24.0,
+  "solver": {
+    "library": "scipy.optimize",
+    "MILP": "milp / HiGHS",
+    "LP": "linprog / HiGHS",
+    "time_limit_s": 30.0,
+    "MILP_relative_gap": 0.0,
+    "presolve": true,
+    "thread_setting": "solver default"
+  },
+  "tolerance": 1e-06,
+  "git_revision": "7d25187f9756691a434d69e6e8f9f742e3b83803",
+  "git_status_at_run": "?? ../../outputs/20261016_theory_contract/\n",
+  "source_sha256": "f2335bfe5dd4ceca727f73725c4dc83788c84582f77f360a751e93063fa0cc1e",
+  "home_timing_tie_break": "Earliest feasible arrival and charging displayed among utility-equivalent schedules"
+}
