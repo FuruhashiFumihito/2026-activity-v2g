@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "cases": 2236,
+  "feasible_C": 2236,
+  "infeasible_C": 0,
+  "B_infeasible": 850,
+  "references": 52,
+  "maximum_errors": {
+    "enumeration": 1.8189894035458565e-11,
+    "analytical": 1.7962520360015333e-11,
+    "objective": 1.7962520360015333e-11,
+    "primal": 3.588240815588506e-13,
+    "dual_finite_difference": 2.4738255888223648e-08,
+    "decomposition": 0.0,
+    "max_mip_gap": 4.101214215006146e-16
+  },
+  "elapsed_seconds": 13.774934874963947,
+  "failures": [],
+  "raw_sha256": "d27548a1e71452779c577f3809c8076bd28f06993ede224f60b823a6d022825a",
+  "csv_sha256": "1c1438d9d5e9f0f4c0185050d4dd0bef4e819d1219b365bda483fc0a4ab89e05"
+}

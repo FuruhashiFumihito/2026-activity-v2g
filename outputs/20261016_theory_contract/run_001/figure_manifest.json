@@ -1,0 +1,13 @@
+{
+  "figures/cancellation_curves.pdf": "5b4c44dd8e630a4e27721e1da4d94a6bb3bfa7d93831491c011071cd9c779c3c",
+  "figures/cancellation_curves.png": "8356d52aee77ef5e76e16cd0de94dd2d74f3735250a9a5605e409721059e4464",
+  "figures/error_decomposition.pdf": "47826c3d727d9fef791e12659347a572c7d9e5337cb1940f5127ceaaf3f2f245",
+  "figures/error_decomposition.png": "be026d2964bdb5c3a80ad88381e93d815b44264a2d6236c2916e554a0c7ef663",
+  "figures/probability_boundary.pdf": "e6a2b8752f43733c728bbad615b8efaaf36dcd5413f2adec2b4a922a671f0f8f",
+  "figures/probability_boundary.png": "c63e5d9155ed41bd032a9e7f586d977697084b09e6fce5c5a030e5e34d1692ff",
+  "figures/schedules_soc.pdf": "9d35f7bdaba8206706d5013c9675ecb5d573abebf67bca83834f0a0c608e0320",
+  "figures/schedules_soc.png": "59b64df15ebc870a1dd852b392a08772059c9e8b3d7e55ffd5bc525a5a4dbf6c",
+  "figures/soc_boundary.pdf": "c60f68115e93184d84efb6d2686fdfa0b4b8b81d05f1b2299ce8a08e0cc02f5b",
+  "figures/soc_boundary.png": "8fbb9fdae60e702cf2724e48f4f3060891058fcc08f2cf3858bd7ba95e536e67",
+  "presentation/report.py": "ea19411b4797f769774ad780cde00712950c68b6948fe4f6fd2a1208079df0f4"
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "counts": {
+    "cancellation_01": {
+      "conditions": 2236,
+      "feasible": 2236,
+      "infeasible": 0,
+      "SOC_states_audited": 4300
+    },
+    "soc_01": {
+      "conditions": 2760,
+      "feasible": 2220,
+      "infeasible": 540,
+      "SOC_states_audited": 3996
+    }
+  },
+  "maximum_formula_errors": {
+    "closed_form_probability_response": 3.069544618483633e-12,
+    "SOC_additivity_in_feasible_domain": 2.9558577807620168e-12
+  },
+  "figure_hashes_verified": 11,
+  "failures": [],
+  "meaning": "Designed-grid correctness, exact state propagation, monetary units, support and SOC boundaries. No external-validity claim."
+}

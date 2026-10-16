@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "cases": 86,
+  "C_success_count": 86,
+  "B_feasible_count": 53,
+  "B_infeasible_count": 33,
+  "max_C_enumeration_objective_error_utility": 1.7763568394002505e-15,
+  "max_compensation_handcheck_error_CHF": 6.217248937900877e-15,
+  "max_primal_violation": 3.552713678800501e-15,
+  "max_reported_mip_gap": 0,
+  "reference_multiplier_utility_per_hour": 0.0,
+  "reference_centered_finite_difference_utility_per_hour": 0.0,
+  "thresholds_hours": {
+    "A_lateness_begins": 4.05,
+    "location_switch": 4.082889946793615,
+    "fixed_A_feasibility_limit": 4.55,
+    "B_lateness_begins": 6.5
+  },
+  "physical_energy_check": "PASS: identical initial/final battery energy; all feasible joined cases deliver 7 kWh, reach Home at 25 kWh, and recharge 11 kWh by 24:00",
+  "scope": "deterministic adapted profile; no external-validity or empirical acceptance claim"
+}

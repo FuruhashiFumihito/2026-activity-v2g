@@ -1,0 +1,2467 @@
+{
+  "summary": {
+    "passed": true,
+    "checked_solution_count": 44,
+    "maximum_energy_residual_kWh": 0.0,
+    "maximum_SOC_bound_violation_kWh": 0.0,
+    "maximum_time_violation_h": 0.0,
+    "minimum_energy_across_paths_kWh": 26.0,
+    "latest_home_charge_end_h": 21.166666666666668
+  },
+  "paths": [
+    {
+      "case": "baseline_nonjoin",
+      "join": false,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 0.0,
+      "computed_home_grid_charge_kWh": 4.0,
+      "optimization_home_grid_charge_kWh": 4.0,
+      "charge_end_h": 19.166666666666668,
+      "minimum_energy_kWh": 32.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.25,
+          "energy_kWh": 33.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.5,
+          "energy_kWh": 32.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 19.166666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "reference_C",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.416666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.5,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.75,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.416666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "reference_B",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.416666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.5,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.75,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.416666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "finite_difference_left_B",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.400000000000002,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.483333333333334,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.733333333333334,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.400000000000002,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "finite_difference_right_B",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.433333333333334,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.516666666666666,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.766666666666666,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.433333333333334,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.166666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.25,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.5,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.166666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_B_D=1",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.166666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.25,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.5,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.166666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.08333333333",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.25,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.333333333333332,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.583333333333332,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.25,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_B_D=1.08333333333",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.25,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.333333333333332,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.583333333333332,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.25,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.16666666667",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.333333333333336,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.416666666666668,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.666666666666668,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.333333333333336,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_B_D=1.16666666667",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.333333333333336,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.416666666666668,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.666666666666668,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.333333333333336,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.23333333333",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.400000000000002,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.483333333333334,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.733333333333334,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.400000000000002,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_B_D=1.23333333333",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.400000000000002,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.483333333333334,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.733333333333334,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.400000000000002,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.25",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.416666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.5,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.75,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.416666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_B_D=1.25",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.416666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.5,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.75,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.416666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.26666666667",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.433333333333334,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.516666666666666,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.766666666666666,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.433333333333334,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_B_D=1.26666666667",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.433333333333334,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.516666666666666,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.766666666666666,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.433333333333334,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.33333333333",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.5,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.583333333333332,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.833333333333332,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.5,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_B_D=1.33333333333",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.5,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.583333333333332,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.833333333333332,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.5,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.41666666667",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.583333333333336,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.666666666666668,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.916666666666668,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.583333333333336,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_B_D=1.41666666667",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.583333333333336,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.666666666666668,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.916666666666668,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.583333333333336,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.48333333333",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.650000000000002,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.733333333333334,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.983333333333334,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.650000000000002,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_B_D=1.48333333333",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.650000000000002,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.733333333333334,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.983333333333334,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.650000000000002,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.5",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.666666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.75,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 19.0,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.666666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_B_D=1.5",
+      "join": true,
+      "gym": true,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.666666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "gym_arrival",
+          "time_h": 17.75,
+          "energy_kWh": 27.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 19.0,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.666666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.51666666667",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 19.683333333333334,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.016666666666666,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 19.683333333333334,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.58333333333",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 19.75,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.083333333333332,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 19.75,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.66666666667",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 19.833333333333336,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.166666666666668,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 19.833333333333336,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.75",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 19.916666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.25,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 19.916666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.83333333333",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.0,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.333333333333332,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.0,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=1.91666666667",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.083333333333336,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.416666666666668,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.083333333333336,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.166666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.5,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.166666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.08333333333",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.25,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.583333333333332,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.25,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.16666666667",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.333333333333336,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.666666666666668,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.333333333333336,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.25",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.416666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.75,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.416666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.33333333333",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.5,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.833333333333332,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.5,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.41666666667",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.583333333333336,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 18.916666666666668,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.583333333333336,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.5",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.666666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 19.0,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.666666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.58333333333",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.75,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 19.083333333333332,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.75,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.66666666667",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.833333333333336,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 19.166666666666668,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.833333333333336,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.75",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 20.916666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 19.25,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 20.916666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.83333333333",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 21.0,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 19.333333333333332,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 21.0,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=2.91666666667",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 21.083333333333336,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 19.416666666666668,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 21.083333333333336,
+          "energy_kWh": 36.0
+        }
+      ]
+    },
+    {
+      "case": "sweep_C_D=3",
+      "join": true,
+      "gym": false,
+      "route_energy_kWh": 4.0,
+      "battery_dispatch_kWh": 6.0,
+      "computed_home_grid_charge_kWh": 10.0,
+      "optimization_home_grid_charge_kWh": 10.0,
+      "charge_end_h": 21.166666666666668,
+      "minimum_energy_kWh": 26.0,
+      "maximum_energy_kWh": 36.0,
+      "maximum_SOC_bound_violation_kWh": 0.0,
+      "maximum_time_violation_h": 0.0,
+      "residuals": {
+        "total_energy_balance_kWh": 0.0,
+        "final_energy_kWh": 0.0,
+        "computed_vs_optimization_charge_kWh": 0.0
+      },
+      "checks": {
+        "nonnegative_home_charge": true,
+        "energy_balance": true,
+        "SOC_bounds": true,
+        "schedule_and_charge_completion": true
+      },
+      "passed": true,
+      "states": [
+        {
+          "stage": "home_departure",
+          "time_h": 8.5,
+          "energy_kWh": 36.0
+        },
+        {
+          "stage": "work_arrival",
+          "time_h": 9.0,
+          "energy_kWh": 34.0
+        },
+        {
+          "stage": "after_dispatch",
+          "time_h": 17.0,
+          "energy_kWh": 28.0
+        },
+        {
+          "stage": "home_arrival",
+          "time_h": 19.5,
+          "energy_kWh": 26.0
+        },
+        {
+          "stage": "home_charge_complete",
+          "time_h": 21.166666666666668,
+          "energy_kWh": 36.0
+        }
+      ]
+    }
+  ],
+  "formulation": "Route energies, dispatch and home charge reconstructed from config and actual canonical solver schedules; energy was analytically eliminated from this fixed-dispatch toy.",
+  "monotonic_between_events": "Travel and dispatch deplete SOC; home charging replenishes SOC. Endpoint bounds therefore imply bounds throughout each segment."
+}

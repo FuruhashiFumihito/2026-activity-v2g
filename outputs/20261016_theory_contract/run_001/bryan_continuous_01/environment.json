@@ -1,0 +1,22 @@
+{
+  "python": "3.13.2 (main, Feb  4 2025, 14:51:09) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "executable": "/private/tmp/activity-v2g-runtime/bin/python",
+  "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "matplotlib": "3.11.2",
+  "solver": "HiGHS bundled with SciPy",
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": null
+  },
+  "argv": [
+    "/Users/furuhashikaoruichi/.codex/worktrees/theory-contract-study/2026-activity-v2g/experiments/minimal_contract/bryan.py",
+    "--output",
+    "/Users/furuhashikaoruichi/.codex/worktrees/theory-contract-study/2026-activity-v2g/outputs/20261016_theory_contract/run_001/bryan_continuous_01"
+  ],
+  "code_sha256": "3c27494c18df07877b4efcb34b43354cec39ff7eb3de09f973eded9f70287a7e",
+  "git_start_revision": "7d25187f9756691a434d69e6e8f9f742e3b83803"
+}
