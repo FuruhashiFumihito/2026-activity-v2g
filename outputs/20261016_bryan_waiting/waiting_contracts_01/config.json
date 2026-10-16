@@ -1,0 +1,308 @@
+{
+  "run_id": "waiting_contracts_01",
+  "smoke_only": false,
+  "design_source": "source_snapshot/settings_contract.md",
+  "source_DOI": "https://doi.org/10.1016/j.trd.2025.104911",
+  "source_pages": {
+    "profile": "Table 3 p. 11",
+    "coefficients": "Table 4 p. 12; Table A.1 p. 23"
+  },
+  "published_inputs": {
+    "profile": "Bryan",
+    "home_location": "Downtown",
+    "education_location": "Campus",
+    "education_start_h": 7.5,
+    "education_duration_h": 4.666666666666667,
+    "education_constant": 17.4,
+    "education_long_duration_coefficient_per_hour": -0.0783,
+    "shopping_locations": {
+      "A": "Downtown",
+      "B": "Campus"
+    },
+    "shopping_desired_start_h": 16.5,
+    "shopping_duration_h": 2.0,
+    "shopping_constant": 11.3,
+    "shopping_late_start_coefficient_per_hour": -0.993,
+    "shopping_short_duration_coefficient_not_used_at_fixed_duration": 0.528,
+    "battery_capacity_kWh": 60.0,
+    "home_charge_kW": 7.0,
+    "consumption_kWh_per_km": 0.2
+  },
+  "added_inputs": {
+    "OD": {
+      "Home-Campus": {
+        "hours": 0.5,
+        "km": 10.0
+      },
+      "Campus-Shopping_A": {
+        "hours": 0.45,
+        "km": 9.0
+      },
+      "Shopping_A-Home": {
+        "hours": 0.05,
+        "km": 1.0
+      },
+      "Campus-Shopping_B": {
+        "hours": 0.0,
+        "km": 0.0
+      },
+      "Shopping_B-Home": {
+        "hours": 0.5,
+        "km": 10.0
+      },
+      "Home-Shopping_A_added_symmetric": {
+        "hours": 0.05,
+        "km": 1.0
+      }
+    },
+    "initial_energy_kWh": 36.0,
+    "final_energy_kWh": 36.0,
+    "floor_energy_kWh": 12.0,
+    "efficiency": 1,
+    "price_CHF_per_kWh": 0.3,
+    "money_utility_per_CHF": 0.3,
+    "hard_shopping_start_window_h": [
+      16.5,
+      17.0
+    ],
+    "campus_departure_latest_h": 19,
+    "waiting_cost_utility_per_hour": [
+      0,
+      0.03915
+    ],
+    "service_window_h": [
+      12.0,
+      13.0
+    ],
+    "service_power_kW": 7.0,
+    "service_kWh": 7,
+    "timing_unit": "hours",
+    "taste_errors_and_omitted_costs": 0
+  },
+  "solver": {
+    "MILP": "SciPy milp / HiGHS",
+    "LP": "SciPy linprog highs-ds",
+    "time_limit_seconds": 60,
+    "mip_relative_gap": 1e-10,
+    "LP_primal_dual_tolerance": 1e-09,
+    "verification_tolerance": 2e-07,
+    "primary_objective_tie_tolerance": 2e-08,
+    "lexicographic_tie_order": [
+      "A",
+      "B",
+      "none"
+    ]
+  },
+  "cases": [
+    {
+      "scenario": "deterministic",
+      "p": 0.0,
+      "p_meaning": "deterministic",
+      "departure_policy": "flexible"
+    },
+    {
+      "scenario": "uniform_activity",
+      "p": 0.0,
+      "p_meaning": "common independent candidate occurrence probability",
+      "departure_policy": "fixed_07"
+    },
+    {
+      "scenario": "uniform_activity",
+      "p": 0.25,
+      "p_meaning": "common independent candidate occurrence probability",
+      "departure_policy": "fixed_07"
+    },
+    {
+      "scenario": "uniform_activity",
+      "p": 0.5,
+      "p_meaning": "common independent candidate occurrence probability",
+      "departure_policy": "fixed_07"
+    },
+    {
+      "scenario": "uniform_activity",
+      "p": 0.75,
+      "p_meaning": "common independent candidate occurrence probability",
+      "departure_policy": "fixed_07"
+    },
+    {
+      "scenario": "uniform_activity",
+      "p": 1.0,
+      "p_meaning": "common independent candidate occurrence probability",
+      "departure_policy": "fixed_07"
+    },
+    {
+      "scenario": "education_cancel",
+      "p": 0.0,
+      "p_meaning": "cancellation probability in an auxiliary control",
+      "departure_policy": "flexible"
+    },
+    {
+      "scenario": "education_cancel",
+      "p": 0.25,
+      "p_meaning": "cancellation probability in an auxiliary control",
+      "departure_policy": "flexible"
+    },
+    {
+      "scenario": "education_cancel",
+      "p": 0.5,
+      "p_meaning": "cancellation probability in an auxiliary control",
+      "departure_policy": "flexible"
+    },
+    {
+      "scenario": "education_cancel",
+      "p": 0.75,
+      "p_meaning": "cancellation probability in an auxiliary control",
+      "departure_policy": "flexible"
+    },
+    {
+      "scenario": "education_cancel",
+      "p": 1.0,
+      "p_meaning": "cancellation probability in an auxiliary control",
+      "departure_policy": "flexible"
+    },
+    {
+      "scenario": "shopping_cancel",
+      "p": 0.0,
+      "p_meaning": "cancellation probability in an auxiliary control",
+      "departure_policy": "flexible"
+    },
+    {
+      "scenario": "shopping_cancel",
+      "p": 0.25,
+      "p_meaning": "cancellation probability in an auxiliary control",
+      "departure_policy": "flexible"
+    },
+    {
+      "scenario": "shopping_cancel",
+      "p": 0.5,
+      "p_meaning": "cancellation probability in an auxiliary control",
+      "departure_policy": "flexible"
+    },
+    {
+      "scenario": "shopping_cancel",
+      "p": 0.75,
+      "p_meaning": "cancellation probability in an auxiliary control",
+      "departure_policy": "flexible"
+    },
+    {
+      "scenario": "shopping_cancel",
+      "p": 1.0,
+      "p_meaning": "cancellation probability in an auxiliary control",
+      "departure_policy": "flexible"
+    }
+  ],
+  "gamma_values": [
+    0.0,
+    0.03915
+  ],
+  "D_hours": [
+    1.0,
+    1.083333333333,
+    1.166666666667,
+    1.25,
+    1.333333333333,
+    1.416666666667,
+    1.5,
+    1.583333333333,
+    1.666666666667,
+    1.75,
+    1.833333333333,
+    1.916666666667,
+    2.0,
+    2.083333333333,
+    2.166666666667,
+    2.25,
+    2.333333333333,
+    2.416666666667,
+    2.5,
+    2.583333333333,
+    2.666666666667,
+    2.75,
+    2.833333333333,
+    2.916666666667,
+    3.0,
+    3.083333333333,
+    3.166666666667,
+    3.25,
+    3.333333333333,
+    3.416666666667,
+    3.5,
+    3.583333333333,
+    3.666666666667,
+    3.75,
+    3.833333333333,
+    3.916666666667,
+    4.0,
+    4.033333333333,
+    4.05,
+    4.066666666667,
+    4.083333333333,
+    4.142094662638,
+    4.158761329305,
+    4.166666666667,
+    4.175427995972,
+    4.25,
+    4.333333333333,
+    4.359617321249,
+    4.376283987915,
+    4.392950654582,
+    4.416666666667,
+    4.5,
+    4.533333333333,
+    4.55,
+    4.566666666667,
+    4.583333333333,
+    4.666666666667,
+    4.75,
+    4.833333333333,
+    4.916666666667,
+    5.0,
+    5.083333333333,
+    5.166666666667,
+    5.25,
+    5.333333333333,
+    5.416666666667,
+    5.5,
+    5.583333333333,
+    5.666666666667,
+    5.75,
+    5.833333333333,
+    5.916666666667,
+    6.0,
+    6.083333333333,
+    6.166666666667,
+    6.25,
+    6.333333333333,
+    6.416666666667,
+    6.5,
+    6.583333333333,
+    6.666666666667,
+    6.75,
+    6.833333333333,
+    6.916666666667,
+    7.0
+  ],
+  "contracts": [
+    "hard",
+    "auto_release",
+    "event_only"
+  ],
+  "reference_D_hours": 4.0,
+  "reference_plan_tie_rule": "A then B then none at equal primary optimum",
+  "continuous_timing_tie_rule": "earliest summed campus departure and shopping starts at exact fixed-plan primary optimum",
+  "fixed_payment": "ex-ante enrollment grant retained in released states; no refund or release fee",
+  "unit_payment": "constant CHF/kWh with risk-neutral expectation and compulsory exogenous dispatch; Eq=0 yields no finite rate, with distinct zero/positive-burden statuses",
+  "state_structure": "uniform_activity independently realizes Education, Shopping A, Shopping B with common occurrence p; planned location remains common and unavailable selected shopping is skipped",
+  "uniform_recourse_boundary": "fixed common planned location, order, initial departure 07:00, and education duration across realized states; scenario-contingent permitted start times, physical departure and waiting; no post-realization location substitution",
+  "zero_probability_states": "excluded before constructing constraints",
+  "replications_and_seed": "NA deterministic exact finite-state expectation",
+  "source_sha256": {
+    "model.py": "7756e46cee30200d0d49005f7411ea69299bffcb6d8db6adbd1d31c8b04aa09c",
+    "run.py": "f91af7e1e45f8a0cfb435d90d4787381bcf3b4c5ce82d13abb57f046a6595cbb",
+    "analytic_checks.py": "ac7da6f97e1f8321f055858fa222c7b9f30d7e2206a60229acae108dafce59fb",
+    "settings_contract.md": "68e9eaac6787ec947172528384edc4d17eea6ad71afce3ddb9872e660395110b"
+  },
+  "starting_git_revision": "9b0684ecfc79818c6527bbf059451153116c4aa7",
+  "starting_git_status": "?? ./\n?? ../../outputs/20261016_bryan_waiting/",
+  "run_command": "experiments/bryan_waiting/run.py --output outputs/20261016_bryan_waiting/waiting_contracts_01"
+}

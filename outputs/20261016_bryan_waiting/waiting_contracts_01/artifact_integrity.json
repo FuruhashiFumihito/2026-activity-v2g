@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "numerical_sources_unchanged": {
+    "model.py": "7756e46cee30200d0d49005f7411ea69299bffcb6d8db6adbd1d31c8b04aa09c",
+    "run.py": "f91af7e1e45f8a0cfb435d90d4787381bcf3b4c5ce82d13abb57f046a6595cbb",
+    "analytic_checks.py": "ac7da6f97e1f8321f055858fa222c7b9f30d7e2206a60229acae108dafce59fb",
+    "settings_contract.md": "68e9eaac6787ec947172528384edc4d17eea6ad71afce3ddb9872e660395110b"
+  },
+  "authoring_snapshot_match": true,
+  "figures": [
+    {
+      "file": "waiting_contracts_01/figures/activity_schedules_soc.pdf",
+      "bytes": 24056,
+      "sha256": "9733e4f6c190f34c1c50c0385e05d818603f26603c3ed6861cc62bfe2fdd5e1e",
+      "pages": 1
+    },
+    {
+      "file": "waiting_contracts_01/figures/activity_schedules_soc.png",
+      "bytes": 135579,
+      "sha256": "7629ce7c59a32051a95078c08a13d552230f114030a13796ad8ec9ad5570fc4b",
+      "pixels": [
+        2360,
+        1406
+      ]
+    },
+    {
+      "file": "waiting_contracts_01/figures/compensation_ABC.pdf",
+      "bytes": 27647,
+      "sha256": "9a63fbe648e6ff3b25499e5c64ba08a9217d8bcefc1510d062e1762e23fc50f5",
+      "pages": 1
+    },
+    {
+      "file": "waiting_contracts_01/figures/compensation_ABC.png",
+      "bytes": 237449,
+      "sha256": "f486dcb56ee8e3270a59d06d5dca5813efa4fc44efc37a51662fbf11906d9990",
+      "pixels": [
+        2180,
+        1385
+      ]
+    },
+    {
+      "file": "waiting_contracts_01/figures/contracts_uncertainty.pdf",
+      "bytes": 22422,
+      "sha256": "d7e9b1312301c0b4e686315b73702a925fb1eebbf9048d56b2bf23972bff36dd",
+      "pages": 1
+    },
+    {
+      "file": "waiting_contracts_01/figures/contracts_uncertainty.png",
+      "bytes": 169014,
+      "sha256": "86d4f8e2413a41d8a2aa2ea35f384abe0a96a9e2ec27667a00ffe2658e39350c",
+      "pixels": [
+        2360,
+        825
+      ]
+    },
+    {
+      "file": "waiting_contracts_01/figures/waiting_impact.pdf",
+      "bytes": 17699,
+      "sha256": "e58f055c0e3e3225d191d26480d24254a292b766a9401233187635018cd44b73",
+      "pages": 1
+    },
+    {
+      "file": "waiting_contracts_01/figures/waiting_impact.png",
+      "bytes": 65130,
+      "sha256": "63579ec232caac96902fc978e137a9a978b354c8a027cf26445f9944d1fd9682",
+      "pixels": [
+        1460,
+        830
+      ]
+    }
+  ],
+  "local_document_links_checked": 27,
+  "all_PDF_exports_single_page": true,
+  "PNG_visual_inspection": "all four rendered and inspected; schedule footnote layout corrected before final generation",
+  "scientific_audits": [
+    "verification.json",
+    "independent_math_audit.json",
+    "source_fairness_audit.json"
+  ],
+  "scope": "new experiment/output directories only; no manuscript or prior numerical run modified"
+}

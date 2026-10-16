@@ -1,0 +1,130 @@
+{
+  "status": "PASS",
+  "audit_mode": "read-only source and saved-output fairness audit; no solver rerun",
+  "counts": {
+    "comparison_rows": 8160,
+    "schedule_records": 1184,
+    "reference_rows": 96,
+    "assertion_count": 248956,
+    "check_families": 40
+  },
+  "check_counts": {
+    "source_snapshot_hash": 4,
+    "current_core_matches_snapshot": 4,
+    "reference_tie_canonical_order": 96,
+    "reference_B_tie_flag": 96,
+    "reference_dual_finite_difference": 96,
+    "row_C_optimal": 8160,
+    "row_B_pattern_frozen": 8160,
+    "A_matches_saved_reference_dual": 8160,
+    "row_baseline_route_matches_saved_same_policy": 8160,
+    "aux_probability_departure_labels": 5610,
+    "defined_rate_exact_ratio": 29606,
+    "infeasible_compensation_missing": 16320,
+    "infeasible_rates_missing": 1674,
+    "primary_occurrence_fixed07_labels": 2550,
+    "primary_exogenous_expected_delivery": 2550,
+    "primary_full_service_probability": 2550,
+    "primary_free_wait_C_closed_form": 1275,
+    "zero_delivery_rate_distinction": 1360,
+    "scenario_probabilities_sum_one": 1076,
+    "one_common_planned_location": 1076,
+    "physical_route_and_energy": 2858,
+    "exogenous_delivery_and_automatic_stop": 2858,
+    "no_post_realization_location_substitution": 2858,
+    "computed_SOC_checks_all_pass": 2858,
+    "SOC_mass_balance_price_and_limits": 2858,
+    "all_nonhome_waiting_accounted": 2858,
+    "infeasible_schedule_has_no_path": 108,
+    "uniform_full_positive_support": 338,
+    "uniform_independent_probability": 1724,
+    "uniform_education_duration_shared": 338,
+    "common07_departure_or_home_only": 1724,
+    "uniform_campus_arrival0730": 1514,
+    "uniform_Downtown_wait_from0703": 52,
+    "education_endpoint_is1210": 858,
+    "solver_status_only_optimal_or_infeasible": 57344,
+    "MILP_optimal_gap_integrality": 8192,
+    "full_SOC_csv_no_failed_checks": 61026,
+    "raw_shared_education_equalities": 3,
+    "raw_fixed_LP_vs_MILP_distinct": 3,
+    "raw_target_spots_found": 1
+  },
+  "failures": [],
+  "raw_saved_model_spot_checks": [
+    {
+      "identity": [
+        "uniform_activity",
+        0.25,
+        0.0,
+        "none",
+        0.0
+      ],
+      "shared_education_equalities": 3,
+      "milp_gap": 0.0
+    },
+    {
+      "identity": [
+        "uniform_activity",
+        0.5,
+        0.03915,
+        "hard",
+        4.0
+      ],
+      "shared_education_equalities": 3,
+      "milp_gap": 0.0
+    },
+    {
+      "identity": [
+        "uniform_activity",
+        0.75,
+        0.03915,
+        "auto_release",
+        5.0
+      ],
+      "shared_education_equalities": 3,
+      "milp_gap": 0.0
+    }
+  ],
+  "observed_run_verification": {
+    "max_fixed_independent_error_utility": 1.0658141036401503e-14,
+    "max_MILP_enumeration_error_utility": 7.105427357601002e-15,
+    "max_state_objective_error_utility": 7.105427357601002e-15,
+    "max_analytic_error_CHF": 3.552713678800501e-14,
+    "max_expected_delivery_analytic_error_kWh": 0.0,
+    "max_reference_dual_finite_difference_error_utility_per_hour": 6.330352908534564e-14,
+    "max_MILP_gap": 4.706547276328918e-16,
+    "max_primal_violation": 2.9309887850104133e-13,
+    "analytic_values_checked": 30966,
+    "feasibility_checks": 32640,
+    "bundle_count": 8192,
+    "zero_probability_states_excluded": true,
+    "status": "PASS",
+    "smoke_only": false,
+    "comparison_rows": 8160,
+    "solver_rows": 57344,
+    "SOC_state_schedule_checks": 61026,
+    "all_SOC_checks_pass": true,
+    "feasible_C_count": 8160,
+    "elapsed_seconds": 98.22243583301315,
+    "source_hashes_unchanged_during_run": true,
+    "limitations": "published-profile adaptation and finite-state mechanism diagnostic; no calibrated acceptance, external validity, unknown arrivals, emergency exit, or scalability claim"
+  },
+  "scope_notes": [
+    "Primary uniform_activity uses occurrence p, independent Education/Shopping A/Shopping B, fixed 07:00 first departure, and support-only path constraints.",
+    "Auxiliary education_cancel and shopping_cancel use cancellation p and flexible first departure; auxiliary shopping_cancel shares its shopping shock and is not the primary manuscript independent-candidate design.",
+    "All exact payment-rate ratios rely on the experiment's exogenous dispatch and risk-neutral common money scale; automatic release fixes delivery at zero even with Campus shopping.",
+    "Published-profile adaptation: waiting locations, hard windows, OD, 07:00 departure, V2G, probability values and gamma are experiment assumptions; no empirical or full-manuscript-replication claim."
+  ],
+  "audited_files": {
+    "config.json": "afa3743607220c399dd90fa8da8393ff3d4239fc0c361265ddf13723c1960c7e",
+    "compensation.csv": "a6383f25dc429721c4538bce2dd70770c68452c52422cc6d8091bb40dc8a8ec4",
+    "schedules.json": "01a761efaa90fd7716fbca969b1cbb45f476db183af6eb4861c85283ed829b60"
+  },
+  "source_hashes_verified": {
+    "model.py": "7756e46cee30200d0d49005f7411ea69299bffcb6d8db6adbd1d31c8b04aa09c",
+    "run.py": "f91af7e1e45f8a0cfb435d90d4787381bcf3b4c5ce82d13abb57f046a6595cbb",
+    "analytic_checks.py": "ac7da6f97e1f8321f055858fa222c7b9f30d7e2206a60229acae108dafce59fb",
+    "settings_contract.md": "68e9eaac6787ec947172528384edc4d17eea6ad71afce3ddb9872e660395110b"
+  }
+}
