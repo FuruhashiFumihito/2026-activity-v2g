@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "study": "Contract value, conditional dual prices, activity cancellation, and SOC protection",
+  "design_status": "Fixed before the study runs; correctness probes are not study results",
+  "source_baseline_revision": "9b0684e",
+  "scope": "Exact-scenario, one-person mechanism experiments plus reruns of the published-profile adaptation and the existing analytical benchmark. Not full-manuscript or empirical acceptance validation.",
+  "units": "Authored JPY-equivalent utility, lambda_money=1; do not combine with Bryan CHF",
+  "cancellation": {
+    "D_minutes": [60,65,70,74,75,76,80,85,89,90,91,95,100,105,110,115,119,120,121,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,205,210,215,220,225,230,235,240],
+    "probabilities": [0,0.01,0.05,0.1,0.25,0.5,0.5444545454545454,0.5454545454545454,0.5464545454545454,0.75,0.9,0.99,1],
+    "appointment_v2g_access": [0,1],
+    "fulfillment": ["hard","soft"],
+    "guarantee_kWh": [12]
+  },
+  "soc": {
+    "D_minutes": [60,75,90,105,120,210],
+    "probabilities": [0,0.01,0.25,0.75,1],
+    "appointment_v2g_access": [0,1],
+    "fulfillment": ["hard","soft"],
+    "guarantee_kWh": [12,24,27.5,27.74,27.75,27.76,27.99,28,28.01,28.25,28.5,29,30,32,33.5,33.74,33.75,33.76,33.99,34,34.01,34.25,35]
+  },
+  "comparison": {
+    "reference_D_h": 1.25,
+    "finite_difference_h": 0.0001,
+    "reward_levels_JPY_equivalent": [500,1000,2000,3000,5000,7000],
+    "A": "Reference fixed-integer LP multiplier extrapolation of signed compensation",
+    "B": "Same gym choice fixed; all continuous decisions reoptimized",
+    "C": "Gym participation and continuous decisions reoptimized jointly",
+    "independent_references": ["two separately formulated route LPs without binary/big-M rows", "analytical breakpoint enumeration"]
+  },
+  "authored_inputs": {
+    "work": {"start_h": 9, "earliest_departure_h": 17, "latest_departure_h": 20, "extra_duration_cost_per_h": 1200},
+    "appointment": {"planned_participation": "required; realization/cancellation is exogenous", "duration_h": 0.5, "extra_total_travel_h": 0.25, "extra_route_energy_kWh": 0.5, "participation_utility": 750, "work_to_appointment_h": 0.125, "work_to_appointment_kWh": 0.25},
+    "gym": {"planned_participation": "one optional binary", "duration_h": 1, "desired_start_h": 18, "latest_start_h": 18.5, "participation_utility": 3000, "early_cost_per_h": 300, "late_cost_per_h": 600},
+    "battery": {"capacity_kWh": 60, "initial_and_final_kWh": 36, "physical_floor_kWh": 12, "efficiency": 1},
+    "travel": {"morning_h": 0.5, "morning_kWh": 2, "afternoon_base_h": 0.5, "afternoon_base_kWh": 2, "work_to_gym_h": 0.25, "work_to_gym_kWh": 0.5, "gym_to_home_h": 0.25, "gym_to_home_kWh": 1.5},
+    "charging": {"work_fixed_input_window_h": [15,16], "work_fixed_power_kW": 6, "precharge_max_kWh": 6, "work_price_per_kWh": 60, "home_power_kW": 6, "home_price_per_kWh": 30, "throughput_cost_per_kWh": 2},
+    "contract": {"counting_window_h": [16,21], "fixed_dispatch_window_h": [16,17], "fixed_dispatch_kW": 6, "fixed_delivered_kWh": 6, "soft_shortfall_cost_per_h": 2400, "other_rewards_during_solves": 0, "guarantee_scope": "arrival and post-dispatch states of eligible activities; appointment guarantee also applies to nominal plan"},
+    "information": "One common planned work duration, gym choice, precharge connection offset and duration; fixed nominal order work-appointment-gym-home, removing absent/skipped activities. No waiting, insertion, activity reselection, or charging adjustment after realization. The all-activities nominal plan remains physically feasible even at probability endpoints."
+  },
+  "validity_rules": {
+    "tolerance": 0.0000002,
+    "MILP_relative_gap": 0,
+    "time_limit_per_solve_s": 10,
+    "threads": 1,
+    "infeasible": "Retain status=2 and null compensation; never replace by zero or an arbitrary penalty",
+    "other_solver_status": "Retain raw record, fail execution gate, and withhold dependent claims",
+    "acceptance": "Model indifference condition R >= max(0,C), with explicit tie convention; not observed acceptance",
+    "repetitions": "All supported states enumerated exactly; no Monte Carlo seeds or confidence intervals. Grid cells are designed conditions, not sampled people.",
+    "external_validity": "UNOBSERVED; no Fukushima activity records or contract acceptance observations used"
+  }
+}
