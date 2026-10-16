@@ -1,0 +1,4 @@
+# Preserve standard Python csv.writer record endings.
+*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol linguist-generated=true
+solver_records.jsonl.gz linguist-generated=true
+schedules.json linguist-generated=true

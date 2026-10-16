@@ -1,0 +1,20 @@
+{
+  "python": "3.13.2 (main, Feb  4 2025, 14:51:09) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "executable": "/private/tmp/activity-v2g-runtime/bin/python",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": null
+  },
+  "solver": "HiGHS bundled with SciPy",
+  "source_sha256": {
+    "model.py": "7756e46cee30200d0d49005f7411ea69299bffcb6d8db6adbd1d31c8b04aa09c",
+    "run.py": "f91af7e1e45f8a0cfb435d90d4787381bcf3b4c5ce82d13abb57f046a6595cbb",
+    "analytic_checks.py": "ac7da6f97e1f8321f055858fa222c7b9f30d7e2206a60229acae108dafce59fb",
+    "settings_contract.md": "68e9eaac6787ec947172528384edc4d17eea6ad71afce3ddb9872e660395110b"
+  }
+}

@@ -1,0 +1,11 @@
+# Results discussion
+
+Observed: free waiting ends Education at12:10 and removes normal-day A–C compensation gap overD1..7. The fixed-reference B gap under hard fulfillment depends on the tie-selected reference location; choosing tiedB gives B=C. These null results invalidate using the earlier no-wait increase as unconditional main evidence.
+
+Observed under uniform occurrence p=.5,D4.5,gamma0: hard A2.67/B3.41475/C2.67 CHF; automatic release A1.05/B1.422375/C1.32 CHF. Supply is7kWh and3.5kWh respectively. At p=.25 automatic release, C jumps from.6284375 to right-limit.7275 atD4.55, a.0990625CHF discontinuity. This is a common ex-ante location/hard-window mechanism, not education extension or empirical risk aversion. Positive assumed waiting cost reintroduces compensation differences while education stays at its desired duration.
+
+Mechanism: with no waiting cost, hard fulfillment's uncertainty surcharge is extra recovery charging when the baseline can skip Campus; lost Education utility cancels in expected baseline comparison. Release does not erase a planned Campus-shopping tour. With fixed07 departure, cancelled activities can leave long nonhome waits. gamma results are conditional on that behavioral restriction.
+
+Boundary: fixed grants and delivered-energy payments have identical break-even expected payment only under risk neutrality and exogenous forced dispatch. Fixed-clock and cumulative availability have identical projected scheduling feasibility in this one-visit example. Zero supplied energy is not supply success. No actual acceptance rates, population prevalence, calibrated waiting values, unknown arrivals, emergencies, degradation, multi-tour return-home adaptation, or algorithmic scalability are claimed.
+
+Evidence: all numerical and analytic comparisons, optimality gaps, residuals and61,026 SOC checks are in verification.json; independent audit files and figure/data provenance accompany the run. Main uniform results and auxiliary flexible-departure controls are never pooled. Original manuscript text/equations and earlier runs are unchanged. Follow-up discriminating checks would estimate waiting cost and compare departure-flexible recourse, rather than force a desired positive result.

@@ -1,0 +1,413 @@
+{
+  "status": "PASS",
+  "scope": "Independent re-read of saved main uniform CSV rows and source_snapshot oracle; no solver rerun.",
+  "run_directory": "/Users/furuhashikaoruichi/.codex/worktrees/bryan-waiting-contracts/2026-activity-v2g/outputs/20261016_bryan_waiting/waiting_contracts_01",
+  "source_snapshot_hash_checks": {
+    "model.py": {
+      "expected": "7756e46cee30200d0d49005f7411ea69299bffcb6d8db6adbd1d31c8b04aa09c",
+      "observed": "7756e46cee30200d0d49005f7411ea69299bffcb6d8db6adbd1d31c8b04aa09c",
+      "passed": true
+    },
+    "run.py": {
+      "expected": "f91af7e1e45f8a0cfb435d90d4787381bcf3b4c5ce82d13abb57f046a6595cbb",
+      "observed": "f91af7e1e45f8a0cfb435d90d4787381bcf3b4c5ce82d13abb57f046a6595cbb",
+      "passed": true
+    },
+    "analytic_checks.py": {
+      "expected": "ac7da6f97e1f8321f055858fa222c7b9f30d7e2206a60229acae108dafce59fb",
+      "observed": "ac7da6f97e1f8321f055858fa222c7b9f30d7e2206a60229acae108dafce59fb",
+      "passed": true
+    },
+    "settings_contract.md": {
+      "expected": "68e9eaac6787ec947172528384edc4d17eea6ad71afce3ddb9872e660395110b",
+      "observed": "68e9eaac6787ec947172528384edc4d17eea6ad71afce3ddb9872e660395110b",
+      "passed": true
+    }
+  },
+  "oracle_self_test": {
+    "passed": true,
+    "checked_analytic_cases": 9492,
+    "maximum_free_wait_closed_formula_error_CHF": 1.5765166949677223e-14,
+    "maximum_strict_gamma_closed_formula_error_CHF": 1.5765166949677223e-14,
+    "probability_075_release_right_jump_CHF": 0.39625,
+    "uniform_probability_025_release_right_jump_CHF": 0.09906250000000005,
+    "probability_050_release_switch_D_hours": 4.376283987915409,
+    "pure_analytic": true,
+    "solver_calls": 0
+  },
+  "input_sha256": {
+    "config.json": "afa3743607220c399dd90fa8da8393ff3d4239fc0c361265ddf13723c1960c7e",
+    "compensation.csv": "a6383f25dc429721c4538bce2dd70770c68452c52422cc6d8091bb40dc8a8ec4",
+    "references.csv": "375273e5779a0217a57a497b9cfed9be8f8069300fe758a32953ea0a7d5f914e",
+    "soc_audit.csv": "488f5116c80e325fc913fed5e144590c5d01e29af7592fc647d931a6a0b2d592"
+  },
+  "tolerance": 2e-07,
+  "comparison_rows_total": 8160,
+  "uniform_rows_checked": 2550,
+  "expected_uniform_rows": 2550,
+  "distinct_uniform_design_keys": 2550,
+  "uniform_reference_rows_checked": 30,
+  "uniform_SOC_rows_checked": 36836,
+  "check_counts": {
+    "numeric_comparisons": 520636,
+    "rate_status_checks": 10200,
+    "explicit_feasibility_checks": 5100,
+    "reference_tie_checks": 2550,
+    "feasibility_or_undefined_checks": 1672
+  },
+  "maximum_absolute_error_by_field": {
+    "A_compensation_CHF": 1.199040866595169e-14,
+    "A_delivery_rate_CHF_per_kWh": 1.6653345369377348e-15,
+    "B_alt_compensation_CHF": 2.398081733190338e-14,
+    "B_alt_delivery_rate_CHF_per_kWh": 4.551914400963142e-15,
+    "B_compensation_CHF": 2.398081733190338e-14,
+    "B_delivery_rate_CHF_per_kWh": 4.551914400963142e-15,
+    "C_compensation_CHF": 2.398081733190338e-14,
+    "C_delivery_rate_CHF_per_kWh": 4.551914400963142e-15,
+    "C_expected_extra_route_km": 0.0,
+    "C_expected_extra_waiting_hours": 1.2434497875801753e-13,
+    "C_expected_route_km": 0.0,
+    "C_expected_waiting_hours": 1.2434497875801753e-13,
+    "SOC_campus_waiting_hours": 2.0605739337042905e-13,
+    "SOC_delivered_kWh": 0.0,
+    "SOC_downtown_waiting_hours": 8.881784197001252e-15,
+    "SOC_final_energy_kWh": 0.0,
+    "SOC_home_arrival_energy_kWh": 7.105427357601002e-15,
+    "SOC_initial_energy_kWh": 0.0,
+    "SOC_minimum_energy_kWh": 7.105427357601002e-15,
+    "SOC_recharge_end_h": 1.0658141036401503e-14,
+    "SOC_recharge_kWh": 5.662137425588298e-15,
+    "SOC_route_energy_kWh": 0.0,
+    "SOC_route_km": 0.0,
+    "SOC_waiting_hours": 2.0605739337042905e-13,
+    "baseline_expected_route_km": 0.0,
+    "baseline_expected_waiting_hours": 2.4868995751603507e-14,
+    "expected_connection_hours": 0.0,
+    "expected_delivery_kWh": 0.0,
+    "full_service_probability": 0.0,
+    "reference_compensation_CHF": 1.199040866595169e-14,
+    "reference_dual_CHF_per_hour": 6.938893903907228e-18,
+    "reference_finite_difference_CHF_per_hour": 1.3807358034689798e-13,
+    "state_probability": 0.0
+  },
+  "maximum_absolute_numeric_error": 2.0605739337042905e-13,
+  "uniform_p025_free_release_boundary": {
+    "analytic": {
+      "p": 0.25,
+      "service_state_present": true,
+      "switch_D_hours": null,
+      "A_feasible_through_D_hours": 4.550000000000001,
+      "at_A_boundary_CHF": 0.6284375,
+      "right_limit_CHF": 0.7275,
+      "right_jump_CHF": 0.09906250000000005,
+      "critical_occurrence_probability": 0.3948811700182815
+    },
+    "at_boundary": {
+      "gamma": 0.0,
+      "p": 0.25,
+      "contract": "auto_release",
+      "D_hours": 4.55,
+      "A_compensation_CHF": 0.5250000000000021,
+      "B_compensation_CHF": 0.6284375000000016,
+      "B_alt_compensation_CHF": 0.7275000000000009,
+      "C_compensation_CHF": 0.6284375000000016,
+      "B_status": 0.0,
+      "C_pattern": "A",
+      "expected_delivery_kWh": 1.75,
+      "reference_tie_patterns": "A",
+      "B_alt_reference_is_optimal": "False"
+    },
+    "next_saved_right_point": {
+      "gamma": 0.0,
+      "p": 0.25,
+      "contract": "auto_release",
+      "D_hours": 4.566666666667,
+      "A_compensation_CHF": 0.5250000000000021,
+      "B_compensation_CHF": null,
+      "B_alt_compensation_CHF": 0.7275000000000009,
+      "C_compensation_CHF": 0.7275000000000009,
+      "B_status": 2.0,
+      "C_pattern": "B",
+      "expected_delivery_kWh": 1.75,
+      "reference_tie_patterns": "A",
+      "B_alt_reference_is_optimal": "False"
+    },
+    "saved_jump_CHF": 0.09906249999999928,
+    "interpretation": "The right limit is analytical. The next saved point agrees exactly because the post-boundary B branch is constant for free waiting."
+  },
+  "uniform_p050_free_release_switch": {
+    "analytic_D_hours": 4.376283987915409,
+    "saved_row": {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "auto_release",
+      "D_hours": 4.376283987915,
+      "A_compensation_CHF": 1.0499999999999985,
+      "B_compensation_CHF": 1.3199999999996592,
+      "B_alt_compensation_CHF": 1.3199999999999967,
+      "C_compensation_CHF": 1.3199999999996592,
+      "B_status": 0.0,
+      "C_pattern": "A",
+      "expected_delivery_kWh": 3.5,
+      "reference_tie_patterns": "A",
+      "B_alt_reference_is_optimal": "False"
+    }
+  },
+  "representatives": [
+    {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "hard",
+      "D_hours": 4.0,
+      "A_compensation_CHF": 2.670000000000001,
+      "B_compensation_CHF": 2.670000000000001,
+      "B_alt_compensation_CHF": 2.670000000000001,
+      "C_compensation_CHF": 2.670000000000001,
+      "B_status": 0.0,
+      "C_pattern": "A",
+      "expected_delivery_kWh": 7.0,
+      "reference_tie_patterns": "A;B",
+      "B_alt_reference_is_optimal": "True"
+    },
+    {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "hard",
+      "D_hours": 4.5,
+      "A_compensation_CHF": 2.670000000000001,
+      "B_compensation_CHF": 3.414749999999997,
+      "B_alt_compensation_CHF": 2.670000000000001,
+      "C_compensation_CHF": 2.670000000000001,
+      "B_status": 0.0,
+      "C_pattern": "B",
+      "expected_delivery_kWh": 7.0,
+      "reference_tie_patterns": "A;B",
+      "B_alt_reference_is_optimal": "True"
+    },
+    {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "hard",
+      "D_hours": 5.0,
+      "A_compensation_CHF": 2.670000000000001,
+      "B_compensation_CHF": null,
+      "B_alt_compensation_CHF": 2.670000000000001,
+      "C_compensation_CHF": 2.670000000000001,
+      "B_status": 2.0,
+      "C_pattern": "B",
+      "expected_delivery_kWh": 7.0,
+      "reference_tie_patterns": "A;B",
+      "B_alt_reference_is_optimal": "True"
+    },
+    {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "auto_release",
+      "D_hours": 4.0,
+      "A_compensation_CHF": 1.0499999999999985,
+      "B_compensation_CHF": 1.0499999999999985,
+      "B_alt_compensation_CHF": 1.3199999999999967,
+      "C_compensation_CHF": 1.0499999999999985,
+      "B_status": 0.0,
+      "C_pattern": "A",
+      "expected_delivery_kWh": 3.5,
+      "reference_tie_patterns": "A",
+      "B_alt_reference_is_optimal": "False"
+    },
+    {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "auto_release",
+      "D_hours": 4.5,
+      "A_compensation_CHF": 1.0499999999999985,
+      "B_compensation_CHF": 1.4223749999999966,
+      "B_alt_compensation_CHF": 1.3199999999999967,
+      "C_compensation_CHF": 1.3199999999999967,
+      "B_status": 0.0,
+      "C_pattern": "B",
+      "expected_delivery_kWh": 3.5,
+      "reference_tie_patterns": "A",
+      "B_alt_reference_is_optimal": "False"
+    },
+    {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "auto_release",
+      "D_hours": 5.0,
+      "A_compensation_CHF": 1.0499999999999985,
+      "B_compensation_CHF": null,
+      "B_alt_compensation_CHF": 1.3199999999999967,
+      "C_compensation_CHF": 1.3199999999999967,
+      "B_status": 2.0,
+      "C_pattern": "B",
+      "expected_delivery_kWh": 3.5,
+      "reference_tie_patterns": "A",
+      "B_alt_reference_is_optimal": "False"
+    },
+    {
+      "gamma": 0.03915,
+      "p": 0.5,
+      "contract": "hard",
+      "D_hours": 4.5,
+      "A_compensation_CHF": 3.0756374999999996,
+      "B_compensation_CHF": 3.849749999999996,
+      "B_alt_compensation_CHF": 3.1049999999999995,
+      "C_compensation_CHF": 3.1049999999999995,
+      "B_status": 0.0,
+      "C_pattern": "B",
+      "expected_delivery_kWh": 7.0,
+      "reference_tie_patterns": "A",
+      "B_alt_reference_is_optimal": "False"
+    },
+    {
+      "gamma": 0.03915,
+      "p": 0.5,
+      "contract": "auto_release",
+      "D_hours": 4.5,
+      "A_compensation_CHF": 1.1913749999999992,
+      "B_compensation_CHF": 1.5784312499999942,
+      "B_alt_compensation_CHF": 1.4613749999999945,
+      "C_compensation_CHF": 1.4613749999999945,
+      "B_status": 0.0,
+      "C_pattern": "B",
+      "expected_delivery_kWh": 3.5,
+      "reference_tie_patterns": "A",
+      "B_alt_reference_is_optimal": "False"
+    }
+  ],
+  "reference_B_sensitivity": {
+    "hard_reference_ties": {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "hard",
+      "D_hours": 4.0,
+      "A_compensation_CHF": 2.670000000000001,
+      "B_compensation_CHF": 2.670000000000001,
+      "B_alt_compensation_CHF": 2.670000000000001,
+      "C_compensation_CHF": 2.670000000000001,
+      "B_status": 0.0,
+      "C_pattern": "A",
+      "expected_delivery_kWh": 7.0,
+      "reference_tie_patterns": "A;B",
+      "B_alt_reference_is_optimal": "True"
+    },
+    "hard_D45": {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "hard",
+      "D_hours": 4.5,
+      "A_compensation_CHF": 2.670000000000001,
+      "B_compensation_CHF": 3.414749999999997,
+      "B_alt_compensation_CHF": 2.670000000000001,
+      "C_compensation_CHF": 2.670000000000001,
+      "B_status": 0.0,
+      "C_pattern": "B",
+      "expected_delivery_kWh": 7.0,
+      "reference_tie_patterns": "A;B",
+      "B_alt_reference_is_optimal": "True"
+    },
+    "hard_D5": {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "hard",
+      "D_hours": 5.0,
+      "A_compensation_CHF": 2.670000000000001,
+      "B_compensation_CHF": null,
+      "B_alt_compensation_CHF": 2.670000000000001,
+      "C_compensation_CHF": 2.670000000000001,
+      "B_status": 2.0,
+      "C_pattern": "B",
+      "expected_delivery_kWh": 7.0,
+      "reference_tie_patterns": "A;B",
+      "B_alt_reference_is_optimal": "True"
+    },
+    "release_reference_not_tied": {
+      "gamma": 0.0,
+      "p": 0.5,
+      "contract": "auto_release",
+      "D_hours": 4.0,
+      "A_compensation_CHF": 1.0499999999999985,
+      "B_compensation_CHF": 1.0499999999999985,
+      "B_alt_compensation_CHF": 1.3199999999999967,
+      "C_compensation_CHF": 1.0499999999999985,
+      "B_status": 0.0,
+      "C_pattern": "A",
+      "expected_delivery_kWh": 3.5,
+      "reference_tie_patterns": "A",
+      "B_alt_reference_is_optimal": "False"
+    }
+  },
+  "event_only_null_checks": [
+    {
+      "gamma": 0.0,
+      "p": 0.0,
+      "rows": 85,
+      "C_spread_CHF": 0.0
+    },
+    {
+      "gamma": 0.0,
+      "p": 0.25,
+      "rows": 85,
+      "C_spread_CHF": 0.0
+    },
+    {
+      "gamma": 0.0,
+      "p": 0.5,
+      "rows": 85,
+      "C_spread_CHF": 0.0
+    },
+    {
+      "gamma": 0.0,
+      "p": 0.75,
+      "rows": 85,
+      "C_spread_CHF": 0.0
+    },
+    {
+      "gamma": 0.0,
+      "p": 1.0,
+      "rows": 85,
+      "C_spread_CHF": 0.0
+    },
+    {
+      "gamma": 0.03915,
+      "p": 0.0,
+      "rows": 85,
+      "C_spread_CHF": 0.0
+    },
+    {
+      "gamma": 0.03915,
+      "p": 0.25,
+      "rows": 85,
+      "C_spread_CHF": 0.0
+    },
+    {
+      "gamma": 0.03915,
+      "p": 0.5,
+      "rows": 85,
+      "C_spread_CHF": 0.0
+    },
+    {
+      "gamma": 0.03915,
+      "p": 0.75,
+      "rows": 85,
+      "C_spread_CHF": 0.0
+    },
+    {
+      "gamma": 0.03915,
+      "p": 1.0,
+      "rows": 85,
+      "C_spread_CHF": 0.0
+    }
+  ],
+  "limitations": [
+    "CSV/source-snapshot consistency audit; no new optimization run.",
+    "Fixed-clock equivalence is an analytic scheduling-projection result, not a separately solved contract experiment.",
+    "Published-profile adaptation with added assumptions; no empirical acceptance or population claim."
+  ],
+  "failures": [],
+  "maximum_compensation_error_CHF": 2.398081733190338e-14,
+  "maximum_rate_error_CHF_per_kWh": 4.551914400963142e-15,
+  "maximum_SOC_energy_error_kWh": 7.105427357601002e-15,
+  "maximum_waiting_or_charge_time_error_hours": 2.0605739337042905e-13,
+  "probability_semantics_checked": "uniform p is independent occurrence probability for E/A/B; zero-probability states removed; source snapshot strict_07 and no location substitution used."
+}
