@@ -1,0 +1,2 @@
+# Python csv.writer uses standard CRLF record endings; preserve run bytes.
+*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

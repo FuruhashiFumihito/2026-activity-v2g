@@ -1,0 +1,6 @@
+D_minutes,D_h,A_compensation,B_status,B_compensation,C_status,C_compensation,hand_A,hand_C,independent_enum_compensation,gym_C,work_departure_C_h,home_arrival_C_h,A_underestimation,C_mip_gap,all_checks_pass
+60,1.0,180.0,0,180.0,0,180.0,180.0,180.0,180.0,1,17.0,18.5,0.0,0.0,True
+75,1.25,630.0,0,630.0,0,630.0,630.0,630.0,630.0,1,17.25,18.75,0.0,0.0,True
+90,1.5,1080.0,0,1080.0,0,1080.0,1080.0,1080.0,1080.0,1,17.5,19.0,0.0,0.0,True
+105,1.75,1530.0,2,,0,4080.0,1530.0,4080.0,4080.0,0,17.75,18.25,2550.0,0.0,True
+120,2.0,1980.0,2,,0,4380.0,1980.0,4380.0,4380.0,0,18.0,18.5,2400.0,0.0,True

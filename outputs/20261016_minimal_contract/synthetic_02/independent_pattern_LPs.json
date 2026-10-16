@@ -1,0 +1,664 @@
+{
+  "nonjoin": [
+    {
+      "gym": false,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "cost": 120.0,
+      "vector": [
+        17.0
+      ]
+    },
+    {
+      "gym": true,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "cost": -2880.0,
+      "vector": [
+        17.0,
+        17.25
+      ]
+    }
+  ],
+  "joined": [
+    {
+      "D_h": 1.0,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 300.0,
+          "vector": [
+            17.0
+          ]
+        },
+        {
+          "gym": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": -2700.0,
+          "vector": [
+            17.0,
+            17.25
+          ]
+        }
+      ]
+    },
+    {
+      "D_h": 1.0833333333333333,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 400.0,
+          "vector": [
+            17.083333333333332
+          ]
+        },
+        {
+          "gym": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": -2550.0,
+          "vector": [
+            17.083333333333332,
+            17.333333333333332
+          ]
+        }
+      ]
+    },
+    {
+      "D_h": 1.1666666666666667,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 500.0,
+          "vector": [
+            17.166666666666668
+          ]
+        },
+        {
+          "gym": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": -2400.0,
+          "vector": [
+            17.166666666666668,
+            17.416666666666668
+          ]
+        }
+      ]
+    },
+    {
+      "D_h": 1.2333333333333334,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 580.0,
+          "vector": [
+            17.233333333333334
+          ]
+        },
+        {
+          "gym": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": -2280.0,
+          "vector": [
+            17.233333333333334,
+            17.483333333333334
+          ]
+        }
+      ]
+    },
+    {
+      "D_h": 1.25,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 600.0,
+          "vector": [
+            17.25
+          ]
+        },
+        {
+          "gym": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": -2250.0,
+          "vector": [
+            17.25,
+            17.5
+          ]
+        }
+      ]
+    },
+    {
+      "D_h": 1.2666666666666666,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 620.0,
+          "vector": [
+            17.266666666666666
+          ]
+        },
+        {
+          "gym": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": -2220.0,
+          "vector": [
+            17.266666666666666,
+            17.516666666666666
+          ]
+        }
+      ]
+    },
+    {
+      "D_h": 1.3333333333333333,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 700.0,
+          "vector": [
+            17.333333333333332
+          ]
+        },
+        {
+          "gym": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": -2100.0,
+          "vector": [
+            17.333333333333332,
+            17.583333333333332
+          ]
+        }
+      ]
+    },
+    {
+      "D_h": 1.4166666666666667,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 800.0,
+          "vector": [
+            17.416666666666668
+          ]
+        },
+        {
+          "gym": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": -1950.0,
+          "vector": [
+            17.416666666666668,
+            17.666666666666668
+          ]
+        }
+      ]
+    },
+    {
+      "D_h": 1.4833333333333334,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 880.0,
+          "vector": [
+            17.483333333333334
+          ]
+        },
+        {
+          "gym": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": -1830.0,
+          "vector": [
+            17.483333333333334,
+            17.733333333333334
+          ]
+        }
+      ]
+    },
+    {
+      "D_h": 1.5,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 900.0,
+          "vector": [
+            17.5
+          ]
+        },
+        {
+          "gym": true,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": -1800.0,
+          "vector": [
+            17.5,
+            17.75
+          ]
+        }
+      ]
+    },
+    {
+      "D_h": 1.5166666666666666,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 920.0,
+          "vector": [
+            17.516666666666666
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 1.5833333333333333,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 1000.0,
+          "vector": [
+            17.583333333333332
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 1.6666666666666667,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 1100.0,
+          "vector": [
+            17.666666666666668
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 1.75,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 1200.0,
+          "vector": [
+            17.75
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 1.8333333333333333,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 1300.0,
+          "vector": [
+            17.833333333333332
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 1.9166666666666667,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 1400.0,
+          "vector": [
+            17.916666666666668
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.0,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 1500.0,
+          "vector": [
+            18.0
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.0833333333333335,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 1600.0,
+          "vector": [
+            18.083333333333332
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.1666666666666665,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 1700.0,
+          "vector": [
+            18.166666666666668
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.25,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 1800.0,
+          "vector": [
+            18.25
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.3333333333333335,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 1900.0,
+          "vector": [
+            18.333333333333332
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.4166666666666665,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 2000.0,
+          "vector": [
+            18.416666666666668
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.5,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 2100.0,
+          "vector": [
+            18.5
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.5833333333333335,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 2200.0,
+          "vector": [
+            18.583333333333332
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.6666666666666665,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 2300.0,
+          "vector": [
+            18.666666666666668
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.75,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 2400.0,
+          "vector": [
+            18.75
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.8333333333333335,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 2500.0,
+          "vector": [
+            18.833333333333332
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 2.9166666666666665,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 2600.0,
+          "vector": [
+            18.916666666666668
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    },
+    {
+      "D_h": 3.0,
+      "patterns": [
+        {
+          "gym": false,
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "cost": 2700.0,
+          "vector": [
+            19.0
+          ]
+        },
+        {
+          "gym": true,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "cost": null,
+          "vector": null
+        }
+      ]
+    }
+  ]
+}

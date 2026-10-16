@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "primary_run": "bryan_01",
+  "handcheck_run": "synthetic_02",
+  "archived_initial_run": "synthetic_01",
+  "Bryan_cases": 86,
+  "synthetic_cases": 29,
+  "Bryan_baseline_vs_independent_enumeration_error": 0.0,
+  "Bryan_physical_schedules_checked": 139,
+  "Bryan_reference_one_sided_FD_utility_per_hour": {
+    "left": 0.0,
+    "right": 0.0
+  },
+  "Bryan_max_hand_error_CHF": 6.217248937900877e-15,
+  "synthetic_max_hand_error_money_equivalent": 1.1368683772161603e-13,
+  "source_snapshots_verified": {
+    "bryan_01": "3c27494c18df07877b4efcb34b43354cec39ff7eb3de09f973eded9f70287a7e",
+    "synthetic_01": "4d5c493d65e86cb4c688e6a30bf412231ede938058c5753d5b72cf0178a3e1a6",
+    "synthetic_02": "f2335bfe5dd4ceca727f73725c4dc83788c84582f77f360a751e93063fa0cc1e"
+  },
+  "figure_integrity": [
+    {
+      "file": "bryan_01/compensation.png",
+      "sha256": "71d55ff564d63b6578c6541edc8ee8b979ab534a37739f8090957234f0734183",
+      "bytes": 158651
+    },
+    {
+      "file": "bryan_01/schedules_soc.png",
+      "sha256": "f0b915a6652b97eacebee8d5ff0a07b51667bd5396de87463be4681c8284f0af",
+      "bytes": 235006
+    },
+    {
+      "file": "synthetic_02/compensation_ABC.png",
+      "sha256": "5a44985b2d99e90f30aa56ee58d1fc6efe58d78238dc2c3e2feba150e952733b",
+      "bytes": 150466
+    },
+    {
+      "file": "synthetic_02/activity_schedules.png",
+      "sha256": "ee0571670d014e7d532af661bd9797f23612a7bc35a32f180ac4f12018f19225",
+      "bytes": 110709
+    }
+  ],
+  "independent_review": "Source provenance and both model/comparator implementations independently audited; no unresolved correctness blocker. Synthetic SOC assertion gap repaired in new synthetic_02."
+}

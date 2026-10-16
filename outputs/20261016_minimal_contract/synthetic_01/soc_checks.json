@@ -1,0 +1,39 @@
+{
+  "formulation": "Energy analytically eliminated: both routes consume 4 kWh and dispatch is fixed at 6 kWh.",
+  "minimum_required_kWh": 12.0,
+  "all_paths_satisfy_bounds": true,
+  "path_states": [
+    {
+      "case": "nonjoin_gym",
+      "initial": 36.0,
+      "work_arrival": 34.0,
+      "after_dispatch": 34.0,
+      "gym_arrival": 33.0,
+      "home_arrival": 32.0,
+      "home_charge_kWh": 4.0,
+      "end": 36.0
+    },
+    {
+      "case": "join_gym",
+      "initial": 36.0,
+      "work_arrival": 34.0,
+      "after_dispatch": 28.0,
+      "gym_arrival": 27.0,
+      "home_arrival": 26.0,
+      "home_charge_kWh": 10.0,
+      "end": 36.0
+    },
+    {
+      "case": "join_no_gym",
+      "initial": 36.0,
+      "work_arrival": 34.0,
+      "after_dispatch": 28.0,
+      "gym_arrival": null,
+      "home_arrival": 26.0,
+      "home_charge_kWh": 10.0,
+      "end": 36.0
+    }
+  ],
+  "capacity_kWh": 60.0,
+  "additional_charging_cost": 180.0
+}
