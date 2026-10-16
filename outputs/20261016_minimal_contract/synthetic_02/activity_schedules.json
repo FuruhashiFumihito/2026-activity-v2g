@@ -1,0 +1,143 @@
+[
+  {
+    "case": "No contract",
+    "D_h": null,
+    "join": false,
+    "gym": 1,
+    "work_start": "09:00",
+    "work_end": "17:00",
+    "gym_start": "17:15",
+    "gym_end": "18:15",
+    "home_arrival": "18:30",
+    "home_charge_end": "19:10",
+    "cost": -2880.0,
+    "canonical_vector": {
+      "work_departure_h": 17.0,
+      "connection_h": 0.0,
+      "gym_start_h": 17.25,
+      "gym_late_h": 0.0,
+      "home_arrival_h": 18.5,
+      "gym_participates": 1.0
+    }
+  },
+  {
+    "case": "B = C, D = 1 h 15 min",
+    "D_h": 1.25,
+    "join": true,
+    "gym": 1,
+    "work_start": "09:00",
+    "work_end": "17:15",
+    "gym_start": "17:30",
+    "gym_end": "18:30",
+    "home_arrival": "18:45",
+    "home_charge_end": "20:25",
+    "cost": -2250.0,
+    "canonical_vector": {
+      "work_departure_h": 17.25,
+      "connection_h": 1.25,
+      "gym_start_h": 17.5,
+      "gym_late_h": 0.25,
+      "home_arrival_h": 18.75,
+      "gym_participates": 1.0
+    }
+  },
+  {
+    "case": "B = C, D = 1 h 30 min",
+    "D_h": 1.5,
+    "join": true,
+    "gym": 1,
+    "work_start": "09:00",
+    "work_end": "17:30",
+    "gym_start": "17:45",
+    "gym_end": "18:45",
+    "home_arrival": "19:00",
+    "home_charge_end": "20:40",
+    "cost": -1800.0,
+    "canonical_vector": {
+      "work_departure_h": 17.5,
+      "connection_h": 1.5,
+      "gym_start_h": 17.75,
+      "gym_late_h": 0.5,
+      "home_arrival_h": 19.0,
+      "gym_participates": 1.0
+    }
+  },
+  {
+    "case": "B, D = 1 h 31 min",
+    "D_h": 1.5166666666666666,
+    "join": true,
+    "gym": null,
+    "work_start": null,
+    "work_end": null,
+    "gym_start": null,
+    "gym_end": null,
+    "home_arrival": null,
+    "home_charge_end": null,
+    "cost": null,
+    "canonical_vector": null,
+    "infeasible": true
+  },
+  {
+    "case": "C, D = 1 h 31 min",
+    "D_h": 1.5166666666666666,
+    "join": true,
+    "gym": 0,
+    "work_start": "09:00",
+    "work_end": "17:31",
+    "gym_start": null,
+    "gym_end": null,
+    "home_arrival": "18:01",
+    "home_charge_end": "19:41",
+    "cost": 920.0,
+    "canonical_vector": {
+      "work_departure_h": 17.516666666666666,
+      "connection_h": 1.5166666666666666,
+      "gym_start_h": 0.0,
+      "gym_late_h": 0.0,
+      "home_arrival_h": 18.016666666666666,
+      "gym_participates": 0.0
+    }
+  },
+  {
+    "case": "C, D = 1 h 45 min",
+    "D_h": 1.75,
+    "join": true,
+    "gym": 0,
+    "work_start": "09:00",
+    "work_end": "17:45",
+    "gym_start": null,
+    "gym_end": null,
+    "home_arrival": "18:15",
+    "home_charge_end": "19:55",
+    "cost": 1200.0,
+    "canonical_vector": {
+      "work_departure_h": 17.75,
+      "connection_h": 1.75,
+      "gym_start_h": 0.0,
+      "gym_late_h": 0.0,
+      "home_arrival_h": 18.25,
+      "gym_participates": 0.0
+    }
+  },
+  {
+    "case": "C, D = 2 h 00 min",
+    "D_h": 2.0,
+    "join": true,
+    "gym": 0,
+    "work_start": "09:00",
+    "work_end": "18:00",
+    "gym_start": null,
+    "gym_end": null,
+    "home_arrival": "18:30",
+    "home_charge_end": "20:10",
+    "cost": 1500.0,
+    "canonical_vector": {
+      "work_departure_h": 18.0,
+      "connection_h": 2.0,
+      "gym_start_h": 0.0,
+      "gym_late_h": 0.0,
+      "home_arrival_h": 18.5,
+      "gym_participates": 0.0
+    }
+  }
+]

@@ -1,0 +1,1509 @@
+{
+  "baseline_nonjoin": {
+    "status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "elapsed_s": 0.002238082990515977,
+    "mip_gap": 0.0,
+    "mip_node_count": 0,
+    "cost": -2880.0,
+    "objective_without_constant": 17400.0,
+    "raw_vector": {
+      "work_departure_h": 17.0,
+      "connection_h": 0.0,
+      "gym_start_h": 17.25,
+      "gym_late_h": 0.0,
+      "home_arrival_h": 23.333333333333332,
+      "gym_participates": 1.0
+    },
+    "canonical_vector": {
+      "work_departure_h": 17.0,
+      "connection_h": 0.0,
+      "gym_start_h": 17.25,
+      "gym_late_h": 0.0,
+      "home_arrival_h": 18.5,
+      "gym_participates": 1.0
+    },
+    "max_canonical_constraint_violation": 0.0
+  },
+  "reference_C": {
+    "status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "elapsed_s": 0.008038916043005884,
+    "mip_gap": 0.0,
+    "mip_node_count": 1,
+    "cost": -2250.0,
+    "objective_without_constant": 17850.0,
+    "raw_vector": {
+      "work_departure_h": 17.25,
+      "connection_h": 1.25,
+      "gym_start_h": 17.5,
+      "gym_late_h": 0.25,
+      "home_arrival_h": 22.333333333333332,
+      "gym_participates": 1.0
+    },
+    "canonical_vector": {
+      "work_departure_h": 17.25,
+      "connection_h": 1.25,
+      "gym_start_h": 17.5,
+      "gym_late_h": 0.25,
+      "home_arrival_h": 18.75,
+      "gym_participates": 1.0
+    },
+    "max_canonical_constraint_violation": 0.0
+  },
+  "reference_fixed_LP": {
+    "status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "elapsed_s": 0.0009872500086203218,
+    "cost": -2250.0,
+    "raw_vector": {
+      "work_departure_h": 17.25,
+      "connection_h": 1.25,
+      "gym_start_h": 17.5,
+      "gym_late_h": 0.25,
+      "home_arrival_h": 22.333333333333332,
+      "gym_participates": 1.0
+    },
+    "canonical_vector": {
+      "work_departure_h": 17.25,
+      "connection_h": 1.25,
+      "gym_start_h": 17.5,
+      "gym_late_h": 0.25,
+      "home_arrival_h": 18.75,
+      "gym_participates": 1.0
+    },
+    "marginal_rhs_negative_D": -1800.0,
+    "derivative_cost_wrt_D": 1800.0,
+    "max_canonical_constraint_violation": 0.0
+  },
+  "all_sweep_results": [
+    {
+      "D_h": 1.0,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0005422919639386237,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": -2700.0,
+        "objective_without_constant": 17400.0,
+        "raw_vector": {
+          "work_departure_h": 17.0,
+          "connection_h": 1.0,
+          "gym_start_h": 17.25,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.0,
+          "connection_h": 1.0,
+          "gym_start_h": 17.25,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.5,
+          "gym_participates": 1.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0006482910248450935,
+        "cost": -2700.0,
+        "raw_vector": {
+          "work_departure_h": 17.0,
+          "connection_h": 1.0,
+          "gym_start_h": 17.25,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.0,
+          "connection_h": 1.0,
+          "gym_start_h": 17.25,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.5,
+          "gym_participates": 1.0
+        },
+        "marginal_rhs_negative_D": -0.0,
+        "derivative_cost_wrt_D": 0.0,
+        "max_canonical_constraint_violation": 0.0
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "B_matches_hand": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.0833333333333333,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.007118707988411188,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "cost": -2550.0,
+        "objective_without_constant": 17550.0,
+        "raw_vector": {
+          "work_departure_h": 17.083333333333332,
+          "connection_h": 1.0833333333333333,
+          "gym_start_h": 17.333333333333332,
+          "gym_late_h": 0.08333333333333215,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.083333333333332,
+          "connection_h": 1.0833333333333333,
+          "gym_start_h": 17.333333333333332,
+          "gym_late_h": 0.08333333333333215,
+          "home_arrival_h": 18.583333333333332,
+          "gym_participates": 1.0
+        },
+        "max_canonical_constraint_violation": 1.7763568394002505e-15
+      },
+      "B": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0006413750234059989,
+        "cost": -2550.0,
+        "raw_vector": {
+          "work_departure_h": 17.083333333333332,
+          "connection_h": 1.0833333333333333,
+          "gym_start_h": 17.333333333333332,
+          "gym_late_h": 0.08333333333333215,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.083333333333332,
+          "connection_h": 1.0833333333333333,
+          "gym_start_h": 17.333333333333332,
+          "gym_late_h": 0.08333333333333215,
+          "home_arrival_h": 18.583333333333332,
+          "gym_participates": 1.0
+        },
+        "marginal_rhs_negative_D": -1800.0,
+        "derivative_cost_wrt_D": 1800.0,
+        "max_canonical_constraint_violation": 1.7763568394002505e-15
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "B_matches_hand": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.1666666666666667,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.006817999994382262,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "cost": -2400.0,
+        "objective_without_constant": 17700.0,
+        "raw_vector": {
+          "work_departure_h": 17.166666666666668,
+          "connection_h": 1.1666666666666667,
+          "gym_start_h": 17.416666666666668,
+          "gym_late_h": 0.16666666666666785,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.166666666666668,
+          "connection_h": 1.1666666666666667,
+          "gym_start_h": 17.416666666666668,
+          "gym_late_h": 0.16666666666666785,
+          "home_arrival_h": 18.666666666666668,
+          "gym_participates": 1.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0006399580161087215,
+        "cost": -2400.0,
+        "raw_vector": {
+          "work_departure_h": 17.166666666666668,
+          "connection_h": 1.1666666666666667,
+          "gym_start_h": 17.416666666666668,
+          "gym_late_h": 0.16666666666666785,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.166666666666668,
+          "connection_h": 1.1666666666666667,
+          "gym_start_h": 17.416666666666668,
+          "gym_late_h": 0.16666666666666785,
+          "home_arrival_h": 18.666666666666668,
+          "gym_participates": 1.0
+        },
+        "marginal_rhs_negative_D": -1800.0,
+        "derivative_cost_wrt_D": 1800.0,
+        "max_canonical_constraint_violation": 0.0
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "B_matches_hand": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.2333333333333334,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.006577083026058972,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "cost": -2280.0,
+        "objective_without_constant": 17820.0,
+        "raw_vector": {
+          "work_departure_h": 17.233333333333334,
+          "connection_h": 1.2333333333333334,
+          "gym_start_h": 17.483333333333334,
+          "gym_late_h": 0.23333333333333428,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.233333333333334,
+          "connection_h": 1.2333333333333334,
+          "gym_start_h": 17.483333333333334,
+          "gym_late_h": 0.23333333333333428,
+          "home_arrival_h": 18.733333333333334,
+          "gym_participates": 1.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0006361659616231918,
+        "cost": -2280.0,
+        "raw_vector": {
+          "work_departure_h": 17.233333333333334,
+          "connection_h": 1.2333333333333334,
+          "gym_start_h": 17.483333333333334,
+          "gym_late_h": 0.23333333333333428,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.233333333333334,
+          "connection_h": 1.2333333333333334,
+          "gym_start_h": 17.483333333333334,
+          "gym_late_h": 0.23333333333333428,
+          "home_arrival_h": 18.733333333333334,
+          "gym_participates": 1.0
+        },
+        "marginal_rhs_negative_D": -1800.0,
+        "derivative_cost_wrt_D": 1800.0,
+        "max_canonical_constraint_violation": 0.0
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "B_matches_hand": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.25,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.006403749983292073,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "cost": -2250.0,
+        "objective_without_constant": 17850.0,
+        "raw_vector": {
+          "work_departure_h": 17.25,
+          "connection_h": 1.25,
+          "gym_start_h": 17.5,
+          "gym_late_h": 0.25,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.25,
+          "connection_h": 1.25,
+          "gym_start_h": 17.5,
+          "gym_late_h": 0.25,
+          "home_arrival_h": 18.75,
+          "gym_participates": 1.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0006130829569883645,
+        "cost": -2250.0,
+        "raw_vector": {
+          "work_departure_h": 17.25,
+          "connection_h": 1.25,
+          "gym_start_h": 17.5,
+          "gym_late_h": 0.25,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.25,
+          "connection_h": 1.25,
+          "gym_start_h": 17.5,
+          "gym_late_h": 0.25,
+          "home_arrival_h": 18.75,
+          "gym_participates": 1.0
+        },
+        "marginal_rhs_negative_D": -1800.0,
+        "derivative_cost_wrt_D": 1800.0,
+        "max_canonical_constraint_violation": 0.0
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "B_matches_hand": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.2666666666666666,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.006394625001121312,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "cost": -2220.0,
+        "objective_without_constant": 17880.0,
+        "raw_vector": {
+          "work_departure_h": 17.266666666666666,
+          "connection_h": 1.2666666666666666,
+          "gym_start_h": 17.516666666666666,
+          "gym_late_h": 0.2666666666666657,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.266666666666666,
+          "connection_h": 1.2666666666666666,
+          "gym_start_h": 17.516666666666666,
+          "gym_late_h": 0.2666666666666657,
+          "home_arrival_h": 18.766666666666666,
+          "gym_participates": 1.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0006435000104829669,
+        "cost": -2220.0,
+        "raw_vector": {
+          "work_departure_h": 17.266666666666666,
+          "connection_h": 1.2666666666666666,
+          "gym_start_h": 17.516666666666666,
+          "gym_late_h": 0.2666666666666657,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.266666666666666,
+          "connection_h": 1.2666666666666666,
+          "gym_start_h": 17.516666666666666,
+          "gym_late_h": 0.2666666666666657,
+          "home_arrival_h": 18.766666666666666,
+          "gym_participates": 1.0
+        },
+        "marginal_rhs_negative_D": -1800.0,
+        "derivative_cost_wrt_D": 1800.0,
+        "max_canonical_constraint_violation": 0.0
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "B_matches_hand": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.3333333333333333,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.006550458958372474,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "cost": -2100.0,
+        "objective_without_constant": 18000.0,
+        "raw_vector": {
+          "work_departure_h": 17.333333333333332,
+          "connection_h": 1.3333333333333333,
+          "gym_start_h": 17.583333333333332,
+          "gym_late_h": 0.33333333333333215,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.333333333333332,
+          "connection_h": 1.3333333333333333,
+          "gym_start_h": 17.583333333333332,
+          "gym_late_h": 0.33333333333333215,
+          "home_arrival_h": 18.833333333333332,
+          "gym_participates": 1.0
+        },
+        "max_canonical_constraint_violation": 1.7763568394002505e-15
+      },
+      "B": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0006115830037742853,
+        "cost": -2100.0,
+        "raw_vector": {
+          "work_departure_h": 17.333333333333332,
+          "connection_h": 1.3333333333333333,
+          "gym_start_h": 17.583333333333332,
+          "gym_late_h": 0.33333333333333215,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.333333333333332,
+          "connection_h": 1.3333333333333333,
+          "gym_start_h": 17.583333333333332,
+          "gym_late_h": 0.33333333333333215,
+          "home_arrival_h": 18.833333333333332,
+          "gym_participates": 1.0
+        },
+        "marginal_rhs_negative_D": -1800.0,
+        "derivative_cost_wrt_D": 1800.0,
+        "max_canonical_constraint_violation": 1.7763568394002505e-15
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "B_matches_hand": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.4166666666666667,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.006075542012695223,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "cost": -1950.0,
+        "objective_without_constant": 18150.0,
+        "raw_vector": {
+          "work_departure_h": 17.416666666666668,
+          "connection_h": 1.4166666666666667,
+          "gym_start_h": 17.666666666666668,
+          "gym_late_h": 0.41666666666666785,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.416666666666668,
+          "connection_h": 1.4166666666666667,
+          "gym_start_h": 17.666666666666668,
+          "gym_late_h": 0.41666666666666785,
+          "home_arrival_h": 18.916666666666668,
+          "gym_participates": 1.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0004832080448977649,
+        "cost": -1950.0,
+        "raw_vector": {
+          "work_departure_h": 17.416666666666668,
+          "connection_h": 1.4166666666666667,
+          "gym_start_h": 17.666666666666668,
+          "gym_late_h": 0.41666666666666785,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.416666666666668,
+          "connection_h": 1.4166666666666667,
+          "gym_start_h": 17.666666666666668,
+          "gym_late_h": 0.41666666666666785,
+          "home_arrival_h": 18.916666666666668,
+          "gym_participates": 1.0
+        },
+        "marginal_rhs_negative_D": -1800.0,
+        "derivative_cost_wrt_D": 1800.0,
+        "max_canonical_constraint_violation": 0.0
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "B_matches_hand": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.4833333333333334,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.005871208035387099,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "cost": -1830.0,
+        "objective_without_constant": 18270.0,
+        "raw_vector": {
+          "work_departure_h": 17.483333333333334,
+          "connection_h": 1.4833333333333334,
+          "gym_start_h": 17.733333333333334,
+          "gym_late_h": 0.4833333333333343,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.483333333333334,
+          "connection_h": 1.4833333333333334,
+          "gym_start_h": 17.733333333333334,
+          "gym_late_h": 0.4833333333333343,
+          "home_arrival_h": 18.983333333333334,
+          "gym_participates": 1.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0005031669861637056,
+        "cost": -1830.0,
+        "raw_vector": {
+          "work_departure_h": 17.483333333333334,
+          "connection_h": 1.4833333333333334,
+          "gym_start_h": 17.733333333333334,
+          "gym_late_h": 0.4833333333333343,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.483333333333334,
+          "connection_h": 1.4833333333333334,
+          "gym_start_h": 17.733333333333334,
+          "gym_late_h": 0.4833333333333343,
+          "home_arrival_h": 18.983333333333334,
+          "gym_participates": 1.0
+        },
+        "marginal_rhs_negative_D": -1800.0,
+        "derivative_cost_wrt_D": 1800.0,
+        "max_canonical_constraint_violation": 0.0
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "B_matches_hand": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.5,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.008264292031526566,
+        "mip_gap": 0.0,
+        "mip_node_count": 1,
+        "cost": -1800.0,
+        "objective_without_constant": 18300.0,
+        "raw_vector": {
+          "work_departure_h": 17.5,
+          "connection_h": 1.5,
+          "gym_start_h": 17.75,
+          "gym_late_h": 0.5,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.5,
+          "connection_h": 1.5,
+          "gym_start_h": 17.75,
+          "gym_late_h": 0.5,
+          "home_arrival_h": 19.0,
+          "gym_participates": 1.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0006739170057699084,
+        "cost": -1800.0,
+        "raw_vector": {
+          "work_departure_h": 17.5,
+          "connection_h": 1.5,
+          "gym_start_h": 17.75,
+          "gym_late_h": 0.5,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 1.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.5,
+          "connection_h": 1.5,
+          "gym_start_h": 17.75,
+          "gym_late_h": 0.5,
+          "home_arrival_h": 19.0,
+          "gym_participates": 1.0
+        },
+        "marginal_rhs_negative_D": -1800.0,
+        "derivative_cost_wrt_D": 1800.0,
+        "max_canonical_constraint_violation": 0.0
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "B_matches_hand": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.5166666666666666,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0005156669649295509,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 920.0,
+        "objective_without_constant": 21020.0,
+        "raw_vector": {
+          "work_departure_h": 17.516666666666666,
+          "connection_h": 1.5166666666666666,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.516666666666666,
+          "connection_h": 1.5166666666666666,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.016666666666666,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0006957920268177986
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.5833333333333333,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0004870420088991523,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 1000.0,
+        "objective_without_constant": 21100.0,
+        "raw_vector": {
+          "work_departure_h": 17.583333333333332,
+          "connection_h": 1.5833333333333333,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.583333333333332,
+          "connection_h": 1.5833333333333333,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.083333333333332,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 1.7763568394002505e-15
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.00043158303014934063
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.6666666666666667,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.00041254196548834443,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 1100.0,
+        "objective_without_constant": 21200.0,
+        "raw_vector": {
+          "work_departure_h": 17.666666666666668,
+          "connection_h": 1.6666666666666667,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.666666666666668,
+          "connection_h": 1.6666666666666667,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.166666666666668,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.00037416600389406085
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.75,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0003582920180633664,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 1200.0,
+        "objective_without_constant": 21300.0,
+        "raw_vector": {
+          "work_departure_h": 17.75,
+          "connection_h": 1.75,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.75,
+          "connection_h": 1.75,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.25,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0003679999499581754
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.8333333333333333,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.00035683298483490944,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 1300.0,
+        "objective_without_constant": 21400.0,
+        "raw_vector": {
+          "work_departure_h": 17.833333333333332,
+          "connection_h": 1.8333333333333333,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.833333333333332,
+          "connection_h": 1.8333333333333333,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.333333333333332,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 1.7763568394002505e-15
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.00036633299896493554
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 1.9166666666666667,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0004000000189989805,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 1400.0,
+        "objective_without_constant": 21500.0,
+        "raw_vector": {
+          "work_departure_h": 17.916666666666668,
+          "connection_h": 1.9166666666666667,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 17.916666666666668,
+          "connection_h": 1.9166666666666667,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.416666666666668,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0004159579984843731
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.0,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0003877920098602772,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 1500.0,
+        "objective_without_constant": 21600.0,
+        "raw_vector": {
+          "work_departure_h": 18.0,
+          "connection_h": 2.0,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.0,
+          "connection_h": 2.0,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.5,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0004124589613638818
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.0833333333333335,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.00038895802572369576,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 1600.0,
+        "objective_without_constant": 21700.0,
+        "raw_vector": {
+          "work_departure_h": 18.083333333333332,
+          "connection_h": 2.0833333333333335,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.083333333333332,
+          "connection_h": 2.0833333333333335,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.583333333333332,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 1.7763568394002505e-15
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.00041699997382238507
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.1666666666666665,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.00037162500666454434,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 1700.0,
+        "objective_without_constant": 21800.0,
+        "raw_vector": {
+          "work_departure_h": 18.166666666666668,
+          "connection_h": 2.1666666666666665,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.166666666666668,
+          "connection_h": 2.1666666666666665,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.666666666666668,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0005779589992016554
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.25,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0003387500182725489,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 1800.0,
+        "objective_without_constant": 21900.0,
+        "raw_vector": {
+          "work_departure_h": 18.25,
+          "connection_h": 2.25,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.25,
+          "connection_h": 2.25,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.75,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0003542909980751574
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.3333333333333335,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.00033645896473899484,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 1900.0,
+        "objective_without_constant": 22000.0,
+        "raw_vector": {
+          "work_departure_h": 18.333333333333332,
+          "connection_h": 2.3333333333333335,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.333333333333332,
+          "connection_h": 2.3333333333333335,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.833333333333332,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 1.7763568394002505e-15
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0003558339667506516
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.4166666666666665,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.00033950002398341894,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 2000.0,
+        "objective_without_constant": 22100.0,
+        "raw_vector": {
+          "work_departure_h": 18.416666666666668,
+          "connection_h": 2.4166666666666665,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.416666666666668,
+          "connection_h": 2.4166666666666665,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 18.916666666666668,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.00035420904168859124
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.5,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.00033504102611914277,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 2100.0,
+        "objective_without_constant": 22200.0,
+        "raw_vector": {
+          "work_departure_h": 18.5,
+          "connection_h": 2.5,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.5,
+          "connection_h": 2.5,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 19.0,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.00036450003972277045
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.5833333333333335,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.00034854101249948144,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 2200.0,
+        "objective_without_constant": 22300.0,
+        "raw_vector": {
+          "work_departure_h": 18.583333333333332,
+          "connection_h": 2.5833333333333335,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.583333333333332,
+          "connection_h": 2.5833333333333335,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 19.083333333333332,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 1.7763568394002505e-15
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.00037991697899997234
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.6666666666666665,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.00033558299764990807,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 2300.0,
+        "objective_without_constant": 22400.0,
+        "raw_vector": {
+          "work_departure_h": 18.666666666666668,
+          "connection_h": 2.6666666666666665,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.666666666666668,
+          "connection_h": 2.6666666666666665,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 19.166666666666668,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0003535839496180415
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.75,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0003345420118421316,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 2400.0,
+        "objective_without_constant": 22500.0,
+        "raw_vector": {
+          "work_departure_h": 18.75,
+          "connection_h": 2.75,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.75,
+          "connection_h": 2.75,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 19.25,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0003831670037470758
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.8333333333333335,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.000364125007763505,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 2500.0,
+        "objective_without_constant": 22600.0,
+        "raw_vector": {
+          "work_departure_h": 18.833333333333332,
+          "connection_h": 2.8333333333333335,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.833333333333332,
+          "connection_h": 2.8333333333333335,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 19.333333333333332,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 1.7763568394002505e-15
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0003524160129018128
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 2.9166666666666665,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.0003349999897181988,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 2600.0,
+        "objective_without_constant": 22700.0,
+        "raw_vector": {
+          "work_departure_h": 18.916666666666668,
+          "connection_h": 2.9166666666666665,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 22.333333333333332,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 18.916666666666668,
+          "connection_h": 2.9166666666666665,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 19.416666666666668,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.0003541670157574117
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    },
+    {
+      "D_h": 3.0,
+      "C": {
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "elapsed_s": 0.00036049995105713606,
+        "mip_gap": 0.0,
+        "mip_node_count": 0,
+        "cost": 2700.0,
+        "objective_without_constant": 22800.0,
+        "raw_vector": {
+          "work_departure_h": 19.0,
+          "connection_h": 3.0,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 19.5,
+          "gym_participates": 0.0
+        },
+        "canonical_vector": {
+          "work_departure_h": 19.0,
+          "connection_h": 3.0,
+          "gym_start_h": 0.0,
+          "gym_late_h": 0.0,
+          "home_arrival_h": 19.5,
+          "gym_participates": 0.0
+        },
+        "max_canonical_constraint_violation": 0.0
+      },
+      "B": {
+        "status": 2,
+        "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "elapsed_s": 0.00038100004894658923
+      },
+      "checks": {
+        "C_milp_optimal": true,
+        "C_matches_independent_enumeration": true,
+        "C_matches_hand": true,
+        "B_feasibility_matches_hand": true,
+        "B_valid_status": true,
+        "A_matches_hand": true
+      }
+    }
+  ]
+}
