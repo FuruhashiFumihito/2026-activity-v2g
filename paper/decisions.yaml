@@ -1,3 +1,71 @@
-schema_version: 1
-paper_id: "replace-me"
-decisions: []
+{
+  "schema_version": 1,
+  "paper_id": "2026-activity-v2g",
+  "decisions": [
+    {
+      "date": "2026-10-15",
+      "authority": "user",
+      "source_locations": [
+        "Author responses in this conversation following the review of commit 768a693"
+      ],
+      "status": "active",
+      "supersedes": [],
+      "id": "decision-001",
+      "decision": "A^pを固定入力の候補集合とし，A^{r,s}={a∈A^p:ξ_a^s=1}とする。候補外のω_a^pは0とする。",
+      "rationale": "集合の包含，残存集合，候補外の参加制限に対する著者了承。",
+      "scope": "活動集合と参加"
+    },
+    {
+      "date": "2026-10-15",
+      "authority": "user",
+      "source_locations": [
+        "Author responses in this conversation following the review of commit 768a693"
+      ],
+      "status": "active",
+      "supersedes": [],
+      "id": "decision-002",
+      "decision": "A_st^pを導入せず，全事前候補上にシナリオを定義して確実実施活動のξを1に固定する。取消は個別活動単位で独立とし，代替候補群の記述を削除する。",
+      "rationale": "著者が不確実活動の別集合を用いないことと代替候補表現の削除を指定。",
+      "scope": "取消分布とシナリオ"
+    },
+    {
+      "date": "2026-10-15",
+      "authority": "user",
+      "source_locations": [
+        "Author responses in this conversation following the review of commit 768a693"
+      ],
+      "status": "active",
+      "supersedes": [],
+      "id": "decision-003",
+      "decision": "post-realizationは取消活動を除き，事前計画を維持する制約の下で実現活動列と充放電を評価する。自由な再計画は導入しない。",
+      "rationale": "著者が「評価が適切。私の記述が間違ってました」と確認。",
+      "scope": "事後調整の範囲"
+    },
+    {
+      "date": "2026-10-15",
+      "authority": "user",
+      "source_locations": [
+        "Author responses in this conversation following the review of commit 768a693"
+      ],
+      "status": "active",
+      "supersedes": [],
+      "id": "decision-004",
+      "decision": "U_N^{gen}を個人固有の定数とし，基礎側へ効用定義をまとめる。原著部分の効用構造と提案モデルの基準効用の相殺を維持する。",
+      "rationale": "著者が定数指定と整理案を承認し，元論文部分をそのまま保つよう指定。",
+      "scope": "効用の定義と記述"
+    },
+    {
+      "date": "2026-10-15",
+      "authority": "user",
+      "source_locations": [
+        "Author responses in this conversation following the review of commit 768a693"
+      ],
+      "status": "active",
+      "supersedes": [],
+      "id": "decision-005",
+      "decision": "Parsonsの知見は接続時間・保証航続距離等への契約選好に限定し，既存モデルとの差は活動の実施・取消と事前計画・実現後行動の結合に置く。",
+      "rationale": "著者が引用範囲の限定と提案文章の反映を承認。",
+      "scope": "文献の引用と研究の位置づけ"
+    }
+  ]
+}
