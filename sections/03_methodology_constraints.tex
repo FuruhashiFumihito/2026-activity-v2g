@@ -1,0 +1,413 @@
+% !TeX root = ../main.tex
+% M15--M23: existing paragraph map; equations adapted from the supplied
+% joint_shapp_two_stage_comparison_ja.tex, §§nominal--auxiliary.
+\subsection{V2Gサービスを考慮した拡張済み制約条件}
+\label{subsec:constraints_of_the_v2g_contract}
+
+以下では個人$N$と契約$k$を固定し、両段階に共通の制約には共有添字$j\in\mathcal J$を用いる。
+$v^j$は、事前計画では$v^p$、シナリオ$s$の実現後では$v^{r,s}$を表す。
+実現後だけの制約は、全ての$s\in\Omega$について課す。
+
+\subsubsection{活動の連続・順序・時間制約}
+
+% M15: 時間予算、経路、時間窓及び循環除去
+候補リンク集合$\mathcal E$からは自己リンク、$\mathrm{dawn}$への流入及び$\mathrm{dusk}$からの流出を除く。
+移動時間を$\rho_{ab}$、活動$a$の最小所要時間を$\tau_a^{\min}$とし、各段階の活動列に次の制約を課す。
+\begin{align}
+ &\sum_{a\in A}\tau_a^j+
+   \sum_{(a,b)\in\mathcal E}\rho_{ab}z_{ab}^j=T,
+ \qquad \omega_{\mathrm{dawn}}^j=\omega_{\mathrm{dusk}}^j=1,
+ \label{eq:mf-time-budget}\\
+ &\tau_a^{\min}\omega_a^j\le\tau_a^j\le T\omega_a^j,
+ \qquad 0\le x_a^j,\quad x_a^j+\tau_a^j\le T\omega_a^j,
+ \label{eq:mf-time-domain}\\
+ &-T(1-z_{ab}^j)\le
+ x_a^j+\tau_a^j+\rho_{ab}z_{ab}^j-x_b^j
+ \le T(1-z_{ab}^j)
+ \quad((a,b)\in\mathcal E),
+ \label{eq:mf-time-continuity}\\
+ &\sum_{a:(a,b)\in\mathcal E}z_{ab}^j=\omega_b^j
+ \quad(b\ne\mathrm{dawn}),\qquad
+ \sum_{b:(a,b)\in\mathcal E}z_{ab}^j=\omega_a^j
+ \quad(a\ne\mathrm{dusk}),
+ \label{eq:mf-flow}\\
+ &x_{\mathrm{dawn}}^j=0,\qquad
+ x_{\mathrm{dusk}}^j+\tau_{\mathrm{dusk}}^j=T.
+ \label{eq:mf-time-anchor}
+\end{align}
+式\eqref{eq:mf-time-domain}により、非参加活動の時刻と所要時間は0となる。
+選択リンク$z_{ab}^j=1$では、式\eqref{eq:mf-time-continuity}が前活動の終了と移動後の到着を次活動の開始に一致させる。
+非選択リンクでは各活動の開始・終了が$[0,T]$にあるため、時刻差を緩和する定数として$T$を用いることができる。
+
+事前計画の候補集合$A^p$、必須活動の集合$A^{\mathrm{req}}\subseteq A^p$及び時間窓に対して、
+\begin{align}
+ &\omega_a^p=0\quad(a\in A\setminus A^p),\qquad
+ \omega_a^p=1\quad(a\in A^{\mathrm{req}}),
+ \label{eq:mf-activity-choice}\\
+ &\gamma_a^-\omega_a^p\le x_a^p,\qquad
+ x_a^p+\tau_a^p\le\gamma_a^+\omega_a^p
+ \quad(a\in A)
+ \label{eq:mf-nominal-window}
+\end{align}
+とする。
+式\eqref{eq:mf-activity-choice}は、入力で与える候補集合$A^p$の外では参加を禁止し、$A^{\mathrm{req}}$の各活動を事前計画に必ず含める。
+$A^p\setminus A^{\mathrm{req}}$の各活動では、参加するかどうかを事前に選択できる。
+事前計画への必須参加は取消がないことを意味せず、実施・取消は各活動の入力$\xi_a^s$によって別に表す。
+式\eqref{eq:mf-nominal-window}は、事前計画で選択した全活動の時間窓を厳守する。
+ゼロ時間の活動を含む場合にも循環を除くため、$n=|A|$として共有の順序補助変数$h_a$に
+\begin{align}
+ &h_{\mathrm{dawn}}=0,\qquad
+ 0\le h_a\le(n-1)\omega_a^p,
+ \notag\\
+ &h_b\ge h_a+1-n(1-z_{ab}^j)
+ \quad((a,b)\in\mathcal E,\ j\in\mathcal J)
+ \label{eq:mf-order}
+\end{align}
+を課す。
+
+% M16: 取消後の短絡と維持する時間配分
+実現後の候補集合$A^{r,s}$が与えられたとき、参加と所要時間は事前計画から
+\begin{align}
+ \omega_a^{r,s}&=\xi_a^s\omega_a^p
+ &&(a\in A),\notag\\
+ \tau_a^{r,s}&=\xi_a^s\tau_a^p
+ &&(a\ne\mathrm{dusk})
+ \label{eq:mf-cancellation}
+\end{align}
+によって定める。
+式\eqref{eq:mf-cancellation}は、事前に参加を選択した活動のうち実現した活動だけを残し、終端自宅以外の残存活動の所要時間を維持する。
+入力$\xi_a^s$は定数であるため、これらの等式は線形である。
+これは取消後の活動計画を再選択する制約ではなく、事前計画から実現活動列を評価するための制約である。
+実現経路には式\eqref{eq:mf-flow}と共有順序の式\eqref{eq:mf-order}を適用するが、$z_{ab}^{r,s}=z_{ab}^p$は課さない。
+したがって、事前列$a\to b\to c$で$b$が取り消された場合には、残存活動の順序を維持した$a\to c$への短絡を許す。
+$\xi_{\mathrm{dawn}}^s=1$と式\eqref{eq:mf-cancellation}により、最初の自宅出発時刻も維持される。
+途中待機は追加せず、実現開始時刻は式\eqref{eq:mf-time-continuity}から定まる。
+帰宅が早まった場合の残余時間は$\tau_{\mathrm{dusk}}^{r,s}$で吸収し、通常活動の所要時間の再選択には用いない。
+取消は、取消活動を飛ばして次の実施活動へ向かう移動を開始する前に識別できるものとする。
+
+% M17: 硬い時間窓と選好・軟らかい時間窓
+事前の時間窓は式\eqref{eq:mf-nominal-window}により厳守する。
+実現後も厳守する活動を$A^{\mathrm{hard}}=A\setminus A^{\mathrm{soft}}$とし、
+\begin{equation}
+ \gamma_a^-\omega_a^{r,s}\le x_a^{r,s},\qquad
+ x_a^{r,s}+\tau_a^{r,s}\le\gamma_a^+\omega_a^{r,s}
+ \quad(a\in A^{\mathrm{hard}})
+ \label{eq:mf-realized-hard-window}
+\end{equation}
+を課す。
+$A^{\mathrm{soft}}$は取消後の窓逸脱を費用として扱える活動の入力集合であり、本稿ではその具体的な所属を未指定とする。
+
+正の部分を目的関数の係数に依存せず表すため、有限の入力下限・上限$\underline v\le v\le\overline v$、$\underline v\le0\le\overline v$に対して、$H=\mathcal H(v)=[v]_+$を次の4制約で定義する。
+\begin{equation}
+ H\ge0,\quad H\ge v,\quad
+ H\le\overline v\,b_v,\quad
+ H\le v-\underline v(1-b_v),\qquad b_v\in\{0,1\}.
+ \label{eq:mf-positive-part}
+\end{equation}
+各出現箇所にはそれぞれの補助変数$H,b_v$を置き、時刻・所要時間・SOCと入力値から有効な有限上下限を与える。
+希望時刻・所要時間及び快適SOCからの逸脱にもこの表現を適用する。
+これにより、目的関数内で相殺される事前効用の補助変数についても、正の部分の値を定義どおりに保つ。
+軟らかい窓の逸脱量と効用減少は
+\begin{align}
+ v_a^{-,r,s}&=\mathcal H(\gamma_a^-\omega_a^{r,s}-x_a^{r,s}),\notag\\
+ v_a^{+,r,s}&=\mathcal H(x_a^{r,s}+\tau_a^{r,s}-\gamma_a^+\omega_a^{r,s}),\notag\\
+ 0&\le v_a^{-,r,s},v_a^{+,r,s}\le T\omega_a^{r,s}
+ \quad(a\in A^{\mathrm{soft}}),\notag\\
+ P_s&=\sum_{a\in A^{\mathrm{soft}}}
+   (\lambda_a^-v_a^{-,r,s}+\lambda_a^+v_a^{+,r,s}),
+ \qquad\lambda_a^-,\lambda_a^+\ge0
+ \label{eq:mf-window-penalty}
+\end{align}
+とする。
+$\lambda_a^-,\lambda_a^+$の単位は時間当たりの効用減少であり、金銭限界効用を重ねて掛けない。
+上側逸脱は活動開始時刻ではなく終了時刻で評価する。
+希望開始時刻$x_a^*$からの選好上の逸脱とは別の量であり、併用時には同じ負担を二重に評価していないかを確認する。
+全ての窓を維持する設定は$A^{\mathrm{soft}}=\varnothing$、$P_s=0$である。
+営業時間等の物理的な窓を費用だけで置き換えることはしない。
+
+\subsubsection{SOC、充電、放電制約}
+
+% M18: 正味SOC収支と経路に沿った移動可能性
+指令と精算の共通区間を$I_u=[b_{u-1},b_u]$、$u=1,\ldots,n_I$とする。
+系統側の実充電量・実放電量を$E_{a,m,u}^{+,j},E_{a,m,u}^{-,j}$、電池容量を$B_c>0$、一定の充放電効率を$0<\eta^+,\eta^-\le1$とする。
+活動中の符号付き正味SOC変化と移動のSOC消費は
+\begin{equation}
+ \Delta_a^j=\frac{1}{B_c}\sum_{m\in M_a}\sum_{u=1}^{n_I}
+ \left(\eta^+E_{a,m,u}^{+,j}-\frac{E_{a,m,u}^{-,j}}{\eta^-}\right),
+ \qquad e_{ab}=\frac{\nu_e d[\ell_a][\ell_b]}{B_c}
+ \label{eq:mf-net-soc}
+\end{equation}
+である。
+$\nu_e\ge0$は距離当たりの消費電力量であり、$d[\ell_a][\ell_b]$は場所間距離である。
+接続時間と実電力量は別の量とし、充電だけを想定した総充電量によってV2G時のSOC収支を置き換えない。
+V2G接続全体の正味SOC変化を常にゼロとする制約は、本基本仕様では課さない。
+
+活動到着時SOCを$\mathrm{SOC}_a^j$とし、各指令区間境界までの累積状態と出発時SOCを
+\begin{align}
+ \mathrm{SOC}_{a,u}^j
+ &=\mathrm{SOC}_a^j+\frac{1}{B_c}
+   \sum_{m\in M_a}\sum_{v=1}^{u}
+   \left(\eta^+E_{a,m,v}^{+,j}-\frac{E_{a,m,v}^{-,j}}{\eta^-}\right)
+   \quad(u=0,\ldots,n_I),\notag\\
+ 0&\le\mathrm{SOC}_{a,u}^j\le\omega_a^j,
+ \qquad \mathrm{SOC}_a^{\mathrm{dep},j}
+   =\mathrm{SOC}_{a,n_I}^j=\mathrm{SOC}_a^j+\Delta_a^j
+ \label{eq:mf-soc-capacity}
+\end{align}
+とする。
+$u=0$での和は0とする。
+経路上の移動可能性、SOCの連続性及び日初・日末条件には
+\begin{align}
+ &\mathrm{SOC}_a^{\mathrm{dep},j}\ge e_{ab}z_{ab}^j
+ \quad((a,b)\in\mathcal E),
+ \label{eq:mf-soc-cover}\\
+ &-(1-z_{ab}^j)\le
+ \mathrm{SOC}_a^{\mathrm{dep},j}-e_{ab}z_{ab}^j-\mathrm{SOC}_b^j
+ \le1-z_{ab}^j
+ \quad((a,b)\in\mathcal E),
+ \label{eq:mf-soc-continuity}\\
+ &\mathrm{SOC}_{\mathrm{dawn}}^j=\overline{\mathrm{SOC}}_0,
+ \qquad\mathrm{SOC}_{\mathrm{dusk}}^{\mathrm{dep},j}
+ \ge\underline{\mathrm{SOC}}_{\mathrm{end}}
+ \label{eq:mf-soc-anchors}
+\end{align}
+を課す。
+選択リンクでは到着時SOCが出発時SOCから当該移動の消費量を引いた値となる。
+非選択リンクのSOC差は$[-1,1]$に収まるため、式\eqref{eq:mf-soc-continuity}の緩和定数は1でよい。
+日末SOCは終端自宅での充放電後の値であり、その下限と日初SOCは全契約及び非加入時で共通に与える。
+
+% M19: 中間SOC、保証及び全支持シナリオの物理実行可能性
+一活動で高々一方式を選び、各入力区間で充電又は放電の一方向の指令を与えるため、区間内のSOCは単調に変化する。
+したがって、式\eqref{eq:mf-soc-capacity}は到着・出発時に加え、接続途中の過充電・過放電も除く。
+V2G許諾方式の集合を$\mathcal R_V\subseteq\{(a,m):m\in M_a\}$、その活動内の選択指標を$v_a^{V,j}=\sum_{m:(a,m)\in\mathcal R_V}\varphi_{a,m}^j$とする。
+最低SOCと出発時SOCの追加保証を付ける仕様では、
+\begin{equation}
+ \mathrm{SOC}_{a,u}^j\ge\underline{\mathrm{SOC}}_{V,k}v_a^{V,j}
+ \quad(u=0,\ldots,n_I),\qquad
+ \mathrm{SOC}_a^{\mathrm{dep},j}
+ \ge\underline{\mathrm{SOC}}_{a,k}^{\mathrm{req}}v_a^{V,j}
+ \label{eq:mf-soc-protection}
+\end{equation}
+を追加する。
+不要な追加保証の下限は0とできる。
+この最低保証は到着時から適用し、保証未満で到着した車両を回復充電してから放電する仕様とは区別する。
+低SOCの心理的不効用は、これらの物理的保証の代わりにはならない。
+電池側の通過電力量と電池利用費は
+\begin{equation}
+ E_{\mathrm{th}}^j=\sum_{a\in A}\sum_{m\in M_a}\sum_{u=1}^{n_I}
+ \left(\eta^+E_{a,m,u}^{+,j}+\frac{E_{a,m,u}^{-,j}}{\eta^-}\right),
+ \qquad C_{\mathrm{deg}}^j=c_{\mathrm{deg}}E_{\mathrm{th}}^j,
+ \quad c_{\mathrm{deg}}\ge0
+ \label{eq:mf-degradation}
+\end{equation}
+と定義し、通常充電及び非加入時にも同じ費用仕様を適用する。
+V2G許諾方式の放電量又は通過電力量に上限を設ける契約仕様では、
+\begin{align}
+ &\sum_{(a,m)\in\mathcal R_V}\sum_{u=1}^{n_I}
+ \frac{E_{a,m,u}^{-,j}}{\eta^-}
+ \le\overline E_k^{\mathrm{dis}}Y_N,\notag\\
+ &\sum_{(a,m)\in\mathcal R_V}\sum_{u=1}^{n_I}
+ \left(\eta^+E_{a,m,u}^{+,j}+\frac{E_{a,m,u}^{-,j}}{\eta^-}\right)
+ \le\overline E_k^{\mathrm{th}}Y_N
+ \label{eq:mf-throughput-limits}
+\end{align}
+を追加する。
+電力量上限と放電回数の上限は別の属性である。
+以上の物理制約は事前計画と、正の確率$q_s$を持つ全シナリオで満たす。
+実現不能なシナリオを除いて確率を付け直さず、SOC不足を契約未達ペナルティで許容しない。
+したがって、任意の事前計画に対して実行可能な第2段階が存在するとは仮定しない。
+
+% M20: 接続区間、固定指令及び時間別精算
+設備アクセス入力を$A_{a,m}^{\mathrm{access}}\in\{0,1\}$として、活動内の接続と方式選択を
+\begin{align}
+ &\phi_a^j\le\omega_a^j,\qquad
+ \sum_{m\in M_a}\varphi_{a,m}^j=\phi_a^j,\qquad
+ \varphi_{a,m}^j\le A_{a,m}^{\mathrm{access}},\notag\\
+ &\varphi_{a,m}^j\le Y_N\quad((a,m)\in\mathcal R_V),
+ \label{eq:mf-connection-choice}\\
+ &0\le o_{a,m}^j\le T\varphi_{a,m}^j,\qquad
+ 0\le d_{a,m}^j\le T\varphi_{a,m}^j,\qquad
+ o_{a,m}^j+d_{a,m}^j\le\tau_a^j,
+ \label{eq:mf-connection-duration}\\
+ &0\le\sigma_{a,m}^j\le\upsilon_{a,m}^j\le T\varphi_{a,m}^j,
+ \qquad\upsilon_{a,m}^j=\sigma_{a,m}^j+d_{a,m}^j,\notag\\
+ &-T(1-\varphi_{a,m}^j)\le
+ \sigma_{a,m}^j-x_a^j-o_{a,m}^j
+ \le T(1-\varphi_{a,m}^j),\notag\\
+ &\upsilon_{a,m}^j\le x_a^j+\tau_a^j+T(1-\varphi_{a,m}^j)
+ \label{eq:mf-connection-interval}
+\end{align}
+で表す。
+通常充電方式は非加入でも利用できる。
+選択方式では接続区間$[\sigma_{a,m}^j,\upsilon_{a,m}^j]$を活動滞在内に収め、非選択方式の接続両端は0とする。
+充電専用サービスステーション候補の集合$A^{\mathrm{station}}$では、滞在全体の接続を
+\begin{equation}
+ \phi_a^j=\omega_a^j,\qquad o_{a,m}^j=0,
+ \qquad\sum_{m\in M_a}d_{a,m}^j=\tau_a^j
+ \quad(a\in A^{\mathrm{station}})
+ \label{eq:mf-station-connection}
+\end{equation}
+として課す。
+接続中でも指令が待機なら充放電量は0である。
+取消後に維持する接続方策は
+\begin{align}
+ \phi_a^{r,s}&=\xi_a^s\phi_a^p,&
+ \varphi_{a,m}^{r,s}&=\xi_a^s\varphi_{a,m}^p,\notag\\
+ o_{a,m}^{r,s}&=\xi_a^s o_{a,m}^p,&
+ d_{a,m}^{r,s}&=\xi_a^s d_{a,m}^p
+ \label{eq:mf-fixed-connection-policy}
+\end{align}
+である。
+活動の取消に応じて接続は消えるが、残存活動の方式・オフセット・接続時間は再選択しない。
+絶対接続時刻は$x_a^{r,s}$とともにずれ、実電力量はその実現時刻から計算し直す。
+
+指令、請求単価、割引・報酬単価及び契約窓の全端点を共通分割
+\begin{equation}
+ 0=b_0<b_1<\cdots<b_{n_I}=T,\qquad I_u=[b_{u-1},b_u]
+ \label{eq:mf-dispatch-partition}
+\end{equation}
+に含める。
+契約$k$で提示される指令電力$\bar p_{a,m,u,k}^{\pm}$は入力定数であり、設備定格$\overline P_{a,m}^{\pm}$に対して
+\begin{equation}
+ 0\le\bar p_{a,m,u,k}^{\pm}\le\overline P_{a,m}^{\pm},\qquad
+ \bar p_{a,m,u,k}^{+}\bar p_{a,m,u,k}^{-}=0,\qquad
+ \bar p_{a,m,u,k}^{-}=0\quad((a,m)\notin\mathcal R_V)
+ \label{eq:mf-dispatch-input}
+\end{equation}
+を満たす。
+積の等式は入力の整合条件であり、意思決定変数間の積ではない。
+通常充電も接続中に所与の電力を受ける方式とし、通常方式とV2G方式は同時に選択しない。
+固定境界$b$に対して$F_b(t)=\mathcal H(t-b)$と置く。
+$0\le t\le T$なので、式\eqref{eq:mf-positive-part}には$\underline v=-b$、$\overline v=T-b$を用いる。
+接続と指令区間の重なり時間及び実電力量は
+\begin{align}
+ \ell_{a,m,u}^j={}&F_{b_{u-1}}(\upsilon_{a,m}^j)-F_{b_u}(\upsilon_{a,m}^j)
+ -F_{b_{u-1}}(\sigma_{a,m}^j)+F_{b_u}(\sigma_{a,m}^j),\notag\\
+ 0\le\ell_{a,m,u}^j&\le(b_u-b_{u-1})\varphi_{a,m}^j,\qquad
+ E_{a,m,u}^{\pm,j}=\bar p_{a,m,u,k}^{\pm}\ell_{a,m,u}^j
+ \label{eq:mf-overlap-energy}
+\end{align}
+で定まる。
+接続開始・終了時刻を共通区間の端点へ丸める必要はない。
+この有限の線形表現は、指令と単価が各入力区間で一定の場合に厳密である。
+指令電力も利用者が選ぶ場合には電力と重なり時間の積が生じるため、同じMILPにはならない。
+
+基準請求単価を$c_{a,m,u}^{0}$、契約割引単価を$\delta_{a,m,u,k}\ge0$、実際の割引対象輸入量を$Z_{a,m,u}^{\delta,j}$として、
+\begin{equation}
+ C_{a,m}^{\mathrm{eff},j}
+ =\sum_{u=1}^{n_I}
+ \left(c_{a,m,u}^{0}E_{a,m,u}^{+,j}
+       -\delta_{a,m,u,k}Z_{a,m,u}^{\delta,j}\right)
+ \label{eq:mf-electricity-bill}
+\end{equation}
+と定める。
+割引対象外では$\delta=0$とする。
+実現後の割引量は、加入者の実績に割り引く仕様では$Z^{\delta,r,s}=Y_NE^{+,r,s}$、達成時だけ割り引く仕様では$Z^{\delta,r,s}=g_{Nk}^{r,s}E^{+,r,s}$とし、以下の式\eqref{eq:mf-binary-gate}で線形化する。
+事前の参照効用は基準料金で評価し、$Z^{\delta,p}=0$とする。
+実充電費用は各区間の実輸入量から計算し、充電開始時刻の単価を接続全体に適用する料金式は併用しない。
+請求単価や実充電費用に一律の非負条件は追加しない。
+充電割引はこの費用に一度だけ反映し、同額を現金支払へ重ねて加えない。
+
+\subsubsection{V2G契約条件}
+
+% M21: 義務条件と報酬対象の分離
+契約の時間条件と報酬対象を別々に指定する。
+固定窓全体への接続を求める窓を$W_{F,k}$、累積接続時間を計上する窓と必要時間を$W_{L,k},D_k$、報酬項$h$の対象窓を$W_{R,h,k}$とする。
+各窓$W$は非重複区間の和集合とし、その端点を式\eqref{eq:mf-dispatch-partition}に含める。
+窓内の接続時間とV2G実電力量は
+\begin{align}
+ L^j(W)&=\sum_{(a,m)\in\mathcal R_V}
+   \sum_{u:I_u\subseteq W}\ell_{a,m,u}^j,\notag\\
+ E_V^{\pm,j}(W)&=\sum_{(a,m)\in\mathcal R_V}
+   \sum_{u:I_u\subseteq W}E_{a,m,u}^{\pm,j},\qquad
+ 0\le L^j(W)\le|W|Y_N
+ \label{eq:mf-contract-accounting}
+\end{align}
+と定める。
+活動列の滞在は重複せず、一活動で高々一方式を用いるため、同じ接続を二重に数えない。
+待機接続も$L^j(W)$に含めるが、待機時間そのものを電力量に加えない。
+固定窓条件を用いない契約では$W_{F,k}=\varnothing$とし、累積時間条件を用いない契約では$W_{L,k}=\varnothing$、$D_k=0$と定義する。
+これにより、条件を使わない場合にも窓や集計量を未定義のままにしない。
+累積条件のある場合は$0\le D_k\le|W_{L,k}|\le T$とする。
+固定窓の全接続$L(W_{F,k})=|W_{F,k}|$と、分割可能な累積時間$L(W_{L,k})\ge D_k$は異なる条件であり、報酬窓の指定だけではいずれの義務も課さない。
+
+% M22: 契約精算と達成認定の意味
+達成認定変数$g_{Nk}^{r,s}$には
+\begin{equation}
+ g_{Nk}^{r,s}\in\{0,1\},\qquad g_{Nk}^{r,s}\le Y_N,\qquad
+ L^{r,s}(W_{F,k})\ge|W_{F,k}|g_{Nk}^{r,s},\qquad
+ L^{r,s}(W_{L,k})\ge D_kg_{Nk}^{r,s}
+ \label{eq:mf-certificate}
+\end{equation}
+を課す。
+両条件がない場合には$g_{Nk}^{r,s}=Y_N$とできる。
+この制約は認定が1なら両条件を満たすという含意を与え、それだけで達成との同値を表すものではない。
+
+加入固定額と達成固定額を$R_{0k},R_{1k}\ge0$、接続時間と放電量の単価を$a_{k,u},\nu_{k,u}\ge0$として、実績報酬の基礎額を
+\begin{align}
+ M_{A,k}^{r,s}
+ &=\sum_{(a,m)\in\mathcal R_V}\sum_{u:I_u\subseteq W_{R,A,k}}
+ a_{k,u}\ell_{a,m,u}^{r,s},\notag\\
+ M_{F,k}^{r,s}
+ &=\sum_{(a,m)\in\mathcal R_V}\sum_{u:I_u\subseteq W_{R,F,k}}
+ \nu_{k,u}E_{a,m,u}^{-,r,s}
+ \label{eq:mf-unit-reward}
+\end{align}
+とする。
+達成によらず実績に払う項では$\widehat M_{h,k}^{r,s}=M_{h,k}^{r,s}$、達成時だけ払う項では$\widehat M_{h,k}^{r,s}=g_{Nk}^{r,s}M_{h,k}^{r,s}$とする（$h\in\{A,F\}$）。
+二値$b$と有限上限$0\le V\le\overline V$に対する積$Z=bV$は
+\begin{equation}
+ 0\le Z\le V,\qquad Z\le\overline V b,\qquad
+ Z\ge V-\overline V(1-b)
+ \label{eq:mf-binary-gate}
+\end{equation}
+によって厳密に線形化する。
+例えば、$M_A$には$\overline M_A=T\max_u a_{k,u}$、$M_F$には$\overline M_F=T(\max_{a,m,u}\bar p_{a,m,u,k}^-)(\max_u\nu_{k,u})$を上限として用いることができる。
+割引対象量$Z^{\delta,r,s}$にも、式\eqref{eq:mf-binary-gate}の$V$を$E^{+,r,s}$、$b$を$Y_N$又は$g_{Nk}^{r,s}$として同じ制約を課す。
+その電力量上限には$\overline V=(b_u-b_{u-1})\bar p_{a,m,u,k}^+$を用いることができる。
+V2G方式に限定した$M_A,M_F$は非加入時に0となるため、実績報酬に追加の$Y_NM_h$を掛ける必要はない。
+
+現金支払は
+\begin{equation}
+ \mathcal B_k^{r,s}=R_{0k}Y_N+R_{1k}g_{Nk}^{r,s}
+   +\widehat M_{A,k}^{r,s}+\widehat M_{F,k}^{r,s}
+ \label{eq:mf-cash-payment}
+\end{equation}
+である。
+式\eqref{eq:mf-certificate}の$g$は報酬及び未達精算だけに用い、達成ゲートによる便益は非負とする。
+固定未達負担を$\pi_k\ge0$とすると、$R_{1k}+\pi_k>0$であり、$q_s>0$及び$\lambda_{N,\mathrm{money}}>0$の下では、利用者の最大化において、条件を満たす場合に$g_{Nk}^{r,s}=1$が選ばれる。
+固定額による差が0でも実現した条件付き報酬・割引による純便益が正なら同じである。
+当該シナリオの達成による限界便益が0の場合には、認定変数を達成実績として報告せず、実際の$L^{r,s}$から両条件を判定する。
+広告上の単価が正でも、対象接続時間や実電力量が0なら限界便益は0となり得る。
+この扱いは利用者最大化の最適解・最適値に対する精算の対応であり、事業者の支払最小化へそのまま転用しない。
+連続量の不達成側$L<D_k$を、任意の正の許容幅を加えて閉じた線形制約へ置き換えることもしない。
+
+% M23: 未達許容と完全履行の比較条件
+固定窓及び累積時間の不足量と未達負担を
+\begin{align}
+ h_{F,k}^{r,s}&=|W_{F,k}|Y_N-L^{r,s}(W_{F,k}),\notag\\
+ h_{L,k}^{r,s}&=\mathcal H(D_kY_N-L^{r,s}(W_{L,k})),\notag\\
+ \Psi_k^{r,s}&=\pi_k(Y_N-g_{Nk}^{r,s})
+   +\chi_{F,k}h_{F,k}^{r,s}+\chi_{L,k}h_{L,k}^{r,s},
+ \qquad\chi_{F,k},\chi_{L,k}\ge0
+ \label{eq:mf-shortfall-payment}
+\end{align}
+と定める。
+$h_F$は式\eqref{eq:mf-contract-accounting}から非負であり、$h_L$には式\eqref{eq:mf-positive-part}を$\underline v=-T$、$\overline v=T$として用いる。
+固定未達負担は式\eqref{eq:mf-certificate}の複合条件を判定対象とする。
+達成報酬と履行義務の条件が異なる仕様には、それぞれの条件に対する認定変数が別に必要である。
+両窓の不足時間が重複する場合に両方の時間比例負担を課すかは契約仕様として指定する。
+$\mathcal B,\Psi$は円、$a,\chi$は円/h、$\nu,\delta,c^0$は円/kWhであり、契約金銭効用は$U_{\mathrm{V2G},Nk}^{r,s}=\lambda_{N,\mathrm{money}}(\mathcal B_k^{r,s}-\Psi_k^{r,s})$となる。
+
+有限の$\pi_k,\chi_{F,k},\chi_{L,k}$は未達を許す精算である。
+全ての支持シナリオで完全履行を要求する比較設定に限り、別途
+\begin{equation}
+ L^{r,s}(W_{F,k})\ge|W_{F,k}|Y_N,\qquad
+ L^{r,s}(W_{L,k})\ge D_kY_N
+ \quad(s\in\Omega)
+ \label{eq:mf-complete-fulfillment}
+\end{equation}
+を追加する。
+指定窓又は達成報酬があるだけではこの制約を課さない。
+加入$Y_N$は取消前に決め、全シナリオで共通とするため、取消後に加入を取り消す選択は与えない。
+本定式化の時間条件は単日の固定窓及び分割可能な累積時間であり、連続接続、月間達成日数及び緊急離脱権には追加の契約属性が必要である。
