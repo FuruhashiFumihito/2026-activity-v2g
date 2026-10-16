@@ -307,19 +307,37 @@ $\xi_a=1$は実施可能な状態、$\xi_a=0$は取消を表す。
 決定変数は以下を導入する。
 \begin{subequations}
 \begin{align}
-  \eqref{dec:omega}-\eqref{dec:tau},\\
-    $Y_N\in\{0,1\}$：取消情報の前に決める契約$k$への加入。\\
- \item $\omega_a^p,z_{ab}^p\in\{0,1\}$：事前の活動参加と直後リンク。$x_a^p,\tau_a^p\ge0$：開始時刻と所要時間。
- \item $\phi_a^p,\varphi_{a,m}^p\in\{0,1\}$：接続参加と方式選択。$o_{a,m}^p,d_{a,m}^p\ge0$：活動開始からの接続オフセットと接続時間。
- \item $h_a\ge0$：事前活動列の順序を表す連続補助変数。活動開始時刻とは異なる。
- \item $\omega_a^{r,s},z_{ab}^{r,s},\phi_a^{r,s},\varphi_{a,m}^{r,s}\in\{0,1\}$及び$x_a^{r,s},\tau_a^{r,s},o_{a,m}^{r,s},d_{a,m}^{r,s}\ge0$：事前計画と取消ルールに従う実現活動・接続。
- \item $\sigma_{a,m}^j,\upsilon_{a,m}^j$：接続開始・終了の絶対時刻。$\ell_{a,m,u}^j,E_{a,m,u}^{\pm,j}$：入力区間$u$との重なり時間と系統側充放電量。
- \item $\mathrm{SOC}_a^j,\mathrm{SOC}_{a,u}^j,\mathrm{SOC}_a^{\mathrm{dep},j},\Delta_a^j$：到着時・区間境界・出発時のSOC及び符号付き正味変化。SOCと実電力量は接続・指令により決まる状態であり、利用者の電力指令変数ではない。
- \item $E_a^j,L_a^j,D_a^{-,j},D_a^{+,j},H_a^j$及び時間窓逸脱：効用評価の補助変数。$L^j(W),E_V^{\pm,j}(W)$：窓$W$内のV2G接続時間及び電力量。
- \item $g_{Nk}^{r,s}\in\{0,1\}$：条件達成の認定。$h_{F,k}^{r,s},h_{L,k}^{r,s}$：未達時間。$\mathcal B_k^{r,s},\Psi_k^{r,s},C_{\mathrm{deg}}^j,P_s$：現金支払、未達負担、電池利用費及び時間窓逸脱費用。
- \item 正の部分と条件付き支払の厳密な線形化に必要な二値・連続補助変数。全てをMILP及び後述の固定整数LPの対象に含める。
+ &\text{\eqref{dec:omega}--\eqref{dec:tau}},\notag\\
+ \text{取消情報の前に決める契約$k$への加入:}&\quad Y_N\in\{0,1\},\\
+ \text{事前の活動参加と直後リンク:}&\quad \omega_a^p,z_{ab}^p\in\{0,1\},\\
+ \text{事前の開始時刻と所要時間:}&\quad x_a^p,\tau_a^p\ge0,\\
+ \text{事前の接続参加と方式選択:}&\quad \phi_a^p,\varphi_{a,m}^p\in\{0,1\},\\
+ \text{活動開始からの接続オフセットと接続時間:}&\quad o_{a,m}^p,d_{a,m}^p\ge0,\\
+ \text{事前活動列の順序を表す連続補助変数:}&\quad h_a\ge0,\\
+ \text{実現活動・接続の参加とリンク・方式選択:}&\quad
+ \omega_a^{r,s},z_{ab}^{r,s},\phi_a^{r,s},\varphi_{a,m}^{r,s}\in\{0,1\},\\
+ \text{実現活動・接続の時刻と時間:}&\quad
+ x_a^{r,s},\tau_a^{r,s},o_{a,m}^{r,s},d_{a,m}^{r,s}\ge0,\\
+ \text{接続開始・終了の絶対時刻:}&\quad \sigma_{a,m}^j,\upsilon_{a,m}^j,\\
+ \text{入力区間$u$との重なり時間:}&\quad \ell_{a,m,u}^j,\\
+ \text{系統側充放電量:}&\quad E_{a,m,u}^{\pm,j},\\
+ \text{到着時・区間境界・出発時のSOC:}&\quad
+ \mathrm{SOC}_a^j,\mathrm{SOC}_{a,u}^j,\mathrm{SOC}_a^{\mathrm{dep},j},\\
+ \text{符号付き正味SOC変化:}&\quad \Delta_a^j,\\
+ \text{効用評価の補助変数:}&\quad E_a^j,L_a^j,D_a^{-,j},D_a^{+,j},H_a^j,\\
+ \text{窓$W$内のV2G接続時間:}&\quad L^j(W),\\
+ \text{窓$W$内のV2G電力量:}&\quad E_V^{\pm,j}(W),\\
+ \text{条件達成の認定:}&\quad g_{Nk}^{r,s}\in\{0,1\},\\
+ \text{未達時間:}&\quad h_{F,k}^{r,s},h_{L,k}^{r,s},\\
+ \text{現金支払・未達負担:}&\quad \mathcal B_k^{r,s},\Psi_k^{r,s},\\
+ \text{電池利用費・時間窓逸脱費用:}&\quad C_{\mathrm{deg}}^j,P_s.
 \end{align}
 \end{subequations}
+$h_a$は活動開始時刻とは異なる。
+実現活動・接続は事前計画と取消ルールに従う。
+SOCと実電力量は接続・指令により決まる状態であり、利用者の電力指令変数ではない。
+時間窓逸脱も効用評価の補助変数として扱う。
+正の部分と条件付き支払の厳密な線形化に必要な二値・連続補助変数も導入し、全てをMILP及び後述の固定整数LPの対象に含める。
 
 \subsubsection{効用関数}
 
